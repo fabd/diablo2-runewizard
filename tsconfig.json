@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    ///////////////////////////////////////////////////////////////////
+    // set by @vitejs/app (vue-ts)
+    ///////////////////////////////////////////////////////////////////
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -8,8 +11,40 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client"]
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+    ],
+    "types": [
+      "vite/client"
+    ],
+    ///////////////////////////////////////////////////////////////////
+    // additions
+    ///////////////////////////////////////////////////////////////////
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  ///////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
+  ///////////////////////////////////////////////////////////////////
+  // exclude folders for IntelliSense performance, exclude build files
+  ///////////////////////////////////////////////////////////////////
+  "exclude": [
+    "node_modules"
+  ]
 }

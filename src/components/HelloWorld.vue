@@ -1,65 +1,61 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <div class="">
+    <h1 class="rw-title text-2rem mb-0.5rem">WindiCSS test</h1>
 
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-    +
-    <a
-      href="https://marketplace.visualstudio.com/items?itemName=octref.vetur"
-      target="_blank"
-    >Vetur</a>
-    or
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    (if using
-    <code>&ltscript setup&gt;</code>)
-  </p>
+    <div class="bg-purple-100 text-lg italic font-mono max-w-300px mx-auto rounded-md py-2">
+      <div class="flex justify-center items-center text-hex-408035">
+        <div class="px-4 py-2 font-bold">flex</div>
+        <div class="px-4 py-2 font-bold">flexx</div>
+        <div class="px-4 py-2 font-bold">flexxx</div>
+      </div>
+      <p>asdasd lad as;ldk as;ldk;alskd;a</p>
+    </div>
 
-  <p>See <code>README.md</code> for more information.</p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Docs</a> |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+    <button @click="count++">count is: {{ count }}</button>
+  </div>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
+import { defineComponent } from "vue";
+
 export default defineComponent({
-  name: 'HelloWorld',
+  name: "HelloWorld",
+
   props: {
     msg: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
-  setup: () => {
-    const count = ref(0)
-    return { count }
-  }
-})
+
+  data() {
+    return {
+      count: 0,
+    };
+  },
+});
 </script>
 
-<style scoped>
-a {
-  color: #42b983;
-}
+<style lang="scss">
+.rw {
+  &-title {
+    color: red;
+  }
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
+  a {
+    color: #42b983;
+  }
 
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
+  label {
+    margin: 0 0.5em;
+    font-weight: bold;
+  }
+
+  code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #304455;
+  }
 }
 </style>
