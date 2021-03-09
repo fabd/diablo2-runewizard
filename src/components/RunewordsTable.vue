@@ -2,15 +2,16 @@
   <table class="rw-Table">
     <thead>
       <tr>
-        <th class="rw-Table-th" @click="onSortBy('title')">Runeword</th>
-        <th class="rw-Table-th" @click="onSortBy('rune0')">Rune</th>
-        <th class="rw-Table-th" @click="onSortBy('rune1')">Rune</th>
-        <th class="rw-Table-th" @click="onSortBy('rune2')">Rune</th>
-        <th class="rw-Table-th" @click="onSortBy('rune3')">Rune</th>
-        <th class="rw-Table-th" @click="onSortBy('rune4')">Rune</th>
-        <th class="rw-Table-th" @click="onSortBy('rune5')">Rune</th>
-        <th class="rw-Table-th" @click="onSortBy('ttype')">Type</th>
-        <th class="rw-Table-th" @click="onSortBy('level')">Lvl</th>
+        <th
+          v-for="col in tableHeads"
+          :key="col.key"
+          class="rw-Table-th"
+          @click="onSortBy(col.key)"
+        >
+          {{ col.label }}
+          <span v-if="isSortKey(col.key) && sortAsc">v</span>
+          <span v-if="isSortKey(col.key) && !sortAsc">^</span>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -41,7 +42,19 @@ export default defineComponent({
   data() {
     return {
       sortKey: "title",
-      sortAsc: false,
+      sortAsc: true,
+
+      tableHeads: [
+        { key: "title", label: "Runeword" },
+        { key: "rune0", label: "Rune" },
+        { key: "rune1", label: "Rune" },
+        { key: "rune2", label: "Rune" },
+        { key: "rune3", label: "Rune" },
+        { key: "rune4", label: "Rune" },
+        { key: "rune5", label: "Rune" },
+        { key: "ttype", label: "Type" },
+        { key: "level", label: "Level" },
+      ],
     };
   },
 
@@ -75,22 +88,22 @@ export default defineComponent({
 
       compareFn && list.sort(compareFn);
 
-      this.sortAsc && list.reverse();
+      !this.sortAsc && list.reverse();
 
       return list;
     },
   },
 
   methods: {
-    // sortedClass(key) {
-    //   return this.sortKey === key
-    //     ? `sorted ${this.sortAsc ? "asc" : "desc"}`
-    //     : "";
-    // },
+    isSortKey(key: string) {
+      return key === this.sortKey;
+    },
 
     onSortBy(key: string) {
       this.sortAsc = this.sortKey === key ? !this.sortAsc : true;
       this.sortKey = key;
+
+      console.log(this.sortAsc);
     },
   },
 });
