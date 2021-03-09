@@ -5,12 +5,16 @@
         <th
           v-for="col in tableHeads"
           :key="col.key"
-          class="rw-Table-th"
+          class="rw-Table-th cursor-pointer"
           @click="onSortBy(col.key)"
         >
           {{ col.label }}
-          <span v-if="isSortKey(col.key) && sortAsc">v</span>
-          <span v-if="isSortKey(col.key) && !sortAsc">^</span>
+          <span v-if="isSortKey(col.key) && sortAsc" class="rw-Table-thIcon"
+            ><arrow-down class="ux-svgIcon"
+          /></span>
+          <span v-if="isSortKey(col.key) && !sortAsc" class="rw-Table-thIcon"
+            ><arrow-up class="ux-svgIcon"
+          /></span>
         </th>
       </tr>
     </thead>
@@ -36,8 +40,16 @@ import { defineComponent } from "vue";
 import runewordsData from "@/data/runewords";
 import { Rune, Runeword } from "@/types";
 
+import ArrowUp from "@/icons/ArrowUp.vue";
+import ArrowDown from "@/icons/ArrowDown.vue";
+
 export default defineComponent({
   name: "RunewordsTable",
+
+  components: {
+    ArrowDown,
+    ArrowUp,
+  },
 
   data() {
     return {

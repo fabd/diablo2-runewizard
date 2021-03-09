@@ -2,18 +2,18 @@
 // MASTER STYLESHEET
 //
 //   Conventions
-// 
+//
 //     - using SuitCSS naming
 //       https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 //     - use a namespace prefix for all bem-like classes
 //
 //   Notes
-// 
+//
 //     - keeping component's styles in a single file for now (KISS)
 //     - keeping styles out of SFCs, there are issues with `@apply`
 //
 //   Todo
-// 
+//
 //     - lint via `postcss-bem-linter`
 //
 // ====================================================================
@@ -24,6 +24,16 @@ body {
   line-height: 1.2em;
   font-family: "Verdana", "Arial", sans-serif;
   color: #afafaf;
+}
+
+// --------------------------------------------------------------------
+// utils
+// --------------------------------------------------------------------
+.ux-svgIcon {
+  display: inline-block;
+  line-height: 1em;
+  vertical-align: middle;
+  width: 1em;
 }
 
 // --------------------------------------------------------------------
@@ -42,8 +52,14 @@ body {
 
   &-th {
     background: #400000;
-    border-bottom: 1px solid #29291d;
+    color: #c0c080;
+    font-weight: normal;
     padding: 0.25rem 0.5rem;
+    border-right: 1px solid #000;
+  }
+
+  &-thIcon {
+    color: #c0c08080;
   }
 
   &-td {
