@@ -34,14 +34,13 @@ module.exports = {
     "vue/max-attributes-per-line": "off",
     "vue/no-v-html": "off",
 
-    // less noise
+    // less noise / lower maintenance
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-empty-function": "off",
-
-    // "@typescript-eslint/explicit-module-boundary-types": "off",
 
     // errors in provided shims-* files
     "@typescript-eslint/ban-types": "off",

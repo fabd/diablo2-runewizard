@@ -7,11 +7,14 @@ import "./assets/styles/main.scss";
 // import tailwind utilities *after*
 import "windi.css";
 
-console.log("main.ts");
-
 import runesData from "@/data/runes";
+import store from "@/store";
 
 const init = () => {
+  console.log("init()");
+
+  store.reset();
+
   window.App = {
     runesData,
   };

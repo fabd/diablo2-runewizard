@@ -1,4 +1,4 @@
-export type RuneName =
+export type RuneId =
   | "El"
   | "Eld"
   | "Tir"
@@ -33,8 +33,8 @@ export type RuneName =
   | "Cham"
   | "Zod";
 
-export type Rune = {
-  label: RuneName;
+export type RuneDef = {
+  name: RuneId;
   tier: RuneTier;
 };
 
@@ -46,7 +46,7 @@ export enum RuneTier {
 
 export type Runeword = {
   title: string;
-  runes: RuneName[];
+  runes: RuneId[];
   level: number;
   ttype: string;
   ladder?: boolean;

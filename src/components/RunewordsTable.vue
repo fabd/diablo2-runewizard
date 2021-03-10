@@ -21,7 +21,13 @@
     <tbody>
       <tr v-for="(item, i) in itemsBySort" :key="i">
         <td class="rw-Table-td text-left">{{ item.title }}</td>
-        <td class="rw-Table-td">{{ item.runes[0] }}</td>
+        <td
+          class="rw-Table-td"
+          :class="{
+            'is-selected': haveRunes[item.runes[0]],
+          }"
+          >{{ item.runes[0] }}</td
+        >
         <td class="rw-Table-td">{{ item.runes[1] }}</td>
         <td class="rw-Table-td">{{ item.runes[2] }}</td>
         <td class="rw-Table-td">{{ item.runes[3] }}</td>
@@ -38,10 +44,12 @@
 import { defineComponent } from "vue";
 
 import runewordsData from "@/data/runewords";
-import { Rune, Runeword } from "@/types";
+import { RuneDef, RuneId, Runeword } from "@/types";
 
 import ArrowUp from "@/icons/ArrowUp.vue";
 import ArrowDown from "@/icons/ArrowDown.vue";
+
+import store from "@/store";
 
 export default defineComponent({
   name: "RunewordsTable",
@@ -53,6 +61,8 @@ export default defineComponent({
 
   data() {
     return {
+      haveRunes: store.state.haveRunes,
+
       sortKey: "title",
       sortAsc: true,
 
@@ -71,6 +81,10 @@ export default defineComponent({
   },
 
   computed: {
+    // hasRune(runeId: RuneId): boolean {
+    //   return user.store.hasRune(runeId);
+    // },
+
     items(): Runeword[] {
       return runewordsData;
     },

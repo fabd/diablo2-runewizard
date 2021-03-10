@@ -1,138 +1,142 @@
-import { Rune } from "@/types";
+import { RuneDef } from "@/types";
 
-const runes: Rune[] = [
+const runes: RuneDef[] = [
   {
-    label: "El",
+    name: "El",
     tier: 1,
   },
   {
-    label: "Eld",
+    name: "Eld",
     tier: 1,
   },
   {
-    label: "Tir",
+    name: "Tir",
     tier: 1,
   },
   {
-    label: "Nef",
+    name: "Nef",
     tier: 1,
   },
   {
-    label: "Eth",
+    name: "Eth",
     tier: 1,
   },
   {
-    label: "Ith",
+    name: "Ith",
     tier: 1,
   },
   {
-    label: "Tal",
+    name: "Tal",
     tier: 1,
   },
   {
-    label: "Ral",
+    name: "Ral",
     tier: 1,
   },
   {
-    label: "Ort",
+    name: "Ort",
     tier: 1,
   },
   {
-    label: "Thul",
+    name: "Thul",
     tier: 1,
   },
   {
-    label: "Amn",
+    name: "Amn",
     tier: 1,
   },
   {
-    label: "Sol",
+    name: "Sol",
     tier: 2,
   },
   {
-    label: "Shael",
+    name: "Shael",
     tier: 2,
   },
   {
-    label: "Dol",
+    name: "Dol",
     tier: 2,
   },
   {
-    label: "Hel",
+    name: "Hel",
     tier: 2,
   },
   {
-    label: "Io",
+    name: "Io",
     tier: 2,
   },
   {
-    label: "Lum",
+    name: "Lum",
     tier: 2,
   },
   {
-    label: "Ko",
+    name: "Ko",
     tier: 2,
   },
   {
-    label: "Fal",
+    name: "Fal",
     tier: 2,
   },
   {
-    label: "Lem",
+    name: "Lem",
     tier: 2,
   },
   {
-    label: "Pul",
+    name: "Pul",
     tier: 2,
   },
   {
-    label: "Um",
+    name: "Um",
     tier: 2,
   },
   {
-    label: "Mal",
+    name: "Mal",
     tier: 3,
   },
   {
-    label: "Ist",
+    name: "Ist",
     tier: 3,
   },
   {
-    label: "Gul",
+    name: "Gul",
     tier: 3,
   },
   {
-    label: "Vex",
+    name: "Vex",
     tier: 3,
   },
   {
-    label: "Ohm",
+    name: "Ohm",
     tier: 3,
   },
   {
-    label: "Lo",
+    name: "Lo",
     tier: 3,
   },
   {
-    label: "Sur",
+    name: "Sur",
     tier: 3,
   },
   {
-    label: "Ber",
+    name: "Ber",
     tier: 3,
   },
   {
-    label: "Jah",
+    name: "Jah",
     tier: 3,
   },
   {
-    label: "Cham",
+    name: "Cham",
     tier: 3,
   },
   {
-    label: "Zod",
+    name: "Zod",
     tier: 3,
   },
 ];
+
+export function runesIds() {
+  return runes.map((rune) => rune.name);
+}
 
 export default runes;
