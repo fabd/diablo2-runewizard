@@ -72,6 +72,9 @@ body {
 // --------------------------------------------------------------------
 //
 // --------------------------------------------------------------------
+.rw-Runes {
+}
+
 /** @define Rune */
 .rw-Rune {
   @apply flex w-7 h-7 rounded-md mb-2;
@@ -81,7 +84,11 @@ body {
 
   &:hover {
     color: #fff;
-    background: red;
+    background: #888;
     cursor: pointer;
+  }
+
+  &.is-selected {
+    background: red;
   }
 }
