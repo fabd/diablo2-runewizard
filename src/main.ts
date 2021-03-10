@@ -15,6 +15,9 @@ const init = () => {
 
   store.reset();
 
+  // testing
+  store.setRunes(["Tir", "Nef"]);
+
   window.App = {
     runesData,
   };

@@ -24,7 +24,7 @@ export default defineComponent({
     RunewordsTable,
   },
   mounted() {
-    console.log("App() ", window.App.runesData);
+    // console.log("App() ", window.App.runesData);
   },
 });
 </script>

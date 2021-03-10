@@ -62,10 +62,30 @@ body {
     color: #c0c08080;
   }
 
+  &-tr.is-complete td {
+    background: #200000;
+  }
+
+  &-tr &-tdTitle {
+    color: #575242;
+  }
+
+  &-tr.is-complete &-tdTitle {
+    color: #928a70;
+  }
+
   &-td {
     padding: 4px 5px;
     text-align: center;
     border-bottom: 1px solid #29291d;
+    color: #888;
+  }
+
+  &-td.is-rune {
+    color: #844;
+  }
+  &-td.is-active {
+    color: #44aa44;
   }
 }
 

@@ -19,20 +19,31 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(item, i) in itemsBySort" :key="i">
-        <td class="rw-Table-td text-left">{{ item.title }}</td>
-        <td
-          class="rw-Table-td"
-          :class="{
-            'is-selected': haveRunes[item.runes[0]],
-          }"
-          >{{ item.runes[0] }}</td
-        >
-        <td class="rw-Table-td">{{ item.runes[1] }}</td>
-        <td class="rw-Table-td">{{ item.runes[2] }}</td>
-        <td class="rw-Table-td">{{ item.runes[3] }}</td>
-        <td class="rw-Table-td">{{ item.runes[4] }}</td>
-        <td class="rw-Table-td">{{ item.runes[5] }}</td>
+      <tr
+        v-for="(item, i) in itemsBySort"
+        :key="i"
+        class="rw-Table-tr"
+        :class="cssCompleteRuneword(item)"
+      >
+        <td class="rw-Table-td rw-Table-tdTitle text-left">{{ item.title }}</td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">{{
+          item.runes[0]
+        }}</td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[1])">{{
+          item.runes[1]
+        }}</td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[2])">{{
+          item.runes[2]
+        }}</td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[3])">{{
+          item.runes[3]
+        }}</td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[4])">{{
+          item.runes[4]
+        }}</td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">{{
+          item.runes[5]
+        }}</td>
         <td class="rw-Table-td">{{ item.ttype }}</td>
         <td class="rw-Table-td">{{ item.level }}</td>
       </tr>
@@ -42,13 +53,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
-import runewordsData from "@/data/runewords";
-import { RuneDef, RuneId, Runeword } from "@/types";
-
 import ArrowUp from "@/icons/ArrowUp.vue";
 import ArrowDown from "@/icons/ArrowDown.vue";
 
+import runewordsData from "@/data/runewords";
+import { RuneId, Runeword } from "@/types";
 import store from "@/store";
 
 export default defineComponent({
@@ -63,7 +72,8 @@ export default defineComponent({
     return {
       haveRunes: store.state.haveRunes,
 
-      sortKey: "title",
+      // this is our default sort
+      sortKey: "level",
       sortAsc: true,
 
       tableHeads: [
@@ -81,9 +91,20 @@ export default defineComponent({
   },
 
   computed: {
-    // hasRune(runeId: RuneId): boolean {
-    //   return user.store.hasRune(runeId);
-    // },
+    runewordIsComplete(): Map<string, boolean> {
+      console.log("*** runewordIsComplete()");
+
+      const map: Map<string, boolean> = new Map();
+
+      runewordsData.forEach((runeword) => {
+        map.set(
+          runeword.title,
+          runeword.runes.every((runeId) => this.haveRunes[runeId])
+        );
+      });
+
+      return map;
+    },
 
     items(): Runeword[] {
       return runewordsData;
@@ -121,6 +142,14 @@ export default defineComponent({
   },
 
   methods: {
+    cssActiveRune(runeId: RuneId) {
+      return this.haveRunes[runeId] ? "is-active" : "";
+    },
+
+    cssCompleteRuneword(word: Runeword) {
+      return this.runewordIsComplete.get(word.title) ? "is-complete" : "";
+    },
+
     isSortKey(key: string) {
       return key === this.sortKey;
     },
