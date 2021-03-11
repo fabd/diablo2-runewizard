@@ -1,16 +1,25 @@
 <template>
-  <div class="rw-Runes flex justify-between w-150px">
-    <div v-for="(runesTier, i) in runesByTier" :key="i" class="w-50px">
-      <div
-        v-for="rune in runesTier"
-        :key="rune.name"
-        class="rw-Rune"
-        :class="{
-          'is-selected': haveRunes[rune.name],
-        }"
-        @click="onToggleRune(rune.name)"
+  <div class="w-150px relative">
+    <h2 class="text-xl text-gray-100 font-bold mb-4">Runes</h2>
+    <div class="absolute right-0 top-0">
+      <a class="rw-Runes-clear" href="#" @click.prevent="onClearRunes"
+        ><icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon mr-1" />clear</a
       >
-        <span class="mx-auto my-auto">{{ rune.name }}</span>
+    </div>
+    <div class="rw-Runes flex justify-between w-130px">
+      <div v-for="(runesTier, i) in runesByTier" :key="i" class="w-1/3">
+        <!-- a single rune -->
+        <div
+          v-for="rune in runesTier"
+          :key="rune.name"
+          class="rw-Rune mx-auto"
+          :class="{
+            'is-selected': haveRunes[rune.name],
+          }"
+          @click="onToggleRune(rune.name)"
+        >
+          <span class="mx-auto my-auto">{{ rune.name }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -19,11 +28,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { RuneDef, RuneId, RuneTier } from "@/types";
+import IconCancel from "@/icons/IconCancel.vue";
 
 import store from "@/store";
 
 export default defineComponent({
   name: "Runes",
+
+  components: {
+    IconCancel,
+  },
 
   data() {
     return {
@@ -55,6 +69,10 @@ export default defineComponent({
   },
 
   methods: {
+    onClearRunes() {
+      store.clearRunes();
+    },
+
     onToggleRune(runeId: RuneId) {
       const state = store.hasRune(runeId);
 

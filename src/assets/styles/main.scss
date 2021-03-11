@@ -106,11 +106,25 @@ body {
 //
 // --------------------------------------------------------------------
 .rw-Runes {
+  &-clear {
+    @apply inline-block leading-4 py-2;
+
+    color: #884444;
+    text-decoration: none;
+
+    &Icon {
+      color: #da0000;
+    }
+
+    &:hover {
+      color: #b14b4b;
+    }
+  }
 }
 
 /** @define Rune */
 .rw-Rune {
-  @apply flex w-7 h-7 rounded-md mb-2;
+  @apply flex w-7 h-7 rounded-md mb-0.7rem;
 
   background: #555555;
   color: #fff;

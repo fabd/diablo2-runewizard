@@ -1,7 +1,6 @@
 <template>
-  <main class="rw-Main p-4 flex">
-    <div class="w-200px">
-      <h2 class="text-xl text-gray-100 font-bold mb-4">Runes</h2>
+  <main class="rw-Main p-4 pl-8 flex">
+    <div class="mr-8">
       <runes />
     </div>
     <div class="w">
