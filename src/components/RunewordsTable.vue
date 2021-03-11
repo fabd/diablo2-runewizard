@@ -10,10 +10,10 @@
         >
           {{ col.label }}
           <span v-if="isSortKey(col.key) && sortAsc" class="rw-Table-thIcon"
-            ><arrow-down class="ux-svgIcon"
+            ><icon-arrow-down class="ux-icon ux-icon--fw"
           /></span>
           <span v-if="isSortKey(col.key) && !sortAsc" class="rw-Table-thIcon"
-            ><arrow-up class="ux-svgIcon"
+            ><icon-arrow-up class="ux-icon ux-icon--fw"
           /></span>
         </th>
       </tr>
@@ -53,8 +53,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ArrowUp from "@/icons/ArrowUp.vue";
-import ArrowDown from "@/icons/ArrowDown.vue";
+import IconArrowUp from "@/icons/IconArrowUp.vue";
+import IconArrowDown from "@/icons/IconArrowDown.vue";
 
 import runewordsData from "@/data/runewords";
 import { RuneId, Runeword } from "@/types";
@@ -64,8 +64,8 @@ export default defineComponent({
   name: "RunewordsTable",
 
   components: {
-    ArrowDown,
-    ArrowUp,
+    IconArrowDown,
+    IconArrowUp,
   },
 
   data() {

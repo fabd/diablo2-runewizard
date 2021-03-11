@@ -27,12 +27,25 @@ body {
 }
 
 // --------------------------------------------------------------------
-// utils
+// icons (use similar classes/styles as FontAwesome)
 // --------------------------------------------------------------------
-.ux-svgIcon {
+// base class
+.ux-icon {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   display: inline-block;
+  font-variant: normal;
+  font-style: normal;
+  text-rendering: auto;
   line-height: 1em;
+
+  font-weight: 400;
   vertical-align: middle;
+}
+
+// fixed width
+.ux-icon--fw {
+  text-align: center;
   width: 1em;
 }
 
