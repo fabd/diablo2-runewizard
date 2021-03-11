@@ -56,6 +56,14 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
+
+.rw-Title {
+  &-h2 {
+    @apply text-base font-bold;
+    color: #afafaf;
+  }
+}
+
 // --------------------------------------------------------------------
 //
 // --------------------------------------------------------------------
@@ -107,7 +115,7 @@ body {
 // --------------------------------------------------------------------
 .rw-Runes {
   &-clear {
-    @apply inline-block leading-4 py-2;
+    @apply inline-block leading-4;
 
     color: #884444;
     text-decoration: none;

@@ -1,4 +1,6 @@
 <template>
+  <h2 class="rw-Title-h2 mb-4">Runewords<span v-if="availableCount"> ({{ availableCount }} available)</span></h2>
+
   <table class="rw-Table">
     <thead>
       <tr>
@@ -91,6 +93,12 @@ export default defineComponent({
   },
 
   computed: {
+    availableCount(): number {
+      let count = 0;
+      this.runewordIsComplete.forEach((isComplete) => isComplete && count++ );
+      return count;
+    },
+
     runewordIsComplete(): Map<string, boolean> {
       console.log("*** runewordIsComplete()");
 

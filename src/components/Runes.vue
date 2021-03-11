@@ -1,10 +1,15 @@
 <template>
   <div class="w-150px relative">
-    <h2 class="text-xl text-gray-100 font-bold mb-4">Runes</h2>
-    <div v-if="isAnyRuneSelected" class="absolute right-0 top-0">
-      <a class="rw-Runes-clear" href="#" @click.prevent="onClearRunes"
-        ><icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon mr-1" />clear</a
-      >
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="rw-Title-h2 mb-0">Runes</h2>
+
+      <div v-if="isAnyRuneSelected" class="-mt-2px">
+        <a class="rw-Runes-clear" href="#" @click.prevent="onClearRunes"
+          ><icon-cancel
+            class="ux-icon ux-icon--fw rw-Runes-clearIcon mr-1"
+          />clear</a
+        >
+      </div>
     </div>
     <div class="rw-Runes flex justify-between w-130px">
       <div v-for="(runesTier, i) in runesByTier" :key="i" class="w-1/3">
