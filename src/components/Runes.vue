@@ -1,7 +1,7 @@
 <template>
   <div class="w-150px relative">
     <h2 class="text-xl text-gray-100 font-bold mb-4">Runes</h2>
-    <div class="absolute right-0 top-0">
+    <div v-if="isAnyRuneSelected" class="absolute right-0 top-0">
       <a class="rw-Runes-clear" href="#" @click.prevent="onClearRunes"
         ><icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon mr-1" />clear</a
       >
@@ -47,6 +47,10 @@ export default defineComponent({
   },
 
   computed: {
+    isAnyRuneSelected(): boolean {
+      return store.getRunes().length > 0;
+    },
+
     runes(): RuneDef[] {
       return this.runesData;
     },
