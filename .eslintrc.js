@@ -23,13 +23,12 @@ module.exports = {
     parser: "@typescript-eslint/parser",
   },
   rules: {
-    // "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    // "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-
     "prettier/prettier": "off",
 
     // don't need, let terser or strip plugin remove console.*
     "no-console": "off",
+
+    "prefer-const": "warn",
 
     "vue/max-attributes-per-line": "off",
     "vue/no-v-html": "off",
