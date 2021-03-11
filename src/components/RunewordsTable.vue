@@ -137,7 +137,14 @@ export default defineComponent({
 
       !this.sortAsc && list.reverse();
 
-      return list;
+      // move completed items to the top
+      const list2 = list
+        .filter((word) => this.runewordIsComplete.get(word.title))
+        .concat(
+          list.filter((word) => !this.runewordIsComplete.get(word.title))
+        );
+
+      return list2;
     },
   },
 
