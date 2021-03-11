@@ -59,6 +59,7 @@ export default defineComponent({
       const state = store.hasRune(runeId);
 
       store.setRunes([runeId], !state);
+      store.saveState();
     },
   },
 });

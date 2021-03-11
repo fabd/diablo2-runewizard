@@ -13,10 +13,11 @@ import store from "@/store";
 const init = () => {
   console.log("init()");
 
-  store.reset();
+  store.initialize();
+  store.loadState();
 
   // testing
-  store.setRunes(["Tir", "Nef"]);
+  // store.setRunes(["Tir", "Ral"]);
 
   window.App = {
     runesData,
