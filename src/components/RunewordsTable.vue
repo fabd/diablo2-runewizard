@@ -1,5 +1,9 @@
 <template>
-  <h2 class="rw-Title-h2 mb-4">Runewords<span v-if="availableCount"> ({{ availableCount }} available)</span></h2>
+  <h2 class="rw-Title-h2 mb-4"
+    >Runewords<span v-if="availableCount">
+      ({{ availableCount }} available)</span
+    ></h2
+  >
 
   <table class="rw-Table">
     <thead>
@@ -8,6 +12,9 @@
           v-for="col in tableHeads"
           :key="col.key"
           class="rw-Table-th cursor-pointer"
+          :class="{
+            'is-sortCol': isSortKey(col.key),
+          }"
           @click="onSortBy(col.key)"
         >
           {{ col.label }}
@@ -95,7 +102,7 @@ export default defineComponent({
   computed: {
     availableCount(): number {
       let count = 0;
-      this.runewordIsComplete.forEach((isComplete) => isComplete && count++ );
+      this.runewordIsComplete.forEach((isComplete) => isComplete && count++);
       return count;
     },
 

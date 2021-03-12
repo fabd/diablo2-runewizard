@@ -79,6 +79,10 @@ body {
     @apply select-none;
   }
 
+  &-th.is-sortCol {
+    font-weight: bold;
+  }
+
   &-thIcon {
     color: #c0c08080;
   }
