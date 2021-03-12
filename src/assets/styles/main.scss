@@ -20,7 +20,7 @@
 
 body {
   background: #000;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.2em;
   font-family: "Verdana", "Arial", sans-serif;
   color: #afafaf;
@@ -55,7 +55,6 @@ body {
 .rw-Main {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
-
 
 .rw-Title {
   &-h2 {
@@ -134,18 +133,26 @@ body {
 
 /** @define Rune */
 .rw-Rune {
-  @apply flex w-7 h-7 rounded-md mb-0.7rem;
+  @apply flex;
 
-  background: #555555;
-  color: #fff;
+  // size is bound to the old ,gif sprite for now, TODO : use a SVG rune icon
+  width: 34px;
+  height: 34px;
+  background: url("/images/rune-bg2.gif") no-repeat 50% -34px;
 
+  color: #666;
+  cursor: pointer;
+
+  font-size: 13px;
+  font-variant: small-caps;
+  line-height: 34px;
+
+  &.is-selected,
   &:hover {
     color: #fff;
-    background: #888;
-    cursor: pointer;
   }
 
   &.is-selected {
-    background: red;
+    background-position: 50% 0;
   }
 }
