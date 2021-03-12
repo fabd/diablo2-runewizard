@@ -8,12 +8,12 @@ const runewords: Runeword[] = [
 	{ title: "Holy Thunder", runes: ['Eth','Ral','Ort','Tal'], level: 21, ttype:"Scepters" },
 	{ title: "Honor", runes: ['Amn','El','Ith','Tir','Sol'], level: 27, ttype:"Melee Weapons" },
 	{ title: "King's Grace", runes: ['Amn','Ral','Thul'], level: 25, ttype:"Swords/Scepters" },
-	{ title: "Leaf", runes: ['Tir','Ral'], level: 19, ttype:"Staves<span class=\"small\">(Not Orbs/Wands)<span>" },
+	{ title: "Leaf", runes: ['Tir','Ral'], level: 19, ttype:"Staves<span class=\"rw-Md-small\">(Not Orbs/Wands)<span>" },
 	{ title: "Lionheart", runes: ['Hel','Lum','Fal'], level: 41, ttype:"Body Armor" },
 	{ title: "Lore", runes: ['Ort','Sol'], level: 27, ttype:"Helms" },
 	{ title: "Malice", runes: ['Ith','El','Eth'], level: 15, ttype:"Melee Weapons" },
 	{ title: "Melody", runes: ['Shael','Ko','Nef'], level: 39, ttype:"Missile Weapons" },
-	{ title: "Memory", runes: ['Lum','Io','Sol','Eth'], level: 37, ttype:"Staves<span class=\"small\">(Not Orbs)<span>" },
+	{ title: "Memory", runes: ['Lum','Io','Sol','Eth'], level: 37, ttype:"Staves<span class=\"rw-Md-small\">(Not Orbs)<span>" },
 	{ title: "Nadir", runes: ['Nef','Tir'], level: 13, ttype:"Helms" },
 	{ title: "Radiance", runes: ['Nef','Sol','Ith'], level: 27, ttype:"Helms" },
 	{ title: "Rhyme", runes: ['Shael','Eth'], level: 29, ttype:"Shields" },
@@ -76,13 +76,13 @@ const runewords: Runeword[] = [
 	{ title: "Voice of Reason", runes: ['Lem','Ko','El','Eld'], level: 43, ttype:"Swords/Maces", ladder:true },
 	{ title: "Wrath", runes: ['Pul','Lum','Ber','Mal'], level: 63, ttype:"Missile Weapons", ladder:true },
 	/* 1.11 */
-	{ title: "Bone", runes: ['Sol','Um','Um'], level: 47, ttype:"Body Armor<span class=\"small\">(Necromancer)</span>", tclass:"Necromancer" },
-	{ title: "Enlightenment", runes: ['Pul','Ral','Sol'], level: 45, ttype:"Body Armor<span class=\"small\">(Sorceress)</span>", tclass:"Sorceress" },
-	{ title: "Myth", runes: ['Hel','Amn','Nef'], level: 25, ttype:"Body Armor<span class=\"small\">(Barbarian)</span>", tclass:"Barbarian" },
-	{ title: "Peace", runes: ['Shael','Thul','Amn'], level: 29, ttype:"Body Armor<span class=\"small\">(Amazon)</span>", tclass:"Amazon" },
-	{ title: "Principle", runes: ['Ral','Gul','Eld'], level: 53, ttype:"Body Armor<span class=\"small\">(Paladin)</span>", tclass:"Paladin" },
-	{ title: "Rain", runes: ['Ort','Mal','Ith'], level: 49, ttype:"Body Armor<span class=\"small\">(Druid)</span>", tclass:"Druid" },
-	{ title: "Treachery", runes: ['Shael','Thul','Lem'], level: 43, ttype:"Body Armor<span class=\"small\">(Assassin)</span>", tclass:"Assassin" }
+	{ title: "Bone", runes: ['Sol','Um','Um'], level: 47, ttype:"Body Armor<span class=\"rw-Md-class\">(Necromancer)</span>", tclass:"Necromancer" },
+	{ title: "Enlightenment", runes: ['Pul','Ral','Sol'], level: 45, ttype:"Body Armor<span class=\"rw-Md-class\">(Sorceress)</span>", tclass:"Sorceress" },
+	{ title: "Myth", runes: ['Hel','Amn','Nef'], level: 25, ttype:"Body Armor<span class=\"rw-Md-class\">(Barbarian)</span>", tclass:"Barbarian" },
+	{ title: "Peace", runes: ['Shael','Thul','Amn'], level: 29, ttype:"Body Armor<span class=\"rw-Md-class\">(Amazon)</span>", tclass:"Amazon" },
+	{ title: "Principle", runes: ['Ral','Gul','Eld'], level: 53, ttype:"Body Armor<span class=\"rw-Md-class\">(Paladin)</span>", tclass:"Paladin" },
+	{ title: "Rain", runes: ['Ort','Mal','Ith'], level: 49, ttype:"Body Armor<span class=\"rw-Md-class\">(Druid)</span>", tclass:"Druid" },
+	{ title: "Treachery", runes: ['Shael','Thul','Lem'], level: 43, ttype:"Body Armor<span class=\"rw-Md-class\">(Assassin)</span>", tclass:"Assassin" }
 ];
 
 export default runewords;

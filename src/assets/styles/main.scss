@@ -96,7 +96,8 @@ body {
   }
 
   &-td {
-    padding: 4px 5px;
+    line-height: 1;
+    padding: 5px 5px 6px;
     text-align: center;
     border-bottom: 1px solid #29291d;
     color: #888;
@@ -154,5 +155,25 @@ body {
 
   &.is-selected {
     background-position: 50% 0;
+  }
+}
+
+// --------------------------------------------------------------------
+// 
+// --------------------------------------------------------------------
+// a pretend component to group utilities used in formatting the text in runewords.ts
+.rw-Md {
+  // annotation under item type, eg. "(small shields)"
+  &-small {
+    @apply block;
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  // required class under item type (Character Class)
+  &-class {
+    @apply block;
+    font-size: 0.9em;
+    color: rgb(192, 61, 137);
   }
 }

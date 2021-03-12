@@ -3,8 +3,7 @@
     <div class="mr-8">
       <runes />
     </div>
-    <div class="w">
-      <h2>Runewords</h2>
+    <div class="">
       <runewords-table />
     </div>
   </main>

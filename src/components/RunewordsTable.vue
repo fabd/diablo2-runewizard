@@ -46,7 +46,7 @@
         <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">{{
           item.runes[5]
         }}</td>
-        <td class="rw-Table-td">{{ item.ttype }}</td>
+        <td class="rw-Table-td" v-html="formatType(item.ttype)"></td>
         <td class="rw-Table-td">{{ item.level }}</td>
       </tr>
     </tbody>
@@ -163,6 +163,10 @@ export default defineComponent({
 
     cssCompleteRuneword(word: Runeword) {
       return this.runewordIsComplete.get(word.title) ? "is-complete" : "";
+    },
+
+    formatType(text: string) {
+      return text;
     },
 
     isSortKey(key: string) {
