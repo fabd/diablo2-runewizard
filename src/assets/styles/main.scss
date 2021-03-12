@@ -77,6 +77,7 @@ body {
     font-weight: normal;
     padding: 0.25rem 0.5rem;
     border-right: 1px solid #000;
+    @apply select-none;
   }
 
   &-thIcon {
@@ -116,6 +117,7 @@ body {
 .rw-Runes {
   &-clear {
     @apply inline-block leading-4;
+    @apply select-none;
 
     color: #884444;
     text-decoration: none;

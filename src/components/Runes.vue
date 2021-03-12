@@ -11,7 +11,7 @@
         >
       </div>
     </div>
-    <div class="rw-Runes flex justify-between w-130px">
+    <div class="rw-Runes flex justify-between w-130px select-none">
       <div v-for="(runesTier, i) in runesByTier" :key="i" class="w-1/3">
         <!-- a single rune -->
         <div
