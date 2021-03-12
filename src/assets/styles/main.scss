@@ -91,14 +91,6 @@ body {
     background: #200000;
   }
 
-  &-tr &-tdTitle {
-    color: #575242;
-  }
-
-  &-tr.is-complete &-tdTitle {
-    color: #928a70;
-  }
-
   &-td {
     line-height: 1;
     padding: 5px 5px 6px;
@@ -113,6 +105,15 @@ body {
   &-td.is-active {
     color: #44aa44;
   }
+  
+  &-tdTitle {
+    color: #575242;
+  }
+
+  &-tr.is-complete &-tdTitle {
+    color: #928a70;
+  }
+
 }
 
 // --------------------------------------------------------------------
@@ -163,10 +164,21 @@ body {
 }
 
 // --------------------------------------------------------------------
-// 
+//
 // --------------------------------------------------------------------
 // a pretend component to group utilities used in formatting the text in runewords.ts
 .rw-Md {
+  // the `ladder` tag shown next to Runeword names
+  &-ladder {
+    background: #444444;
+    color: #9f9f9f;
+    border-radius: 1rem;
+    font-variant: small-caps;
+    font-size: 0.8em;
+    padding: 0.2em 0.4em;
+    @apply ml-1;
+  }
+
   // annotation under item type, eg. "(small shields)"
   &-small {
     @apply block;

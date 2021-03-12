@@ -34,7 +34,10 @@
         class="rw-Table-tr"
         :class="cssCompleteRuneword(item)"
       >
-        <td class="rw-Table-td rw-Table-tdTitle text-left">{{ item.title }}</td>
+        <td class="rw-Table-td rw-Table-tdTitle text-left"
+          >{{ item.title
+          }}<span v-if="item.ladder" class="rw-Md-ladder">L</span></td
+        >
         <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">{{
           item.runes[0]
         }}</td>
