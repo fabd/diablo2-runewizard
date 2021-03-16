@@ -1,6 +1,7 @@
 {
   "name": "diablo2-runewizard",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

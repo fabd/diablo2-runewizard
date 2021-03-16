@@ -1,7 +1,6 @@
 import path from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import WindiCSS from "vite-plugin-windicss";
 
 import eslint from "@rollup/plugin-eslint";
 import strip from "@rollup/plugin-strip";
@@ -36,8 +35,6 @@ export default defineConfig({
   plugins: [
     //
     vue(),
-    //
-    WindiCSS(),
 
     {
       ...eslint({
