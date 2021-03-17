@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
+    "test": "vite build && hs dist/",
     "lint": "eslint './src/**/*.{js,ts,tsx,vue,md}'"
   },
   "dependencies": {
+    "http-server": "^0.12.3",
     "vue": "^3.0.5"
   },
   "devDependencies": {
@@ -35,15 +37,14 @@
     "stylelint-scss": "^3.19.0",
     "tailwindcss": "^2.0.3",
     "typescript": "^4.1.3",
-    "vite": "^2.1.1"
+    "vite": "^2.1.1",
+    "vue-tsc": "^0.0.13"
   },
   "browserslist": [
     "Chrome >= 60",
     "Safari >= 10.1",
     "iOS >= 10.3",
     "Firefox >= 54",
-    "Edge >= 15",
-    "Samsung >= 5",
-    "Opera >= 38"
+    "Edge >= 15"
   ]
 }
