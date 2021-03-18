@@ -1,6 +1,12 @@
 module.exports = {
-  darkMode: "class", // or 'media'
+  purge: [
+    //
+    "./index.html",
+    //
+    "./src/**/*.{js,jsx,ts,tsx,vue}",
+  ],
+
   theme: {},
   variants: {},
-  plugins: []
+  plugins: [],
 };
