@@ -235,7 +235,7 @@ object {
   // size is bound to the old ,gif sprite for now, TODO : use a SVG rune icon
   width: 34px;
   height: 34px;
-  background: url("/images/rune-bg2.gif") no-repeat 50% -34px;
+  background: url("../images/rune-bg2.gif") no-repeat 50% -34px;
 
   color: #666;
   cursor: pointer;
@@ -244,8 +244,11 @@ object {
   font-variant: small-caps;
   line-height: 34px;
 
-  &.is-selected,
   &:hover {
+    color: #aaa;
+  }
+
+  &.is-selected {
     color: #fff;
   }
 
