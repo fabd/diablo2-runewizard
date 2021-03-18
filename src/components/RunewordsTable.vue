@@ -5,7 +5,7 @@
     ></h2
   >
 
-  <table class="rw-Table">
+  <table class="rw-Table w-full">
     <thead>
       <tr>
         <th
@@ -14,6 +14,7 @@
           class="rw-Table-th cursor-pointer"
           :class="{
             'is-sortCol': isSortKey(col.key),
+            'text-left': col.textLeft,
           }"
           @click="onSortBy(col.key)"
         >
@@ -89,7 +90,7 @@ export default defineComponent({
       sortAsc: true,
 
       tableHeads: [
-        { key: "title", label: "Runeword" },
+        { key: "title", label: "Runeword", textLeft: true },
         { key: "rune0", label: "Rune" },
         { key: "rune1", label: "Rune" },
         { key: "rune2", label: "Rune" },
