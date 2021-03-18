@@ -104,7 +104,6 @@ export default defineComponent({
     HelpBox,
     IconArrowDown,
     IconArrowUp,
-    IconCancel,
     IconChevronDown,
   },
 

@@ -13,9 +13,6 @@ const init = () => {
   store.initialize();
   store.loadState();
 
-  // testing
-  // store.setRunes(["Tir", "Ral"]);
-
   window.App = {
     runesData,
   };

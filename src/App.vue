@@ -17,14 +17,10 @@ import RunewordsTable from "./components/RunewordsTable.vue";
 
 export default defineComponent({
   name: "App",
+
   components: {
     Runes,
     RunewordsTable,
   },
-  mounted() {
-    // console.log("App() ", window.App.runesData);
-  },
 });
 </script>
-
-<style lang="scss"></style>
