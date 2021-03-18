@@ -40,12 +40,5 @@
     "vite": "^2.1.2",
     "vite-plugin-md": "^0.6.1",
     "vue-tsc": "^0.0.13"
-  },
-  "browserslist": [
-    "Chrome >= 60",
-    "Safari >= 10.1",
-    "iOS >= 10.3",
-    "Firefox >= 54",
-    "Edge >= 15"
-  ]
+  }
 }
