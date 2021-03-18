@@ -5,12 +5,13 @@
 //
 //     - using SuitCSS naming
 //       https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
-//     - use a namespace prefix for all bem-like classes
+//     - use a namespace prefix : `rw-`
+//     - custom utilities use `ux-` prefix
 //
 //   Notes
 //
 //     - keeping component's styles in a single file for now (KISS)
-//     - keeping styles out of SFCs, there are issues with `@apply`
+//     - keeping scss styles out of SFCs, there are issues with `@apply`
 //
 //   Todo
 //
@@ -18,12 +19,52 @@
 //
 // ====================================================================
 
+// --------------------------------------------------------------------
+// 1. tailwind's "preflight" and opiniated resets
+// --------------------------------------------------------------------
+@import "tailwindcss/base";
+
+// --------------------------------------------------------------------
+// 2. base styles
+// --------------------------------------------------------------------
 body {
   background: #000;
   font-size: 13px;
   line-height: 1.2em;
-  font-family: "Verdana", "Arial", sans-serif;
   color: #afafaf;
+  @apply font-sans;
+}
+
+b,
+strong {
+  // tailwind sets this to `bolder` which isn't in our main font
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--colorText);
+  line-height: 1.1em;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+p {
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: inline-block;
 }
 
 // --------------------------------------------------------------------
@@ -105,7 +146,7 @@ body {
   &-td.is-active {
     color: #44aa44;
   }
-  
+
   &-tdTitle {
     color: #575242;
   }
@@ -113,7 +154,6 @@ body {
   &-tr.is-complete &-tdTitle {
     color: #928a70;
   }
-
 }
 
 // --------------------------------------------------------------------
@@ -193,3 +233,9 @@ body {
     color: rgb(192, 61, 137);
   }
 }
+
+
+// --------------------------------------------------------------------
+// (last) tailwind utilities
+// --------------------------------------------------------------------
+@import "tailwindcss/utilities";
