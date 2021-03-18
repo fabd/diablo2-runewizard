@@ -91,6 +91,20 @@ object {
 }
 
 // --------------------------------------------------------------------
+// Vue transitions
+// --------------------------------------------------------------------
+.fadein-enter-active {
+  transition: opacity 0.1s linear;
+}
+.fadein-leave,
+.fadein-leave-active {
+  display: none;
+}
+.fadein-enter-from {
+  opacity: 0;
+}
+
+// --------------------------------------------------------------------
 //
 // --------------------------------------------------------------------
 .rw-Main {
@@ -101,6 +115,49 @@ object {
   &-h2 {
     @apply text-base font-bold;
     color: #afafaf;
+  }
+}
+
+// --------------------------------------------------------------------
+// --------------------------------------------------------------------
+.rw-Help {
+  $linkColor: #b4ac92;
+
+  &-link {
+    // slighty better valign of the SVG icon
+    @apply inline-flex items-center;
+    color: $linkColor;
+    padding: 0.3em 0; // slightly increase mouseover area
+  }
+  &-link:hover {
+    color: mix($linkColor, #fed, 50);
+    @apply underline;
+  }
+}
+
+// --------------------------------------------------------------------
+// HelpText formatting (markdown-it's output)
+// --------------------------------------------------------------------
+.rw-HelpText {
+  background: #303030;
+  color: #928a70;
+
+  h2 {
+    @apply mb-2;
+    color: #44aa44;
+  }
+  h2:not(:first-child) {
+    @apply mt-6;
+  }
+
+  a {
+    @apply underline;
+    color: lighten(#928a70, 20);
+
+  }
+
+  p {
+    @apply mb-2;
   }
 }
 
@@ -163,17 +220,11 @@ object {
   &-clear {
     @apply inline-block leading-4;
     @apply select-none;
+    @apply text-[#884444] hover:text-[#b14b4b];
 
+    padding: 0.3em 0; // slightly increase mouseover area
     color: #884444;
     text-decoration: none;
-
-    &Icon {
-      color: #da0000;
-    }
-
-    &:hover {
-      color: #b14b4b;
-    }
   }
 }
 

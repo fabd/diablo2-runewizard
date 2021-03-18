@@ -2,6 +2,7 @@ import path from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
+import Markdown from "vite-plugin-md";
 import eslint from "@rollup/plugin-eslint";
 import strip from "@rollup/plugin-strip";
 
@@ -34,7 +35,11 @@ export default defineConfig({
 
   plugins: [
     //
-    vue(),
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
+
+    Markdown(),
 
     {
       ...eslint({

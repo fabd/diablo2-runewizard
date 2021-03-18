@@ -1,9 +1,29 @@
 <template>
-  <h2 class="rw-Title-h2 mb-4"
-    >Runewords<span v-if="availableCount">
-      ({{ availableCount }} available)</span
-    ></h2
-  >
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="rw-Title-h2 mb-0"
+      >Runewords<span v-if="availableCount">
+        ({{ availableCount }} available)</span
+      ></h2
+    >
+
+    <a
+      href="#"
+      class="rw-Help-link"
+      @click.prevent="isHelpVisible = !isHelpVisible"
+      >{{ "Help"
+      }}<icon-chevron-down
+        class="ux-icon ux-icon--fw ml-1"
+        :class="{
+          'transform rotate-180': isHelpVisible,
+        }"
+    /></a>
+  </div>
+
+  <transition name="fadein">
+    <div v-if="isHelpVisible">
+      <help-box />
+    </div>
+  </transition>
 
   <table class="rw-Table w-full">
     <thead>
@@ -66,8 +86,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
+import HelpBox from "@/components/HelpBox.vue";
 import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
+import IconCancel from "@/icons/IconCancel.vue";
+import IconChevronDown from "@/icons/IconChevronDown.vue";
 
 import runewordsData from "@/data/runewords";
 import { RuneId, Runeword } from "@/types";
@@ -77,8 +101,11 @@ export default defineComponent({
   name: "RunewordsTable",
 
   components: {
+    HelpBox,
     IconArrowDown,
     IconArrowUp,
+    IconCancel,
+    IconChevronDown,
   },
 
   data() {
@@ -100,6 +127,8 @@ export default defineComponent({
         { key: "ttype", label: "Type" },
         { key: "level", label: "Level" },
       ],
+
+      isHelpVisible: false,
     };
   },
 

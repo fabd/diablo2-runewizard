@@ -1,9 +1,9 @@
 <template>
-  <main class="rw-Main p-4 pl-8 flex">
+  <main class="rw-Main p-4 pl-8 flex max-w-[1000px]">
     <div class="mr-8">
       <runes />
     </div>
-    <div class="">
+    <div class="flex-1">
       <runewords-table />
     </div>
   </main>
