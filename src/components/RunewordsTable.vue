@@ -25,6 +25,8 @@
     </div>
   </transition>
 
+  <runeword-popup ref="popup" />
+
   <table class="rw-Table w-full">
     <thead>
       <tr>
@@ -56,8 +58,12 @@
         :class="cssCompleteRuneword(item)"
       >
         <td class="rw-Table-td rw-Table-tdTitle text-left"
-          >{{ item.title
-          }}<span v-if="item.ladder" class="rw-Md-ladder">L</span></td
+          ><span
+            class="cursor-pointer"
+            @mouseenter="onEnterRuneword($event, item)"
+            @mouseleave="onLeaveRuneword()"
+            >{{ item.title }}</span
+          ><span v-if="item.ladder" class="rw-Md-ladder">L</span></td
         >
         <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">{{
           item.runes[0]
@@ -90,8 +96,8 @@ import { defineComponent } from "vue";
 import HelpBox from "@/components/HelpBox.vue";
 import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
-import IconCancel from "@/icons/IconCancel.vue";
 import IconChevronDown from "@/icons/IconChevronDown.vue";
+import RunewordPopup from "@/components/RunewordPopup.vue";
 
 import runewordsData from "@/data/runewords";
 import { RuneId, Runeword } from "@/types";
@@ -105,6 +111,7 @@ export default defineComponent({
     IconArrowDown,
     IconArrowUp,
     IconChevronDown,
+    RunewordPopup,
   },
 
   data() {
@@ -193,6 +200,10 @@ export default defineComponent({
 
       return list2;
     },
+
+    refPopup(): typeof RunewordPopup {
+      return this.$refs.popup as typeof RunewordPopup;
+    },
   },
 
   methods: {
@@ -210,6 +221,23 @@ export default defineComponent({
 
     isSortKey(key: string) {
       return key === this.sortKey;
+    },
+
+    onEnterRuneword(ev: Event, runeword: Runeword) {
+      // paranoia
+      if (!ev.target) return;
+
+      let { x, y } = (ev.target as Element).getBoundingClientRect();
+
+      // don't overlap the mouseover area, avoids flickering & simplifies code
+      x = x + 50;
+      y = y + window.pageYOffset + (ev.target as HTMLElement).offsetHeight + 4;
+
+      this.refPopup.setContents(runeword).moveTo(x, y).setVisible(true);
+    },
+
+    onLeaveRuneword() {
+      this.refPopup.setVisible(false);
     },
 
     onSortBy(key: string) {

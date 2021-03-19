@@ -153,7 +153,6 @@ object {
   a {
     @apply underline;
     color: lighten(#928a70, 20);
-
   }
 
   p {
@@ -288,6 +287,37 @@ object {
   }
 }
 
+// --------------------------------------------------------------------
+// RUNEWORD DESCRIPTION LAYER
+// --------------------------------------------------------------------
+
+.rw-RunewordPopup {
+  width: 350px; // the width is fixed
+  height: auto; // the height adapts to the length of the description
+  z-index: 100;
+  background: #000;
+  border: 1px solid #937c6e;
+  padding: 12px 0 14px;
+  text-align: center;
+  color: #48ac3f;
+  font: 12px/1.2em Arial, sans-serif;
+
+  &-title {
+    color: #928a70;
+    font-size: 14px;
+    line-height: 1em;
+    margin: 0;
+  }
+  &-type {
+    color: #fff;
+    font-size: 11px;
+    margin: 2px 0 4px;
+  }
+  &-body {
+    // Diablo 2 style font!
+    font-variant: small-caps;
+  }
+}
 
 // --------------------------------------------------------------------
 // (last) tailwind utilities
