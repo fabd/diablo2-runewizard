@@ -7,23 +7,16 @@
       top: unitPx(position.y),
     }"
   >
-    <div class="rw-RunewordPopup-title">{{ runeword.title }}</div>
+    <h3 class="rw-RunewordPopup-title">{{ runeword.title }}</h3>
     <div class="rw-RunewordPopup-type">{{ runeword.ttype }}</div>
-    <div class="rw-RunewordPopup-body">
-      4% Chance To Cast Level 5 Slow Missiles When Struck<br />
-      2% Chance To Cast level 15 Valkyrie On Striking<br />
-      +2 To Amazon Skill Levels<br />
-      +20% Faster Hit Recovery<br />
-      +2 To Critical Strike<br />
-      Cold Resist +30%<br />
-      Attacker Takes Damage of 14
-    </div>
+    <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Runeword } from "@/types";
+import runewordsMetaData from "@/data/runewords-descriptions";
 
 export default defineComponent({
   name: "RunewordPopup",
@@ -40,6 +33,19 @@ export default defineComponent({
         level: 0,
       } as Partial<Runeword>,
     };
+  },
+
+  computed: {
+    formatBody(): string {
+      const runewordId = this.runeword.title;
+      let text =
+        (runewordId && runewordsMetaData[runewordId]) ||
+        "--( invalid runeword id )--";
+
+      text = text.trim().replace(/\n/g, "<br/>");
+
+      return text;
+    },
   },
 
   methods: {

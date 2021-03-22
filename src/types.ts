@@ -52,3 +52,7 @@ export type Runeword = {
   ladder?: boolean;
   tclass?: string;
 };
+
+export type RunewordMeta = {
+  [runewordId: string]: string;
+};

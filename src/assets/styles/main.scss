@@ -205,6 +205,10 @@ object {
 
   &-tdTitle {
     color: #575242;
+
+    &:hover {
+      color: #c7cdac;
+    }
   }
 
   &-tr.is-complete &-tdTitle {
@@ -292,30 +296,32 @@ object {
 // --------------------------------------------------------------------
 
 .rw-RunewordPopup {
-  width: 350px; // the width is fixed
-  height: auto; // the height adapts to the length of the description
+  // the width is fixed, height adapts to the length of the description
+  @apply w-[22rem] h-auto;
+
+  // base font-size for scaling
+  font-size: 1rem;
+
   z-index: 100;
-  background: #000;
+
+  background: #000C;
   border: 1px solid #937c6e;
-  padding: 12px 0 14px;
+  @apply py-4 px-8 text-center;
   text-align: center;
   color: #48ac3f;
-  font: 12px/1.2em Arial, sans-serif;
 
   &-title {
     color: #928a70;
-    font-size: 14px;
-    line-height: 1em;
-    margin: 0;
+    @apply text-[1em] leading-[1em] mb-2;
   }
   &-type {
     color: #fff;
-    font-size: 11px;
-    margin: 2px 0 4px;
+    font-size: (14 / 16) * 1em;
+    @apply mb-2;
   }
   &-body {
-    // Diablo 2 style font!
-    font-variant: small-caps;
+    // the runeword's stats
+    line-height: 1.4em;
   }
 }
 
