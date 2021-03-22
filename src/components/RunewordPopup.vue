@@ -31,7 +31,7 @@ export default defineComponent({
         title: "",
         ttype: "",
         level: 0,
-      } as Pick<Runeword, 'title' | 'ttype' | 'level' >,
+      } as Pick<Runeword, "title" | "ttype" | "level">,
     };
   },
 

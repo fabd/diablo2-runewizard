@@ -57,9 +57,9 @@
         class="rw-Table-tr"
         :class="cssCompleteRuneword(item)"
       >
-        <td class="rw-Table-td text-left"
+        <td class="rw-Table-td rw-Table-tdTitle p-0 text-left"
           ><span
-            class="rw-Table-tdTitle cursor-pointer"
+            class="rw-Table-tdTitleSpan cursor-pointer"
             @mouseenter="onEnterRuneword($event, item)"
             @mouseleave="onLeaveRuneword()"
             >{{ item.title }}</span

@@ -205,6 +205,11 @@ object {
 
   // runeword title
   &-tdTitle {
+    @apply p-0;
+  }
+  &-tdTitleSpan {
+    @apply inline-block px-[5px] py-[7px]; // increase the mouseover area
+
     color: #575242;
 
     &:hover {
