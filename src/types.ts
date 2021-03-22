@@ -44,8 +44,10 @@ export enum RuneTier {
   RARE,
 }
 
+export type RunewordId = string;
+
 export type Runeword = {
-  title: string;
+  title: RunewordId;
   runes: RuneId[];
   level: number;
   ttype: string;

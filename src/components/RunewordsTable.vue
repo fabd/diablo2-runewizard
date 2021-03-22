@@ -83,7 +83,7 @@
         <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">{{
           item.runes[5]
         }}</td>
-        <td class="rw-Table-td" v-html="formatType(item.ttype)"></td>
+        <td class="rw-Table-td rw-Table-tdType" v-html="formatType(item.ttype)"></td>
         <td class="rw-Table-td">{{ item.level }}</td>
       </tr>
     </tbody>
@@ -216,6 +216,7 @@ export default defineComponent({
     },
 
     formatType(text: string) {
+      // could do additional formatting here
       return text;
     },
 

@@ -8,7 +8,7 @@
     }"
   >
     <h3 class="rw-RunewordPopup-title">{{ runeword.title }}</h3>
-    <div class="rw-RunewordPopup-type">{{ runeword.ttype }}</div>
+    <div class="rw-RunewordPopup-type" v-html="runeword.ttype"></div>
     <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default defineComponent({
         title: "",
         ttype: "",
         level: 0,
-      } as Partial<Runeword>,
+      } as Pick<Runeword, 'title' | 'ttype' | 'level' >,
     };
   },
 

@@ -203,12 +203,18 @@ object {
     color: #44aa44;
   }
 
+  // runeword title
   &-tdTitle {
     color: #575242;
 
     &:hover {
       color: #c7cdac;
     }
+  }
+
+  // the item type field can have optional <em>sub text</em>
+  &-tdType em {
+    @apply block text-[0.9em] opacity-80;
   }
 
   &-tr.is-complete &-tdTitle {
@@ -296,15 +302,16 @@ object {
 // --------------------------------------------------------------------
 
 .rw-RunewordPopup {
-  // the width is fixed, height adapts to the length of the description
-  @apply w-[22rem] h-auto;
+  // use min-width, when some runeword stat is long let popup stretch horizontally
+  //  (to keep one stat per line)
+  @apply min-w-[22rem];
 
   // base font-size for scaling
   font-size: 1rem;
 
   z-index: 100;
 
-  background: #000C;
+  background: #000c;
   border: 1px solid #937c6e;
   @apply py-4 px-8 text-center;
   text-align: center;
@@ -312,12 +319,17 @@ object {
 
   &-title {
     color: #928a70;
-    @apply text-[1em] leading-[1em] mb-2;
+    @apply font-serif text-[1.4em] leading-[1em] mb-2;
   }
   &-type {
     color: #fff;
     font-size: (14 / 16) * 1em;
     @apply mb-2;
+
+    // optional subtext in runeword.ttype, eg. `(Amazon)`
+    em {
+      @apply ml-1 opacity-80;
+    }
   }
   &-body {
     // the runeword's stats
