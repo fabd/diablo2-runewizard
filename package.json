@@ -7,7 +7,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "test": "vite build && hs dist/",
-    "lint": "eslint './src/**/*.{js,ts,tsx,vue,md}'"
+    "lint": "eslint './src/**/*.{js,ts,tsx,vue,md}'",
+    "disable-warnings": "sed -i 's/\\s\\swarnExperimental/\\/\\/warnExperimental/g' node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js"
   },
   "dependencies": {
     "http-server": "^0.12.3",
@@ -16,7 +17,7 @@
   "devDependencies": {
     "@rollup/plugin-eslint": "^8.0.1",
     "@rollup/plugin-strip": "^2.0.0",
-    "@tailwindcss/jit": "^0.1.1",
+    "@tailwindcss/jit": "^0.1.7",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vitejs/plugin-vue": "^1.1.4",
