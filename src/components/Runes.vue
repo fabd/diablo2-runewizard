@@ -83,6 +83,7 @@ export default defineComponent({
   methods: {
     onClearRunes() {
       store.clearRunes();
+      store.saveState();
     },
 
     onToggleRune(runeId: RuneId) {
