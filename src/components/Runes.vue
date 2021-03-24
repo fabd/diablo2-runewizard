@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div class="flex justify-between items-center mb-4">
+    <div class="flex justify-between items-center mb-2">
       <h2 class="rw-Title-h2 mb-0">Runes</h2>
 
       <div v-if="isAnyRuneSelected" class="-mt-2px">

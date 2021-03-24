@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center mb-4">
+  <div class="flex justify-between items-center mb-2">
     <h2 class="rw-Title-h2 mb-0"
       >Runewords<span v-if="availableCount">
         ({{ availableCount }} available)</span
