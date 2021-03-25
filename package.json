@@ -7,7 +7,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "test": "vite build && hs dist/",
-    "lint": "eslint './src/**/*.{js,ts,tsx,vue,md}'",
+    "lint": "eslint './src/**/*.{js,ts,tsx,vue}'",
     "disable-warnings": "sed -i 's/\\s\\swarnExperimental/\\/\\/warnExperimental/g' node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js"
   },
   "dependencies": {
