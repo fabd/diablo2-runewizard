@@ -323,8 +323,8 @@ object {
   color: #48ac3f;
 
   &-title {
-    color: #928a70;
-    @apply font-serif text-[1.4em] leading-[1em] mb-2;
+    color: #908858; // #928a70;
+    @apply text-[1.4em] leading-[1em] mb-2;
   }
   &-type {
     color: #fff;
@@ -336,9 +336,17 @@ object {
       @apply ml-1 opacity-80;
     }
   }
+  
+  // the runeword's stats
   &-body {
-    // the runeword's stats
+    color: #6064d8;
     line-height: 1.4em;
+  }
+
+  // subtitle within stats when split stats by Weapon / Body Armor types
+  &-body h4 {
+    @apply text-[#979797] mb-2;
+
   }
 }
 

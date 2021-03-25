@@ -42,7 +42,14 @@ export default defineComponent({
         (runewordId && runewordsMetaData[runewordId]) ||
         "--( invalid runeword id )--";
 
-      text = text.trim().replace(/\n/g, "<br/>");
+      // remove newlines at beginning and end
+      text = text.trim();
+
+      // fix extra spacing caused by newlines after <h4>sections</h4>
+      text = text.replace(/<\/h4>\n*/g, "</h4>");
+
+      // replace newlines by html equivalents
+      text = text.replace(/\n/g, "<br/>");
 
       return text;
     },
