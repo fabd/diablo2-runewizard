@@ -1,5 +1,13 @@
+#
+#  Patterns added by @vitejs/create-app
+#
 node_modules
 .DS_Store
 dist
 dist-ssr
 *.local
+
+# 
+#  Additional patterns
+#
+
