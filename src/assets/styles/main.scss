@@ -25,7 +25,7 @@
 @import "tailwindcss/base";
 
 // --------------------------------------------------------------------
-// 2. base styles
+// 2. our reset & base styles (*after* tailwind's defaults)
 // --------------------------------------------------------------------
 body {
   background: #000;
@@ -33,12 +33,6 @@ body {
   line-height: 1.2em;
   color: #afafaf;
   @apply font-sans;
-}
-
-b,
-strong {
-  // tailwind sets this to `bolder` which isn't in our main font
-  font-weight: bold;
 }
 
 h1,
@@ -56,6 +50,7 @@ p {
   margin-bottom: 1em;
 }
 
+// preferred default (tailwind uses `block`)
 img,
 svg,
 video,
@@ -107,7 +102,18 @@ object {
 }
 
 // --------------------------------------------------------------------
-//
+// a minimal layout to spice up a bit the standalone version of Runewizard
+// --------------------------------------------------------------------
+.rw-Header {
+  // separator texture between header & main content, stretches horizontally
+  &-goldBar {
+    background: url("../images/hr-gold.gif") repeat-x 0 100%;
+    @apply h-[16px];
+  }
+}
+
+// --------------------------------------------------------------------
+// <main>
 // --------------------------------------------------------------------
 .rw-Main {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -121,6 +127,7 @@ object {
 }
 
 // --------------------------------------------------------------------
+// the "Help" toggle
 // --------------------------------------------------------------------
 .rw-Help {
   $linkColor: #b4ac92;
@@ -138,7 +145,7 @@ object {
 }
 
 // --------------------------------------------------------------------
-// HelpText formatting (markdown-it's output)
+// HelpText : base class top format markdown output inside it
 // --------------------------------------------------------------------
 .rw-HelpText {
   background: #303030;
@@ -163,7 +170,7 @@ object {
 }
 
 // --------------------------------------------------------------------
-//
+// The Runewords table
 // --------------------------------------------------------------------
 .rw-Table {
   color: #afafaf;
@@ -266,9 +273,6 @@ object {
 
   &.is-selected {
     color: #fff;
-  }
-
-  &.is-selected {
     background-position: 50% 0;
   }
 }
@@ -307,7 +311,6 @@ object {
 // --------------------------------------------------------------------
 // RUNEWORD DESCRIPTION LAYER
 // --------------------------------------------------------------------
-
 .rw-RunewordPopup {
   // use min-width, when some runeword stat is long let popup stretch horizontally
   //  (to keep one stat per line)
@@ -338,7 +341,7 @@ object {
       @apply ml-1 opacity-80;
     }
   }
-  
+
   // the runeword's stats
   &-body {
     color: #6064d8;
@@ -348,7 +351,6 @@ object {
   // subtitle within stats when split stats by Weapon / Body Armor types
   &-body h4 {
     @apply text-[#979797] mb-2;
-
   }
 }
 
