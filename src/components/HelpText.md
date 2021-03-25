@@ -1,12 +1,10 @@
 ## What is it?
 
-The Runewizard lets you check easily what [runewords](http://classic.battle.net/diablo2exp/items/runewords.shtml) you can make with the [runes](http://classic.battle.net/diablo2exp/items/runes.shtml) you have on a Diablo II character.
-
-It is compatible with Diablo II LoD version 1.14 (patches after 1.11 didn't introduce new runewords).
+The Runewizard lets you check easily what runewords you can make with the runes you have found.
 
 Click on the runes to mark which ones you have found. The available runewords will be highlighted automatically.
 
-The table can be sorted, try clicking on "Type" to sort runewords by equipment type, you may find it useful!
+The table can be sorted : try clicking on the table headings, you may find it useful!
 
 ## Runes
 
@@ -14,7 +12,7 @@ The runes are listed in order of rarity, from top to bottom, and left to right. 
 
 ## Runewords
 
-Ladder-only runewords have a small <span class="rw-Md-ladder">L</span> icon next to the name.
+**Ladder-only runewords** have a small <span class="rw-Md-ladder">L</span> icon next to the name.
 
 ## Note about storage
 
