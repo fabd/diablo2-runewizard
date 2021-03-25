@@ -1,8 +1,8 @@
 <template>
   <div
+    v-if="isVisible"
     class="rw-RunewordPopup absolute"
     :style="{
-      display: isVisible ? 'block' : 'none',
       left: unitPx(position.x),
       top: unitPx(position.y),
     }"
