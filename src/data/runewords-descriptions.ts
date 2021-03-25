@@ -15,7 +15,6 @@ const runewordsDesc: RunewordMeta = {
   40% Chance Of Crushing Blow
   +200 To Attack Rating
   Adds 3-14 Cold Damage - Cold Duration 3 Seconds
-
   +10 To Vitality
   15% Increased Attack Speed
   Knockback
@@ -797,7 +796,7 @@ const runewordsDesc: RunewordMeta = {
   23% Better Chance of Getting Magic Items
   `,
 
-  Last_Wish: `
+  "Last Wish": `
   6% Chance To Cast Level 11 Fade When Struck
   10% Chance To Cast Level 18 Life Tap On Striking
   20% Chance To Cast Level 20 Charged Bolt On Attack
