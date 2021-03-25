@@ -93,6 +93,8 @@ object {
 // --------------------------------------------------------------------
 // Vue transitions
 // --------------------------------------------------------------------
+
+// a quick fade in transition, but NO fade out
 .fadein-enter-active {
   transition: opacity 0.1s linear;
 }
