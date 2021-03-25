@@ -4,16 +4,14 @@
       <h2 class="rw-Title-h2 mb-0">Runes</h2>
 
       <div v-if="isAnyRuneSelected" class="-mt-2px">
-        <a
-          class="rw-Runes-clear"
-          href="#"
-          @click.prevent="onClearRunes"
+        <a class="rw-Runes-clear" href="#" @click.prevent="onClearRunes"
           ><icon-cancel
             class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1"
           />clear</a
         >
       </div>
     </div>
+
     <div class="rw-Runes flex justify-between w-[130px] select-none">
       <div v-for="(runesTier, i) in runesByTier" :key="i" class="w-1/3">
         <!-- a single rune -->

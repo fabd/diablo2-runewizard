@@ -83,7 +83,10 @@
         <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">{{
           item.runes[5]
         }}</td>
-        <td class="rw-Table-td rw-Table-tdType" v-html="formatType(item.ttype)"></td>
+        <td
+          class="rw-Table-td rw-Table-tdType"
+          v-html="formatType(item.ttype)"
+        ></td>
         <td class="rw-Table-td">{{ item.level }}</td>
       </tr>
     </tbody>
@@ -146,7 +149,7 @@ export default defineComponent({
     },
 
     runewordIsComplete(): Map<string, boolean> {
-      console.log("*** runewordIsComplete()");
+      // console.log("*** runewordIsComplete()");
 
       const map: Map<string, boolean> = new Map();
 
@@ -244,8 +247,6 @@ export default defineComponent({
     onSortBy(key: string) {
       this.sortAsc = this.sortKey === key ? !this.sortAsc : true;
       this.sortKey = key;
-
-      console.log(this.sortAsc);
     },
   },
 });
