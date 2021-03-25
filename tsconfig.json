@@ -25,15 +25,14 @@
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "skipLibCheck": true,
-
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-
     "baseUrl": ".",
+    // also see `resolve.alias` in vite.config.js
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
     },
   },
   ///////////////////////////////////////////////////////////////////

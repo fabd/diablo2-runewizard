@@ -25,12 +25,13 @@ module.exports = {
   rules: {
     "prettier/prettier": "off",
 
-    // don't need, let terser or strip plugin remove console.*
+    // configure terser or strip plugin to remove console.*
     "no-console": "off",
 
     "prefer-const": "warn",
 
     "vue/max-attributes-per-line": "off",
+    "vue/no-unused-components": "warn",
     "vue/no-v-html": "off",
 
     // less noise / lower maintenance
