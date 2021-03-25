@@ -212,10 +212,10 @@ object {
   &-tdTitleSpan {
     @apply inline-block px-[5px] py-[7px]; // increase the mouseover area
 
-    color: #575242;
+    color: #74726c;
 
     &:hover {
-      color: #c7cdac;
+      color: #b9b6ac;
     }
   }
 
@@ -224,8 +224,8 @@ object {
     @apply block text-[0.9em] opacity-80;
   }
 
-  &-tr.is-complete &-tdTitle {
-    color: #928a70;
+  &-tr.is-complete &-tdTitleSpan {
+    color: #c6a33b;
   }
 }
 
