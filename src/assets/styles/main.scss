@@ -1,0 +1,71 @@
+// ====================================================================
+// MASTER STYLESHEET
+//
+//   Conventions
+// 
+//     - using SuitCSS naming
+//       https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
+//     - use a namespace prefix for all bem-like classes
+//
+//   Notes
+// 
+//     - keeping component's styles in a single file for now (KISS)
+//     - keeping styles out of SFCs, there are issues with `@apply`
+//
+//   Todo
+// 
+//     - lint via `postcss-bem-linter`
+//
+// ====================================================================
+
+body {
+  background: #000;
+  font-size: 12px;
+  line-height: 1.2em;
+  font-family: "Verdana", "Arial", sans-serif;
+  color: #afafaf;
+}
+
+// --------------------------------------------------------------------
+//
+// --------------------------------------------------------------------
+.rw-Main {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+// --------------------------------------------------------------------
+//
+// --------------------------------------------------------------------
+.rw-Table {
+  color: #afafaf;
+  font-size: 13px;
+
+  &-th {
+    background: #400000;
+    border-bottom: 1px solid #29291d;
+    padding: 0.25rem 0.5rem;
+  }
+
+  &-td {
+    padding: 4px 5px;
+    text-align: center;
+    border-bottom: solid #29291d;
+  }
+}
+
+// --------------------------------------------------------------------
+//
+// --------------------------------------------------------------------
+/** @define Rune */
+.rw-Rune {
+  @apply flex w-7 h-7 rounded-md mb-2;
+
+  background: #555555;
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+    background: red;
+    cursor: pointer;
+  }
+}

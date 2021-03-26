@@ -1,8 +1,22 @@
 import { createApp } from "vue";
-import App from "./App.vue";
+import vueApp from "./App.vue";
 
+// import our styles first
+import "./assets/styles/main.scss";
+
+// import tailwind utilities *after*
 import "windi.css";
 
-console.log('main.ts');
+console.log("main.ts");
 
-createApp(App).mount("#app");
+import runesData from "@/data/runes";
+
+const init = () => {
+  window.App = {
+    runesData,
+  };
+};
+
+init();
+
+createApp(vueApp).mount("#app");

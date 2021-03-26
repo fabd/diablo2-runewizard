@@ -1,27 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <main class="rw-Main p-4 flex">
+    <div class="w-200px">
+      <h2 class="text-xl text-gray-100 font-bold mb-4">Runes</h2>
+      <runes />
+    </div>
+    <div class="w">
+      <h2>Runewords</h2>
+      <runewords-table />
+    </div>
+  </main>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { defineComponent } from "vue";
+
+import Runes from "./components/Runes.vue";
+import RunewordsTable from "./components/RunewordsTable.vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-})
+    Runes,
+    RunewordsTable,
+  },
+  mounted() {
+    console.log("App() ", window.App.runesData);
+  },
+});
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss"></style>

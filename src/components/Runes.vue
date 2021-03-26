@@ -1,0 +1,46 @@
+<template>
+  <div class="flex justify-between w-150px">
+    <div v-for="(runesTier, i) in runesByTier" :key="i" class="w-50px">
+      <div v-for="rune in runesTier" :key="rune.label" class="rw-Rune">
+        <span class="mx-auto my-auto">{{ rune.label }}</span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { Rune, RuneTier } from "@/types";
+
+export default defineComponent({
+  name: "Runes",
+
+  data() {
+    return {
+      runesData: [] as Rune[],
+    };
+  },
+
+  computed: {
+    runes(): Rune[] {
+      return this.runesData;
+    },
+
+    runesByTier(): Rune[][] {
+      const tiers = [
+        this.runes.filter((rune) => rune.tier === RuneTier.COMMON),
+        this.runes.filter((rune) => rune.tier === RuneTier.SEMIRARE),
+        this.runes.filter((rune) => rune.tier === RuneTier.RARE),
+      ];
+
+      // console.log(tiers);
+
+      return tiers;
+    },
+  },
+
+  mounted() {
+    this.runesData = window.App.runesData;
+  },
+});
+</script>
