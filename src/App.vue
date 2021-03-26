@@ -29,7 +29,7 @@
   </div>
 
   <main class="rw-Main p-4 pl-8 flex max-w-[1000px] mb-[15rem]">
-    <div class="mr-8">
+    <div class="mr-16">
       <runes />
     </div>
     <div class="flex-1">

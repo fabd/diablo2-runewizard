@@ -114,9 +114,11 @@ object {
 
 // --------------------------------------------------------------------
 // <main>
+//   Base styles that should be scoped to the Runewizard, and not affect
+//   the rest of the page in case it's included in another site.
 // --------------------------------------------------------------------
 .rw-Main {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  @apply font-sans;
 }
 
 .rw-Title {
