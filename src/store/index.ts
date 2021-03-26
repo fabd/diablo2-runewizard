@@ -57,7 +57,6 @@ const store = {
   },
 
   reset() {
-    // console.log("store.reset()");
     this.clearRunes();
   },
 
@@ -88,7 +87,7 @@ const store = {
     try {
       storedData = JSON.stringify(userData);
     } catch (e) {
-      console.log("store.save() userData doesn't stringify()");
+      console.warn("store.save() userData doesn't stringify()");
     }
 
     this.storage.setItem(USERDATA_STORAGE_KEY, storedData);

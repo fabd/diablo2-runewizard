@@ -36,6 +36,7 @@ import { defineComponent } from "vue";
 import { RuneDef, RuneId, RuneTier } from "@/types";
 import IconCancel from "@/icons/IconCancel.vue";
 
+import runesData from "@/data/runes";
 import store from "@/store";
 
 export default defineComponent({
@@ -48,17 +49,13 @@ export default defineComponent({
   data() {
     return {
       haveRunes: store.state.haveRunes,
-      runesData: [] as RuneDef[],
+      runes: runesData,
     };
   },
 
   computed: {
     isAnyRuneSelected(): boolean {
       return store.getRunes().length > 0;
-    },
-
-    runes(): RuneDef[] {
-      return this.runesData;
     },
 
     runesByTier(): RuneDef[][] {
@@ -72,10 +69,6 @@ export default defineComponent({
 
       return tiers;
     },
-  },
-
-  mounted() {
-    this.runesData = window.App.runesData;
   },
 
   methods: {
