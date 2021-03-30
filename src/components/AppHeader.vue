@@ -16,10 +16,25 @@
           class="block w-full h-full"
         />
       </h1>
-      <span class="block text-lg text-[#afafaf]">
-        for <span class="text-[#d0d0d0] font-bold">{{ gameName }}</span>
-        <span class="ml-2 text-[#71B643]">{{ `v${gameVersion}` }}</span>
-      </span>
+      <div class="flex justify-between items-center text-lg text-[#afafaf]">
+        <div>
+          for <span class="text-[#d0d0d0] font-bold">{{ envGameName }}</span>
+          <span class="ml-2 text-[#71B643]">{{ `v${envGameVersion}` }}</span>
+        </div>
+
+        <div class="flex items-center text-[#514f4a] text-base">
+          <template v-if="envMainSiteUrl">
+            <a :href="envMainSiteUrl" class="rw-Header-link"
+              >Back to main site</a
+            >
+            <span class="mx-3">|</span>
+          </template>
+          <a :href="envGithubRepoUrl" class="rw-Header-link">
+            <icon-github class="ux-icon ux-icon--fw mr-1" />
+            <span class="hover:underline align-middle">Github</span>
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -30,13 +45,21 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import IconGithub from "@/icons/IconGithub.vue";
+
 export default defineComponent({
   name: "AppHeader",
 
+  components: {
+    IconGithub,
+  },
+
   data() {
     return {
-      gameName: import.meta.env.VITE_GAME_NAME as string,
-      gameVersion: import.meta.env.VITE_GAME_VERSION as string,
+      envGithubRepoUrl: import.meta.env.VITE_URL_GITHUB_REPO as string,
+      envMainSiteUrl: import.meta.env.VITE_URL_MAIN_SITE as string,
+      envGameName: import.meta.env.VITE_GAME_NAME as string,
+      envGameVersion: import.meta.env.VITE_GAME_VERSION as string,
     };
   },
 });

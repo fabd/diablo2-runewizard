@@ -118,6 +118,10 @@ object {
     background: url("../images/hr-gold.gif") repeat-x 0 100%;
     @apply h-[16px];
   }
+
+  &-link {
+    @apply text-[#BAB197] text-opacity-75 hover:text-opacity-95 hover:underline;
+  }
 }
 
 // --------------------------------------------------------------------
