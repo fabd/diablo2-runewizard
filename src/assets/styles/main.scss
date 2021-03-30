@@ -102,8 +102,16 @@ object {
 }
 
 // --------------------------------------------------------------------
-// a minimal layout to spice up a bit the standalone version of Runewizard
+// a minimal layout for the standalone version of Runewizard
 // --------------------------------------------------------------------
+
+// pretend component to group layout utils
+.rw-Layout {
+  &-rowContainer {
+    @apply max-w-[1000px] pl-8 pr-4;
+  }
+}
+
 .rw-Header {
   // separator texture between header & main content, stretches horizontally
   &-goldBar {

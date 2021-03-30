@@ -1,14 +1,14 @@
 <template>
   <!-- optional header to decorate the stand alone version -->
-  <header class="h-[106px] flex">
-    <div class="px-[20px] pt-[17px]">
+  <header class="rw-Layout-rowContainer h-[106px] flex">
+    <div class="pr-[20px] pt-[17px]">
       <img
         src="@/assets/images/logo-rune.png"
         alt="Rune icon original art (c) BLIZZARD ENTERTAINMENT"
         class="w-[69px] h-[67px]"
       />
     </div>
-    <div class="">
+    <div class="flex-1">
       <h1 class="text-black text-[0px] mt-[19px] mb-[5px] w-[301px] h-[32px]">
         <img
           src="@/assets/images/logo-text-runewizard.png"
