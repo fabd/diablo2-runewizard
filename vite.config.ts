@@ -8,10 +8,10 @@ import strip from "@rollup/plugin-strip";
 export default defineConfig({
   // ---------------------------------------------------------------------------
   // SOMEDAY/MAYBE
-  //   If we want to be able to drag-drop the index.html into a browser:
+  //   If we want a fully offline version (file:///path/to/index.html):
   //   - build with relative paths
-  //   - build js into a single chunk ...
-  //   - ... to avoid CORS inline the js chunk into the index.html
+  //   - disable code splitting for css & js (simplifies next step)
+  //   - to avoid CORS, inline the css & js files in the index.html
   // ---------------------------------------------------------------------------
   // base: "./",
 
