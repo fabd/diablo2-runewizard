@@ -115,7 +115,7 @@ object {
 .rw-Header {
   // separator texture between header & main content, stretches horizontally
   &-goldBar {
-    background: url("../images/hr-gold.gif") repeat-x 0 100%;
+    background: url("@assets/images/hr-gold.gif") repeat-x 0 100%;
     @apply h-[16px];
   }
 
@@ -272,7 +272,7 @@ object {
   // size is bound to the old ,gif sprite for now, TODO : use a SVG rune icon
   width: 34px;
   height: 34px;
-  background: url("../images/rune-bg2.gif") no-repeat 50% -34px;
+  background: url("@assets/images/rune-bg2.gif") no-repeat 50% -34px;
 
   color: #666;
   cursor: pointer;

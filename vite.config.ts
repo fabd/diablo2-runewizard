@@ -51,9 +51,17 @@ export default defineConfig({
     // ---------------------------------------------------------------------------
     // Set custom aliases for imports, see  https://vitejs.dev/config/#resolve-alias
     // ---------------------------------------------------------------------------
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "./src") },
+      {
+        find: "@assets",
+        replacement: path.resolve(__dirname, "./src/assets"),
+      },
+      {
+        find: "@styles",
+        replacement: path.resolve(__dirname, "./src/assets/styles"),
+      },
+    ],
   },
 
   plugins: [
