@@ -110,15 +110,14 @@ object {
   &-rowContainer {
     @apply max-w-[1000px] pl-8 pr-4;
   }
-}
 
-.rw-Header {
-  // separator texture between header & main content, stretches horizontally
-  &-goldBar {
+  &-goldBarSeparator {
     background: url("@assets/images/hr-gold.gif") repeat-x 0 100%;
     @apply h-[16px];
   }
+}
 
+.rw-Header {
   &-link {
     @apply text-[#BAB197] text-opacity-75 hover:text-opacity-95 hover:underline;
   }

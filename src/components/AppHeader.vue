@@ -40,7 +40,7 @@
     </div>
 
     <!-- separator between header and main content, div simply extends to edges -->
-    <div class="rw-Header-goldBar mb-2"></div>
+    <div class="rw-Layout-goldBarSeparator mb-2"></div>
   </header>
 </template>
 

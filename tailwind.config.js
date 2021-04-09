@@ -7,7 +7,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx,vue}",
   ],
 
-  theme: {},
+  theme: {
+    colors: {
+      gold: {
+        light: "#BAB197",
+        DEFAULT: "#8A8062",
+      },
+    },
+  },
+
   variants: {},
   plugins: [],
 };
