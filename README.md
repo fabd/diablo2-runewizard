@@ -56,13 +56,13 @@ npm run dev
 Vite will show in the console where to preview the website:
 
 ```bash
-  > Local:    http://localhost:8080/
+  > Local:    http://localhost:8080/diablo2-runewizard/
 ```
 
 Other scripts in `package.json`:
 
-- `test`: do a real world test with the built files in `dist/` folder (can be useful if you disable `minify` in vite.config.ts, to see the output css/js before minification)
-- `disable-warnings`: I don't like annoying warning messages about experimental features 😠 (one is related to `<script setup>` which is triggered by vite-plugin-md, another is from Tailwind about the new JIT mode)
+- **test** : combines `vite build` and `vite preview`, serves the site locally with the compiled assets in dist/ folder. Note that I configured the server port to be the same between dev & preview (:8080), that way I can just refresh the page and not have to change the URL.
+- **disable-warnings**: I don't like annoying warning messages about experimental features 😠 (one is related to `<script setup>` which is triggered by vite-plugin-md, another is from Tailwind about the new JIT mode)
 
 Linting should already happen within your IDE if it has eslint plugins/addons. Or use `npm run lint`.
 
