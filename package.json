@@ -5,14 +5,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview",
-    "test": "vite build && hs dist/",
+    "test": "vite build && vite preview --port 8080",
     "lint": "eslint './src/**/*.{js,ts,tsx,vue}'",
     "disable-warnings": "sed -i 's/\\s\\swarnExperimental/\\/\\/warnExperimental/g' node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js ; sed -i 's/\\s\\s_log\\.default\\.warn/\\/\\/DISABLED/g' node_modules/tailwindcss/lib/index.js"
   },
   "dependencies": {
     "esbuild": "^0.11.2",
-    "http-server": "^0.12.3",
     "vue": "^3.0.5"
   },
   "devDependencies": {

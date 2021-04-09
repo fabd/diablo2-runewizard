@@ -101,6 +101,9 @@ export default defineConfig({
     },
   ],
 
+  // ---------------------------------------------------------------------------
+  // Server port, is used by `vite` but not `vite preview` for whatever reason
+  // ---------------------------------------------------------------------------
   server: {
     port: 8080,
   },
