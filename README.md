@@ -74,9 +74,9 @@ Be aware that small images can be encoded inside the JS or CSS as base64 URLs. I
 
 Take special note of [Public Base Path](https://vitejs.dev/guide/build.html#public-base-path) configuration if your images aren't showing (cf. `base` in `vite.config.ts`).
 
-## Build for use offline
+## Build for use offline (without development environment)
 
-Sadly we can not simply drag-and-drop the **index.html** file into a browser. The browser will issue [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors, and refuse to load both Javascript and Css files.
+Sadly we can not simply drag-and-drop the **index.html** file (from the dist/ folder) into a browser. The browser will issue [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors, and refuse to load both Javascript and Css files.
 
 Follow these steps to make it work offline:
 
