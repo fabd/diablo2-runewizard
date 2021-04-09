@@ -13,7 +13,7 @@ export default defineConfig({
   //   - disable code splitting for css & js (simplifies next step)
   //   - to avoid CORS, inline the css & js files in the index.html
   // ---------------------------------------------------------------------------
-  // base: "./",
+  base: "/diablo2-runewizard/",
 
   build: {
     // ---------------------------------------------------------------------------
