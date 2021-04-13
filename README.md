@@ -15,31 +15,23 @@ Live site **[fabd.github.io/diablo2-runewizard](https://fabd.github.io/diablo2-r
 
 Runewizard can be traced as far back as 2003, when I started writing a mini fan site for Diablo II LoD called _The Tankazon Resource_. In 2014, I restored the site from old backups and hosted it on Github through my [diablo2](https://github.com/fabd/diablo2) repository.
 
-Up until March 2021, Runewizard was included in this diablo2 repo, as part of a Jekyll site. So it came with a lot of unrelated content. It was also written in vanilla JS which is simpler in some ways, but also more difficult to maintain.
+Up until March 2021, Runewizard was included in this diablo2 repo, as part of a Jekyll site. It was also written in vanilla JS which is simpler in some ways, but also more difficult to maintain.
 
-Recently I became aware of at least two modified versions for popular mods _Path of Diablo_ and _Project Diablo 2_. This, along with the annoucement of _Diablo II Resurrected_, motivated me to do a full rewrite using modern Javascript. 😈
+With the annoucement of _Diablo II Resurrected_, I was motivated to do a full rewrite using modern Javascript. The refactor uses: Vite, Vue3, TypeScript and TailwindCSS/JIT. 🔥🔥🔥
 
-## Features
-
-🩸 **This is a new version of Runewizard rewritten from scratch** using Vite, Vue3, TypeScript and TailwindCSS/JIT.
-
-🩸 **Easy to modify** : for Diablo II mods, just update the _runes_ & _runewords_ data files.
-
-🩸 This **standalone version** features a custom header. It can be turned off for eg. including in an existing layout.
-
-🩸 It can also run completely offline with a little extra work (instructions below)
+Runewizard is now hosted and deployed from this new repository. It will be easier to update and maintain should any new patches happen to Diablo II... 😈
 
 ## Changelog
 
-See [Releases](https://github.com/fabd/diablo2-runewizard/releases) tab. I'll try to document meaningful user-facing updates there.
+See **[Releases](https://github.com/fabd/diablo2-runewizard/releases)** tab for meaningful user-facing updates. Other changes are documented in the commits.
 
 ## Feedback
 
-Please report any bugs or incorrect information in the [Issues](https://github.com/fabd/diablo2-runewizard/issues) tab. Other feedback & suggestions is welcome too. If I like an idea maybe I will work on it. If you need help with a fork (eg. for a Diablo II mod), don't hesitate to ask in the Issues tab and I can try to help you set it up. `fabd#3839` on discord.
+Please report **any bugs or incorrect information** in the **[Issues](https://github.com/fabd/diablo2-runewizard/issues)** tab. Other general feedback is welcome too. If I like an idea, maybe I'll work on it.
 
-Contributions & PRs: keep in mind this is a fun little side project for me to experiment with tech like Vite and Tailwind/JIT. I'd love to learn some new tricks, but if you have substantial changes, it's probably best to let me know in advance so I can tell you if I am interested.
+If you need help to modify Runewizard for a Diablo II mod, feel free to ask in the Issues tab and I'll try to help you set it up. Let me know about your fork! I may post a link here and/or in the Runewizard footer.
 
-If you do something cool in a fork, let me know! I'd love to check it out and if there are changes I like, I might pull them back into this repo. Also if you modified Runewizard for a Diablo II mod, let me know and I may add a link in the footer.
+Pull requests: in general PRs for small fixes/typos are welcome. For substantial changes, it's probably best to let me know in advance so I can tell you if I am interested.
 
 # Getting started
 
@@ -58,13 +50,6 @@ Vite will show in the console where to preview the website:
 ```bash
   > Local:    http://localhost:8080/diablo2-runewizard/
 ```
-
-Other scripts in `package.json`:
-
-- **test** : combines `vite build` and `vite preview`, serves the site locally with the compiled assets in dist/ folder. Note that I configured the server port to be the same between dev & preview (:8080), that way I can just refresh the page and not have to change the URL.
-- **disable-warnings**: I don't like annoying warning messages about experimental features 😠 (one is related to `<script setup>` which is triggered by vite-plugin-md, another is from Tailwind about the new JIT mode)
-
-Linting should already happen within your IDE if it has eslint plugins/addons. Or use `npm run lint`.
 
 ## Build to host online (eg. a Diablo II mod site)
 
@@ -123,27 +108,11 @@ git fetch upstream
 git branch --set-upstream-to=upstream/main main
 ```
 
-## Recommended IDE
-
-[VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). See also the original [README](https://github.com/vitejs/vite/tree/main/packages/create-app/template-vue-ts) from the vue+ts app scaffolding.
-
-Other VSCode extensions:
-
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) should pick up the `.eslintrc.js` file and provide linting in the IDE
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) will use the included `.prettierrc.js` for consistent formatting
-- [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) should pickup the `stylelint.config.js` and provide linting in the IDE
-
 ## Notes on the repo & file structure
 
-## Optional header
+## Customizing the header
 
-Since the old Runewizard was included in my [diablo2 mini site](https://github.com/fabd/diablo2) as part of an existing layout, it didn't have its own header. I added a very simple header to be shown for the new Runewizard as it is hosted from this repo with Github Pages. In my header, there is a link that takes the user back to my diablo2 mini site (which you can also turn off in the .env file).
-
-### .env files
-
-I've designed the header so it's possible to customize it with just a few edits in the `.env` file. See the comments in the file.
-
-Note that you can also override these settings with a `.env.local` file (see [.env files](https://vitejs.dev/guide/env-and-mode.html#env-files) in Vite guide). This local env file is useful if you need to store a private key of some sort.
+The game version as well as links in the header can be configured in the `.env` file. It can also be turned off, for eg. including in an existing layout.
 
 ### Stylesheets (css, scss)
 
@@ -160,19 +129,6 @@ Either way it is a known limitation that if the user clears "Cookie & other site
 ### SVG icons
 
 The icons come from [icones.js](https://icones.js.org/collection/fa-solid). Click "Components > Vue" in the bottom bar of that site to get the code for an icon. Could use [vite-plugin-icons](https://github.com/antfu/vite-plugin-icons) instead.
-
-# Todos & ideas
-
-Features:
-
-- [ ] "Wanted" list : ability to pin runewords to the top of the list, whether they are completed or not. Useful to keep track of required runes, and for planned builds.
-- [ ] Character tabs : could be useful if playing several solo self-found (ssf) characters, in which case you might want to keep track of runes in separate individual stashes
-- [ ] Required Level : could be displayed in the Runeword popup
-- [ ] Runes popup : could be very handy to display the Rune upgrade formulae and any other related formulae such as crafted items (this is a lot of work, and also for a Diablo II mod a lot more data to keep updated... unless you have a script of some sort to parse the data files and generate source for Runewizard)
-
-# Contact
-
-Feel free to leave a message in the [Issues](https://github.com/fabd/diablo2-runewizard/issues) tab. `fabd#3839` on discord (not sure how this works).
 
 # Thanks
 
