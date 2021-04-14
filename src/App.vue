@@ -6,7 +6,7 @@
       <runes />
     </div>
     <div class="flex-1">
-      <runewords-table />
+      <runewords />
     </div>
   </main>
 
@@ -19,7 +19,7 @@ import { defineComponent } from "vue";
 import AppHeader from "@/components/AppHeader.vue";
 import AppFooter from "@/components/AppFooter.vue";
 import Runes from "@/components/Runes.vue";
-import RunewordsTable from "@/components/RunewordsTable.vue";
+import Runewords from "@/components/Runewords.vue";
 
 export default defineComponent({
   name: "App",
@@ -28,7 +28,7 @@ export default defineComponent({
     AppHeader,
     AppFooter,
     Runes,
-    RunewordsTable,
+    Runewords,
   },
 
   computed: {

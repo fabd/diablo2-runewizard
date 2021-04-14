@@ -1,30 +1,4 @@
 <template>
-  <div class="flex justify-between items-center mb-2">
-    <h2 class="rw-Title-h2 mb-0"
-      >Runewords<span v-if="availableCount">
-        ({{ availableCount }} available)</span
-      ></h2
-    >
-
-    <a
-      href="#"
-      class="rw-Help-link"
-      @click.prevent="isHelpVisible = !isHelpVisible"
-      >{{ "Help"
-      }}<icon-chevron-down
-        class="ux-icon ux-icon--fw ml-1"
-        :class="{
-          'transform rotate-180': isHelpVisible,
-        }"
-    /></a>
-  </div>
-
-  <transition name="fadein">
-    <div v-if="isHelpVisible">
-      <help-box />
-    </div>
-  </transition>
-
   <runeword-popup ref="popup" />
 
   <table class="rw-Table w-full">
@@ -57,15 +31,20 @@
         class="rw-Table-tr"
         :class="cssCompleteRuneword(item)"
       >
-        <td class="rw-Table-td rw-Table-tdTitle p-0 text-left"
-          ><span
+        <td class="rw-Table-td rw-Table-tdTitle p-0 text-left relative">
+          <span
             class="rw-Table-tdTitleSpan cursor-pointer"
             @mouseenter="onEnterRuneword($event, item)"
             @mouseleave="onLeaveRuneword()"
             @click="onEnterRuneword($event, item)"
             >{{ item.title }}</span
-          ><span v-if="item.ladder" class="rw-Md-ladder">L</span></td
-        >
+          ><span v-if="item.ladder" class="rw-Md-ladder">L</span>
+          <span
+            class="absolute right-1 top-1/2 -mt-2 bottom-0 bg-[#444] w-4 h-4 hover:text-[#fff] cursor-pointer"
+          >
+            ...
+          </span>
+        </td>
         <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">{{
           item.runes[0]
         }}</td>
@@ -97,10 +76,8 @@
 <script>
 import { defineComponent } from "vue";
 
-import HelpBox from "@/components/HelpBox.vue";
 import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
-import IconChevronDown from "@/icons/IconChevronDown.vue";
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
 import runewordsData from "@/data/runewords";
@@ -117,6 +94,14 @@ export default defineComponent({
     IconArrowUp,
     IconChevronDown,
     RunewordPopup,
+  },
+
+  props: {
+    items: {
+      /** @type {PropType<Runeword[]>} */
+      type: Array,
+      required: true,
+    },
   },
 
   data() {
@@ -138,18 +123,16 @@ export default defineComponent({
         { key: "ttype", label: "Type" },
         { key: "level", label: "Level" },
       ],
-
-      isHelpVisible: false,
     };
   },
 
   computed: {
     /** @return {number} */
-    availableCount() {
-      let count = 0;
-      this.runewordIsComplete.forEach((isComplete) => isComplete && count++);
-      return count;
-    },
+    // availableCount() {
+    //   let count = 0;
+    //   this.runewordIsComplete.forEach((isComplete) => isComplete && count++);
+    //   return count;
+    //},
 
     /** @return {Map<string, boolean>} */
     runewordIsComplete() {
@@ -158,7 +141,7 @@ export default defineComponent({
       /** @type {Map<string, boolean>} */
       const map = new Map();
 
-      runewordsData.forEach((runeword) => {
+      this.items.forEach((runeword) => {
         map.set(
           runeword.title,
           runeword.runes.every((runeId) => this.haveRunes[runeId])
@@ -166,11 +149,6 @@ export default defineComponent({
       });
 
       return map;
-    },
-
-    /** @return {Runeword[]} */
-    items() {
-      return runewordsData;
     },
 
     /** @return {Runeword[]} */
