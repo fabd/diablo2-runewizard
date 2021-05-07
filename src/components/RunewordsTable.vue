@@ -62,6 +62,7 @@
             class="rw-Table-tdTitleSpan cursor-pointer"
             @mouseenter="onEnterRuneword($event, item)"
             @mouseleave="onLeaveRuneword()"
+            @click="onEnterRuneword($event, item)"
             >{{ item.title }}</span
           ><span v-if="item.ladder" class="rw-Md-ladder">L</span></td
         >
