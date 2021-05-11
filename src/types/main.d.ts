@@ -62,3 +62,7 @@ type Runeword = {
 type RunewordMeta = {
   [runewordId: string]: string;
 };
+
+type RunewordItem = Runeword & {
+  isPinned: boolean;
+}

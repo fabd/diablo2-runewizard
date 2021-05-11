@@ -31,7 +31,9 @@
         class="rw-Table-tr"
         :class="cssCompleteRuneword(item)"
       >
-        <td class="rw-Table-td rw-Table-tdTitle p-0 text-left relative">
+        <td
+          class="rw-Table-td rw-Table-tdTitle p-0 text-left relative min-w-[10em]"
+        >
           <span
             class="rw-Table-tdTitleSpan cursor-pointer"
             @mouseenter="onEnterRuneword($event, item)"
@@ -41,6 +43,7 @@
           ><span v-if="item.ladder" class="rw-Md-ladder">L</span>
           <span
             class="absolute right-1 top-1/2 -mt-2 bottom-0 bg-[#444] w-4 h-4 hover:text-[#fff] cursor-pointer"
+            @click="item.isPinned = !item.isPinned"
           >
             ...
           </span>
@@ -64,7 +67,7 @@
           item.runes[5]
         }}</td>
         <td
-          class="rw-Table-td rw-Table-tdType"
+          class="rw-Table-td rw-Table-tdType min-w-[10em]"
           v-html="formatType(item.ttype)"
         ></td>
         <td class="rw-Table-td">{{ item.level }}</td>
@@ -80,7 +83,6 @@ import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
-import runewordsData from "@/data/runewords";
 import store from "@/store";
 
 /** @typedef {TVueInstanceOf<RunewordPopup>} TRunewordPopup */
@@ -89,16 +91,14 @@ export default defineComponent({
   name: "RunewordsTable",
 
   components: {
-    HelpBox,
     IconArrowDown,
     IconArrowUp,
-    IconChevronDown,
     RunewordPopup,
   },
 
   props: {
     items: {
-      /** @type {PropType<Runeword[]>} */
+      /** @type {import("vue").PropType<RunewordItem[]>} */
       type: Array,
       required: true,
     },
@@ -151,7 +151,7 @@ export default defineComponent({
       return map;
     },
 
-    /** @return {Runeword[]} */
+    /** @return {RunewordItem[]} */
     itemsBySort() {
       const list = this.items.slice();
 
