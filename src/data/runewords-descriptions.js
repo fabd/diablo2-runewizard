@@ -1,6 +1,5 @@
-import { RunewordMeta } from "@/types";
-
-const runewordsDesc: RunewordMeta = {
+/** @type {RunewordMeta} */
+const runewordsDesc = {
   "Ancient's Pledge": `
   +50% Enhanced Defense
   Cold Resist +43%
@@ -1028,6 +1027,6 @@ const runewordsDesc: RunewordMeta = {
   Cold Resist +30%
   50% Extra Gold From Monsters
   `,
-} as const;
+};
 
 export default runewordsDesc;

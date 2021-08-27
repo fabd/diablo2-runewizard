@@ -14,9 +14,8 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
-import { Runeword } from "@/types";
 import runewordsMetaData from "@/data/runewords-descriptions";
 
 export default defineComponent({
@@ -26,18 +25,21 @@ export default defineComponent({
     return {
       isVisible: false,
 
-      position: { x: 0, y: 0 } as { x: number; y: number },
+      /** @type { { x: number; y: number }} */
+      position: { x: 0, y: 0 },
 
+      /** @type {Pick<Runeword, "title" | "ttype" | "level">} */
       runeword: {
         title: "",
         ttype: "",
         level: 0,
-      } as Pick<Runeword, "title" | "ttype" | "level">,
+      },
     };
   },
 
   computed: {
-    formatBody(): string {
+    /** @returns {string} */
+    formatBody() {
       const runewordId = this.runeword.title;
       let text =
         (runewordId && runewordsMetaData[runewordId]) ||
@@ -57,23 +59,30 @@ export default defineComponent({
   },
 
   methods: {
-    unitPx(n: number) {
+    /** @param {number} n */
+    unitPx(n) {
       return `${n}px`;
     },
 
-    moveTo(x: number, y: number) {
+    /**
+     * @param {number} x
+     * @param {number} y
+     */
+    moveTo(x, y) {
       this.position = { x, y };
 
       return this; // chaining
     },
 
-    setContents(runeword: Runeword) {
+    /** @param {Runeword} runeword  */
+    setContents(runeword) {
       this.runeword = runeword;
 
       return this; // chaining
     },
 
-    setVisible(value: boolean) {
+    /** @param {boolean} value */
+    setVisible(value) {
       this.isVisible = value;
 
       return this; // chaining

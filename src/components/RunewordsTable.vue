@@ -94,7 +94,7 @@
   </table>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
 import HelpBox from "@/components/HelpBox.vue";
@@ -104,8 +104,9 @@ import IconChevronDown from "@/icons/IconChevronDown.vue";
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
 import runewordsData from "@/data/runewords";
-import { RuneId, Runeword } from "@/types";
 import store from "@/store";
+
+/** @typedef {TVueInstanceOf<RunewordPopup>} TRunewordPopup */
 
 export default defineComponent({
   name: "RunewordsTable",
@@ -143,16 +144,19 @@ export default defineComponent({
   },
 
   computed: {
-    availableCount(): number {
+    /** @return {number} */
+    availableCount() {
       let count = 0;
       this.runewordIsComplete.forEach((isComplete) => isComplete && count++);
       return count;
     },
 
-    runewordIsComplete(): Map<string, boolean> {
+    /** @return {Map<string, boolean>} */
+    runewordIsComplete() {
       // console.log("*** runewordIsComplete()");
 
-      const map: Map<string, boolean> = new Map();
+      /** @type {Map<string, boolean>} */
+      const map = new Map();
 
       runewordsData.forEach((runeword) => {
         map.set(
@@ -164,22 +168,26 @@ export default defineComponent({
       return map;
     },
 
-    items(): Runeword[] {
+    /** @return {Runeword[]} */
+    items() {
       return runewordsData;
     },
 
-    itemsBySort(): Runeword[] {
+    /** @return {Runeword[]} */
+    itemsBySort() {
       const list = this.items.slice();
-      let compareFn: { (a: Runeword, b: Runeword): number } | undefined;
+
+      /** @type {{(a: Runeword, b: Runeword): number} | undefined} */
+      let compareFn;
 
       if (this.sortKey === "title") {
-        compareFn = ({ title: a }: Runeword, { title: b }: Runeword) =>
+        compareFn = ({ title: a }, { title: b }) =>
           a === b ? 0 : a > b ? 1 : -1;
       } else if (this.sortKey === "level") {
-        compareFn = ({ level: a }: Runeword, { level: b }: Runeword) =>
+        compareFn = ({ level: a }, { level: b }) =>
           a === b ? 0 : a > b ? 1 : -1;
       } else if (this.sortKey === "ttype") {
-        compareFn = ({ ttype: a }: Runeword, { ttype: b }: Runeword) =>
+        compareFn = ({ ttype: a }, { ttype: b }) =>
           a === b ? 0 : a > b ? 1 : -1;
       } else if (/rune(\d)/.test(this.sortKey)) {
         const runeNr = parseInt(RegExp.$1);
@@ -205,38 +213,51 @@ export default defineComponent({
       return list2;
     },
 
-    refPopup(): typeof RunewordPopup {
-      return this.$refs.popup as typeof RunewordPopup;
+    /** @return {TRunewordPopup} */
+    refPopup() {
+      return /** @type {TRunewordPopup} */ (this.$refs.popup);
     },
   },
 
   methods: {
-    cssActiveRune(runeId: RuneId) {
+    /** @param {RuneId} runeId */
+    cssActiveRune(runeId) {
       return this.haveRunes[runeId] ? "is-active" : "";
     },
 
-    cssCompleteRuneword(word: Runeword) {
+    /** @param {Runeword} word */
+    cssCompleteRuneword(word) {
       return this.runewordIsComplete.get(word.title) ? "is-complete" : "";
     },
 
-    formatType(text: string) {
+    /** @param {string} text */
+    formatType(text) {
       // could do additional formatting here
       return text;
     },
 
-    isSortKey(key: string) {
+    /** @param {string} key */
+    isSortKey(key) {
       return key === this.sortKey;
     },
 
-    onEnterRuneword(ev: Event, runeword: Runeword) {
+    /**
+     * @param {Event} ev
+     * @param {Runeword} runeword
+     */
+    onEnterRuneword(ev, runeword) {
       // paranoia
       if (!ev.target) return;
 
-      let { x, y } = (ev.target as Element).getBoundingClientRect();
+      let { x, y } = /**@type{Element}*/ (ev.target).getBoundingClientRect();
 
       // don't overlap the mouseover area, avoids flickering & simplifies code
       x = x + 50;
-      y = y + window.pageYOffset + (ev.target as HTMLElement).offsetHeight + 4;
+      y =
+        y +
+        window.pageYOffset +
+        /**@type{HTMLElement}*/ (ev.target).offsetHeight +
+        4;
 
       this.refPopup.setContents(runeword).moveTo(x, y).setVisible(true);
     },
@@ -245,7 +266,8 @@ export default defineComponent({
       this.refPopup.setVisible(false);
     },
 
-    onSortBy(key: string) {
+    /** @param {string} key */
+    onSortBy(key) {
       this.sortAsc = this.sortKey === key ? !this.sortAsc : true;
       this.sortKey = key;
     },

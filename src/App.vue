@@ -16,10 +16,10 @@
 <script>
 import { defineComponent } from "vue";
 
-import AppHeader from "./components/AppHeader.vue";
-import AppFooter from "./components/AppFooter.vue";
-import Runes from "./components/Runes.vue";
-import RunewordsTable from "./components/RunewordsTable.vue";
+import AppHeader from "@/components/AppHeader.vue";
+import AppFooter from "@/components/AppFooter.vue";
+import Runes from "@/components/Runes.vue";
+import RunewordsTable from "@/components/RunewordsTable.vue";
 
 export default defineComponent({
   name: "App",
