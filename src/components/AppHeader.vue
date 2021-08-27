@@ -44,7 +44,7 @@
   </header>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
 import IconGithub from "@/icons/IconGithub.vue";
@@ -58,10 +58,10 @@ export default defineComponent({
 
   data() {
     return {
-      envGithubRepoUrl: import.meta.env.VITE_URL_GITHUB_REPO as string,
-      envMainSiteUrl: import.meta.env.VITE_URL_MAIN_SITE as string,
-      envGameName: import.meta.env.VITE_GAME_NAME as string,
-      envGameVersion: import.meta.env.VITE_GAME_VERSION as string,
+      envGithubRepoUrl: import.meta.env.VITE_URL_GITHUB_REPO,
+      envMainSiteUrl: import.meta.env.VITE_URL_MAIN_SITE,
+      envGameName: import.meta.env.VITE_GAME_NAME,
+      envGameVersion: import.meta.env.VITE_GAME_VERSION,
     };
   },
 });

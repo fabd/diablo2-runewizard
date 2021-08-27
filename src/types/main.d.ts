@@ -1,4 +1,17 @@
-export type RuneId =
+/* eslint-disable no-unused-vars */
+
+// helper to create a union of possible values in our enums
+type Values<T> = T[keyof T];
+
+type EnumRuneTier = {
+  COMMON: 1;
+  SEMIRARE: 2;
+  RARE: 3;
+};
+
+type RuneTier = Values<EnumRuneTier>;
+
+type RuneId =
   | "El"
   | "Eld"
   | "Tir"
@@ -33,20 +46,11 @@ export type RuneId =
   | "Cham"
   | "Zod";
 
-export type RuneDef = {
-  name: RuneId;
-  tier: RuneTier;
-};
+type RuneDef = { name: RuneId; tier: RuneTier };
 
-export enum RuneTier {
-  COMMON = 1,
-  SEMIRARE,
-  RARE,
-}
+type RunewordId = string;
 
-export type RunewordId = string;
-
-export type Runeword = {
+type Runeword = {
   title: RunewordId;
   runes: RuneId[];
   level: number;
@@ -55,6 +59,6 @@ export type Runeword = {
   tclass?: string;
 };
 
-export type RunewordMeta = {
+type RunewordMeta = {
   [runewordId: string]: string;
 };

@@ -84,7 +84,7 @@ export default defineConfig({
     // ---------------------------------------------------------------------------
     {
       ...eslint({
-        include: "./src/**/*.(vue|js|jsx|ts|tsx)",
+        include: "./src/**/*.(vue|js)",
       }),
       enforce: "pre",
       apply: "build",
@@ -96,7 +96,7 @@ export default defineConfig({
     //   https://github.com/rollup/plugins/tree/master/packages/strip
     // ---------------------------------------------------------------------------
     {
-      ...strip({ include: "./src/**/*.(js|ts)" }),
+      ...strip({ include: "./src/**/*.(js)" }),
       apply: "build",
     },
   ],

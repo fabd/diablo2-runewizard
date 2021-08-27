@@ -31,11 +31,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
-import { RuneDef, RuneId, RuneTier } from "@/types";
 import IconCancel from "@/icons/IconCancel.vue";
 
+import { EnumRuneTier } from "@/data/runes";
 import runesData from "@/data/runes";
 import store from "@/store";
 
@@ -54,15 +54,17 @@ export default defineComponent({
   },
 
   computed: {
-    isAnyRuneSelected(): boolean {
+    /** @returns {boolean}  */
+    isAnyRuneSelected() {
       return store.getRunes().length > 0;
     },
 
-    runesByTier(): RuneDef[][] {
+    /** @return {RuneDef[][]} */
+    runesByTier() {
       const tiers = [
-        this.runes.filter((rune) => rune.tier === RuneTier.COMMON),
-        this.runes.filter((rune) => rune.tier === RuneTier.SEMIRARE),
-        this.runes.filter((rune) => rune.tier === RuneTier.RARE),
+        this.runes.filter((rune) => rune.tier === EnumRuneTier.COMMON),
+        this.runes.filter((rune) => rune.tier === EnumRuneTier.SEMIRARE),
+        this.runes.filter((rune) => rune.tier === EnumRuneTier.RARE),
       ];
 
       // console.log(tiers);
@@ -77,7 +79,8 @@ export default defineComponent({
       store.saveState();
     },
 
-    onToggleRune(runeId: RuneId) {
+    /** @param {RuneId} runeId */
+    onToggleRune(runeId) {
       const state = store.hasRune(runeId);
 
       store.setRunes([runeId], !state);

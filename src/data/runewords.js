@@ -1,6 +1,5 @@
-import { Runeword } from "@/types";
-
-const runewords: Runeword[] = [
+/** @type {Runeword[]} */
+const runewords = [
   /* 1.09 */
   {
     title: "Ancient's Pledge",
@@ -42,7 +41,7 @@ const runewords: Runeword[] = [
     title: "Leaf",
     runes: ["Tir", "Ral"],
     level: 19,
-    ttype: 'Staves<em>(Not Orbs/Wands)</em>',
+    ttype: "Staves<em>(Not Orbs/Wands)</em>",
   },
   {
     title: "Lionheart",
@@ -67,7 +66,7 @@ const runewords: Runeword[] = [
     title: "Memory",
     runes: ["Lum", "Io", "Sol", "Eth"],
     level: 37,
-    ttype: 'Staves<em>(Not Orbs)</em>',
+    ttype: "Staves<em>(Not Orbs)</em>",
   },
   { title: "Nadir", runes: ["Nef", "Tir"], level: 13, ttype: "Helms" },
   {
@@ -398,49 +397,49 @@ const runewords: Runeword[] = [
     title: "Bone",
     runes: ["Sol", "Um", "Um"],
     level: 47,
-    ttype: 'Body Armor<em>(Necromancer)</em>',
+    ttype: "Body Armor<em>(Necromancer)</em>",
     tclass: "Necromancer",
   },
   {
     title: "Enlightenment",
     runes: ["Pul", "Ral", "Sol"],
     level: 45,
-    ttype: 'Body Armor<em>(Sorceress)</em>',
+    ttype: "Body Armor<em>(Sorceress)</em>",
     tclass: "Sorceress",
   },
   {
     title: "Myth",
     runes: ["Hel", "Amn", "Nef"],
     level: 25,
-    ttype: 'Body Armor<em>(Barbarian)</em>',
+    ttype: "Body Armor<em>(Barbarian)</em>",
     tclass: "Barbarian",
   },
   {
     title: "Peace",
     runes: ["Shael", "Thul", "Amn"],
     level: 29,
-    ttype: 'Body Armor<em>(Amazon)</em>',
+    ttype: "Body Armor<em>(Amazon)</em>",
     tclass: "Amazon",
   },
   {
     title: "Principle",
     runes: ["Ral", "Gul", "Eld"],
     level: 53,
-    ttype: 'Body Armor<em>(Paladin)</em>',
+    ttype: "Body Armor<em>(Paladin)</em>",
     tclass: "Paladin",
   },
   {
     title: "Rain",
     runes: ["Ort", "Mal", "Ith"],
     level: 49,
-    ttype: 'Body Armor<em>(Druid)</em>',
+    ttype: "Body Armor<em>(Druid)</em>",
     tclass: "Druid",
   },
   {
     title: "Treachery",
     runes: ["Shael", "Thul", "Lem"],
     level: 43,
-    ttype: 'Body Armor<em>(Assassin)</em>',
+    ttype: "Body Armor<em>(Assassin)</em>",
     tclass: "Assassin",
   },
 ];

@@ -3,25 +3,22 @@
 // - persist user data in local storage
 
 import { reactive } from "vue";
-import { RuneId } from "@/types";
 import { runesIds } from "@/data/runes";
 
 const USERDATA_STORAGE_KEY = "runewizard";
 
-type TStore = {
-  haveRunes: { [key in RuneId]?: boolean };
-};
-
-type TUserData = {
-  selectedRunes: RuneId[];
-};
+/** @typedef {{haveRunes: {[key in RuneId]?: boolean}}} TStore */
+/** @typedef {{selectedRunes: RuneId[]}} TUserData */
 
 const store = {
-  state: reactive({
-    haveRunes: [],
-  }) as TStore,
+  state: reactive(
+    /** @type {TStore} */ ({
+      haveRunes: [],
+    })
+  ),
 
-  storage: null as Storage | null,
+  /** @type {Storage?} */
+  storage: null,
 
   initialize() {
     this.storage = window.localStorage;
@@ -32,11 +29,17 @@ const store = {
     this.setRunes(runesIds(), false);
   },
 
-  // returns an array of selected rune ids
+  /**
+   * returns an array of selected rune ids
+   * @returns {RuneId[]}
+   */
   getRunes() {
-    const runesIds: RuneId[] = [];
+    /** @type {RuneId[]} */
+    const runesIds = [];
 
-    for (const runeId of Object.keys(this.state.haveRunes) as RuneId[]) {
+    for (const runeId of /** @type {RuneId[]}*/ (Object.keys(
+      this.state.haveRunes
+    ))) {
       if (this.state.haveRunes[runeId]) {
         runesIds.push(runeId);
       }
@@ -45,14 +48,22 @@ const store = {
     return runesIds;
   },
 
-  // sets selected runes from an array of rune ids
-  setRunes(runes: RuneId[], state = true) {
+  /**
+   * sets selected runes from an array of rune ids
+   * @param {RuneId[]} runes
+   * @param {boolean} state
+   */
+  setRunes(runes, state = true) {
     for (const runeId of runes) {
       this.state.haveRunes[runeId] = state;
     }
   },
 
-  hasRune(runeId: RuneId): boolean {
+  /**
+   * @param {RuneId} runeId
+   * @returns {boolean}
+   */
+  hasRune(runeId) {
     return this.state.haveRunes[runeId] || false;
   },
 
@@ -68,7 +79,7 @@ const store = {
     const storedData = this.storage.getItem(USERDATA_STORAGE_KEY);
     if (!storedData) return;
 
-    const userData: TUserData = JSON.parse(storedData);
+    const userData = /** @type {TUserData} */ (JSON.parse(storedData));
 
     this.setRunes(userData.selectedRunes);
   },
@@ -80,9 +91,9 @@ const store = {
 
     if (!this.storage) return;
 
-    const userData: TUserData = {
+    const userData = /** @type {TUserData} */ ({
       selectedRunes: this.getRunes(),
-    };
+    });
 
     try {
       storedData = JSON.stringify(userData);

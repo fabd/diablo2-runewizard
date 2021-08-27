@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
+    "noEmit": true,
+    ///////////////////////////////////////////////////////////////////
+    // setup for JS + JSDoc + TS types
+    ///////////////////////////////////////////////////////////////////
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
     ///////////////////////////////////////////////////////////////////
     // set by @vitejs/app (vue-ts)
     ///////////////////////////////////////////////////////////////////
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -26,22 +32,23 @@
     "importHelpers": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "baseUrl": ".",
     // also see `resolve.alias` in vite.config.js
     "paths": {
       "@/*": [
         "src/*"
       ],
+      "@ts/*": [
+        "src/types/*"
+      ]
     },
   },
   ///////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.js",
+    "src/**/*.vue",
+    "src/types/**/*.d.ts",
   ],
   ///////////////////////////////////////////////////////////////////
   // exclude folders for IntelliSense performance, exclude build files
