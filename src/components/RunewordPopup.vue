@@ -28,10 +28,10 @@ export default defineComponent({
       /** @type { { x: number; y: number }} */
       position: { x: 0, y: 0 },
 
-      /** @type {Pick<Runeword, "title" | "ttype" | "level">} */
+      /** @type {Pick<Runeword, "title" | "ttypes" | "level">} */
       runeword: {
         title: "",
-        ttype: "",
+        ttypes: [],
         level: 0,
       },
     };

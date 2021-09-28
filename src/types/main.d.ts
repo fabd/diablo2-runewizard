@@ -44,7 +44,8 @@ type RuneId =
   | "Ber"
   | "Jah"
   | "Cham"
-  | "Zod";
+  | "Zod"
+	;
 
 type RuneDef = { name: RuneId; tier: RuneTier };
 
@@ -54,9 +55,9 @@ type Runeword = {
   title: RunewordId;
   runes: RuneId[];
   level: number;
-  ttype: string;
+  ttypes: TypeId[];
   ladder?: boolean;
-  tclass?: string;
+  tinfos?: string;
 };
 
 type RunewordMeta = {
