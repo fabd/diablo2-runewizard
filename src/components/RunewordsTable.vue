@@ -242,7 +242,6 @@ export default defineComponent({
 			}).join('/');
 			if (word.tinfos)
 				cellHtml += `<br><em>${word.tinfos}</em>`;
-			console.log(cellHtml);
 			return cellHtml;
     },
 
