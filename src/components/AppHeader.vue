@@ -17,9 +17,9 @@
             class="block w-full h-full"
           />
         </h1>
-        <div class="flex justify-between items-center text-lg text-[#afafaf]">
+        <div class="flex justify-between items-center text-lg text-[#b5b2b0]">
           <div>
-            for <span class="text-[#d0d0d0] font-bold">{{ envGameName }}</span>
+            for <span class="text-[#b5b2b0] font-bold">{{ envGameName }}</span>
             <span class="ml-2 text-[#71B643]">{{ `v${envGameVersion}` }}</span>
           </div>
 

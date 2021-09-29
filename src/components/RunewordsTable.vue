@@ -68,7 +68,7 @@
         }}</td>
         <td
           class="rw-Table-td rw-Table-tdType min-w-[10em]"
-          v-html="formatType(item.ttype)"
+          v-html="getTypeCellHtml(item)"
         ></td>
         <td class="rw-Table-td">{{ item.level }}</td>
       </tr>
@@ -83,6 +83,7 @@ import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
+import itemTypesData from "@/data/item-types";
 import store from "@/store";
 
 /** @typedef {TVueInstanceOf<RunewordPopup>} TRunewordPopup */
@@ -120,7 +121,7 @@ export default defineComponent({
         { key: "rune3", label: "Rune" },
         { key: "rune4", label: "Rune" },
         { key: "rune5", label: "Rune" },
-        { key: "ttype", label: "Type" },
+        { key: "ttypes", label: "Type" },
         { key: "level", label: "Level" },
       ],
     };
@@ -164,9 +165,9 @@ export default defineComponent({
       } else if (this.sortKey === "level") {
         compareFn = ({ level: a }, { level: b }) =>
           a === b ? 0 : a > b ? 1 : -1;
-      } else if (this.sortKey === "ttype") {
-        compareFn = ({ ttype: a }, { ttype: b }) =>
-          a === b ? 0 : a > b ? 1 : -1;
+      } else if (this.sortKey === "ttypes") {
+        compareFn = ({ ttypes: a }, { ttypes: b }) =>
+          a[0] === b[0] ? 0 : a[0] > b[0] ? 1 : -1;
       } else if (/rune(\d)/.test(this.sortKey)) {
         const runeNr = parseInt(RegExp.$1);
 
@@ -208,10 +209,19 @@ export default defineComponent({
       return this.runewordIsComplete.get(word.title) ? "is-complete" : "";
     },
 
-    /** @param {string} text */
-    formatType(text) {
+    /** @param {Runeword} word */
+    getTypeCellHtml(word) {
       // could do additional formatting here
-      return text;
+      let cellHtml = word.ttypes
+        .map((type) => {
+          const typeHtml = type.replace(" ", "&nbsp;");
+          if (itemTypesData[type].url)
+            return `<a href="${itemTypesData[type].url}" target="_blank">${typeHtml}</a>`;
+          return typeHtml;
+        })
+        .join("&nbsp;/&nbsp;");
+      if (word.tinfos) cellHtml += `<br><em>${word.tinfos}</em>`;
+      return cellHtml;
     },
 
     /** @param {string} key */
