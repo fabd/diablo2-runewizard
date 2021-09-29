@@ -1,4 +1,4 @@
-/** @type {{ [key in TypeId]: { url?: string } }} */
+/** @type {{ [key in ItemTypeId]: { url?: string } }} */
 const types = {
 	"Helms": { url: "https://diablo2.diablowiki.net/Helms" },
 	"Swords": { url: "https://diablo2.diablowiki.net/Swords" },

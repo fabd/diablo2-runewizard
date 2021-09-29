@@ -9,7 +9,7 @@ type EnumRuneTier = {
   RARE: 3;
 };
 
-type TypeId = 
+type ItemTypeId = 
 | "Helms"
 | "Swords"
 | "Axes"
@@ -75,7 +75,7 @@ type Runeword = {
   title: RunewordId;
   runes: RuneId[];
   level: number;
-  ttypes: TypeId[];
+  ttypes: ItemTypeId[];
   ladder?: boolean;
   tinfos?: string;
 };

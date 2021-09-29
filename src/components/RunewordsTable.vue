@@ -104,7 +104,7 @@ import IconChevronDown from "@/icons/IconChevronDown.vue";
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
 import runewordsData from "@/data/runewords";
-import typeData from "@/data/item-types";
+import itemTypesData from "@/data/item-types";
 import store from "@/store";
 
 /** @typedef {TVueInstanceOf<RunewordPopup>} TRunewordPopup */
@@ -236,8 +236,8 @@ export default defineComponent({
       // could do additional formatting here
       let cellHtml = word.ttypes.map(type => {
 				let typeHtml = type.replace(" ", "&nbsp;")
-				if (typeData[type].url) 
-					return `<a href="${typeData[type].url}">${typeHtml}</a>`;
+				if (itemTypesData[type].url) 
+					return `<a href="${itemTypesData[type].url}">${typeHtml}</a>`;
 				return typeHtml;
 			}).join('&nbsp;/&nbsp;');
 			if (word.tinfos)
