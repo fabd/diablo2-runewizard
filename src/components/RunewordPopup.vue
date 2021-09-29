@@ -54,6 +54,10 @@ export default defineComponent({
       // replace newlines by html equivalents
       text = text.replace(/\n/g, "<br/>");
 
+      // format the mods (numbers) in the item stats
+      //   https://regexr.com/66idv
+      text = text.replace(/\+?[0-9-]+%?/g, '<span class="is-mod">$&</span>');
+
       return text;
     },
   },

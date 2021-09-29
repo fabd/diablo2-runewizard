@@ -373,6 +373,11 @@ object {
   &-body h4 {
     @apply text-[#979797] mb-2;
   }
+
+  // format modifiers (numbers) in the item description
+  &-body .is-mod {
+    @apply font-bold;
+  }
 }
 
 // --------------------------------------------------------------------
