@@ -239,7 +239,7 @@ export default defineComponent({
 				if (typeData[type].url) 
 					return `<a href="${typeData[type].url}">${typeHtml}</a>`;
 				return typeHtml;
-			}).join('/');
+			}).join('&nbsp;/&nbsp;');
 			if (word.tinfos)
 				cellHtml += `<br><em>${word.tinfos}</em>`;
 			return cellHtml;
