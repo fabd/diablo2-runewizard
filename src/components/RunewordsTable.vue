@@ -234,15 +234,16 @@ export default defineComponent({
     /** @param {Runeword} word */
     getTypeCellHtml(word) {
       // could do additional formatting here
-      let cellHtml = word.ttypes.map(type => {
-				let typeHtml = type.replace(" ", "&nbsp;")
-				if (itemTypesData[type].url) 
-					return `<a href="${itemTypesData[type].url}">${typeHtml}</a>`;
-				return typeHtml;
-			}).join('&nbsp;/&nbsp;');
-			if (word.tinfos)
-				cellHtml += `<br><em>${word.tinfos}</em>`;
-			return cellHtml;
+      let cellHtml = word.ttypes
+        .map((type) => {
+          const typeHtml = type.replace(" ", "&nbsp;");
+          if (itemTypesData[type].url)
+            return `<a href="${itemTypesData[type].url}">${typeHtml}</a>`;
+          return typeHtml;
+        })
+        .join("&nbsp;/&nbsp;");
+      if (word.tinfos) cellHtml += `<br><em>${word.tinfos}</em>`;
+      return cellHtml;
     },
 
     /** @param {string} key */

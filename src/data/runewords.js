@@ -42,7 +42,7 @@ const runewords = [
     runes: ["Tir", "Ral"],
     level: 19,
     ttypes: ["Staves"],
-		tinfos: "(Not Orbs/Wands)",
+    tinfos: "(Not Orbs/Wands)",
   },
   {
     title: "Lionheart",
@@ -51,11 +51,11 @@ const runewords = [
     ttypes: ["Body Armors"],
   },
   {
-		title: "Lore",
-		runes: ["Ort", "Sol"],
-		level: 27,
-		ttypes: ["Helms"]
-	},
+    title: "Lore",
+    runes: ["Ort", "Sol"],
+    level: 27,
+    ttypes: ["Helms"],
+  },
   {
     title: "Malice",
     runes: ["Ith", "El", "Eth"],
@@ -73,14 +73,14 @@ const runewords = [
     runes: ["Lum", "Io", "Sol", "Eth"],
     level: 37,
     ttypes: ["Staves"],
-		tinfos: "(Not Orbs)",
+    tinfos: "(Not Orbs)",
   },
   {
-		title: "Nadir",
-		runes: ["Nef", "Tir"],
-		level: 13,
-		ttypes: ["Helms"],
-	},
+    title: "Nadir",
+    runes: ["Nef", "Tir"],
+    level: 13,
+    ttypes: ["Helms"],
+  },
   {
     title: "Radiance",
     runes: ["Nef", "Sol", "Ith"],
@@ -88,11 +88,11 @@ const runewords = [
     ttypes: ["Helms"],
   },
   {
-		title: "Rhyme",
-		runes: ["Shael", "Eth"],
-		level: 29,
-		ttypes: ["Shields"],
-	},
+    title: "Rhyme",
+    runes: ["Shael", "Eth"],
+    level: 29,
+    ttypes: ["Shields"],
+  },
   {
     title: "Silence",
     runes: ["Dol", "Eld", "Hel", "Ist", "Tir", "Vex"],
@@ -100,15 +100,17 @@ const runewords = [
     ttypes: ["Weapons"],
   },
   {
-		title: "Smoke",
-		runes: ["Nef", "Lum"],
-		level: 37, ttypes: ["Body Armors"]
-	},
+    title: "Smoke",
+    runes: ["Nef", "Lum"],
+    level: 37,
+    ttypes: ["Body Armors"],
+  },
   {
-		title: "Stealth",
-		runes: ["Tal", "Eth"],
-		level: 17, ttypes: ["Body Armors"]
-	},
+    title: "Stealth",
+    runes: ["Tal", "Eth"],
+    level: 17,
+    ttypes: ["Body Armors"],
+  },
   {
     title: "Steel",
     runes: ["Tir", "El"],
@@ -122,11 +124,11 @@ const runewords = [
     ttypes: ["Melee Weapons"],
   },
   {
-		title: "Venom",
-		runes: ["Tal", "Dol", "Mal"],
-		level: 49,
-		ttypes: ["Weapons"],
-	},
+    title: "Venom",
+    runes: ["Tal", "Dol", "Mal"],
+    level: 49,
+    ttypes: ["Weapons"],
+  },
   {
     title: "Wealth",
     runes: ["Lem", "Ko", "Tir"],
@@ -134,11 +136,11 @@ const runewords = [
     ttypes: ["Body Armors"],
   },
   {
-		title: "White",
-		runes: ["Dol", "Io"],
-		level: 35,
-		ttypes: ["Wands"],
-	},
+    title: "White",
+    runes: ["Dol", "Io"],
+    level: 35,
+    ttypes: ["Wands"],
+  },
   {
     title: "Zephyr",
     runes: ["Ort", "Eth"],
@@ -171,11 +173,11 @@ const runewords = [
     ttypes: ["Weapons"],
   },
   {
-		title: "Chaos",
-		runes: ["Fal", "Ohm", "Um"],
-		level: 57,
-		ttypes: ["Claws"],
-	},
+    title: "Chaos",
+    runes: ["Fal", "Ohm", "Um"],
+    level: 57,
+    ttypes: ["Claws"],
+  },
   {
     title: "Chains of Honor",
     runes: ["Dol", "Um", "Ber", "Ist"],
@@ -189,11 +191,11 @@ const runewords = [
     ttypes: ["Axes", "Swords", "Polearms"],
   },
   {
-		title: "Delirium",
-		runes: ["Lem", "Ist", "Io"],
-		level: 51,
-		ttypes: ["Helms"],
-	},
+    title: "Delirium",
+    runes: ["Lem", "Ist", "Io"],
+    level: 51,
+    ttypes: ["Helms"],
+  },
   {
     title: "Doom",
     runes: ["Hel", "Ohm", "Um", "Lo", "Cham"],
@@ -223,7 +225,7 @@ const runewords = [
     runes: ["Vex", "Ohm", "Ist", "Dol"],
     level: 57,
     ttypes: ["Paladin Shields"],
-		tinfos: "(Not regular Shields)",
+    tinfos: "(Not regular Shields)",
   },
   {
     title: "Famine",
@@ -262,11 +264,11 @@ const runewords = [
     ttypes: ["Weapons"],
   },
   {
-		title: "Prudence",
-		runes: ["Mal", "Tir"],
-		level: 49,
-		ttypes: ["Body Armors"],
-	},
+    title: "Prudence",
+    runes: ["Mal", "Tir"],
+    level: 49,
+    ttypes: ["Body Armors"],
+  },
   {
     title: "Sanctuary",
     runes: ["Ko", "Ko", "Mal"],
@@ -274,11 +276,11 @@ const runewords = [
     ttypes: ["Shields"],
   },
   {
-		title: "Splendor",
-		runes: ["Eth", "Lum"],
-		level: 37,
-		ttypes: ["Shields"],
-	},
+    title: "Splendor",
+    runes: ["Eth", "Lum"],
+    level: 37,
+    ttypes: ["Shields"],
+  },
   {
     title: "Stone",
     runes: ["Shael", "Um", "Pul", "Lum"],
@@ -286,11 +288,11 @@ const runewords = [
     ttypes: ["Body Armors"],
   },
   {
-		title: "Wind",
-		runes: ["Sur", "El"],
-		level: 61,
-		ttypes: ["Melee Weapons"]
-	},
+    title: "Wind",
+    runes: ["Sur", "El"],
+    level: 61,
+    ttypes: ["Melee Weapons"],
+  },
   /* 1.10 LADDER */
   {
     title: "Brand",
@@ -459,7 +461,7 @@ const runewords = [
     runes: ["Sol", "Um", "Um"],
     level: 47,
     ttypes: ["Body Armors"],
-		tinfos: "(Necromancer)",
+    tinfos: "(Necromancer)",
   },
   {
     title: "Enlightenment",
