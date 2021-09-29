@@ -135,7 +135,7 @@ object {
 .rw-Title {
   &-h2 {
     @apply text-base font-bold;
-    color: #afafaf;
+    color: #d5d2d0;
   }
 }
 
@@ -215,7 +215,7 @@ object {
     padding: 5px 5px 6px;
     text-align: center;
     border-bottom: 1px solid #29291d;
-    color: #888;
+    color: #858280;
   }
 
   &-td.is-rune {
@@ -242,10 +242,15 @@ object {
   &-tdType a {
     text-decoration: underline dotted;
   }
+  &-tdType a:hover {
+    text-decoration: underline;
+    color: #d5d2d0;
+  }
 
-  // the item type field can have optional <em>sub text</em>
+  // additional info in the item type, shown below item types in smaller text
   &-tdType em {
-    @apply block text-[0.9em] opacity-80;
+    @apply block mt-1 text-[0.9em];
+    color: #bd8547;
   }
 
   &-tr.is-complete &-tdTitleSpan {
