@@ -9,7 +9,7 @@
     @click="setVisible(false)"
   >
     <h3 class="rw-RunewordPopup-title">{{ runeword.title }}</h3>
-    <div class="rw-RunewordPopup-type" v-html="runeword.ttype"></div>
+    <div class="rw-RunewordPopup-type" v-html="runeword.ttypes"></div>
     <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
   </div>
 </template>
@@ -28,10 +28,10 @@ export default defineComponent({
       /** @type { { x: number; y: number }} */
       position: { x: 0, y: 0 },
 
-      /** @type {Pick<Runeword, "title" | "ttype" | "level">} */
+      /** @type {Pick<Runeword, "title" | "ttypes" | "level">} */
       runeword: {
         title: "",
-        ttype: "",
+        ttypes: [],
         level: 0,
       },
     };

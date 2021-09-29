@@ -9,6 +9,26 @@ type EnumRuneTier = {
   RARE: 3;
 };
 
+type ItemTypeId = 
+| "Helms"
+| "Swords"
+| "Axes"
+| "Maces"
+| "Melee Weapons"
+| "Body Armors"
+| "Staves"
+| "Shields"
+| "Scepters"
+| "Missile Weapons"
+| "Polearms"
+| "Clubs"
+| "Hammers"
+| "Wands"
+| "Weapons"
+| "Claws"
+| "Paladin Shields"
+;
+
 type RuneTier = Values<EnumRuneTier>;
 
 type RuneId =
@@ -44,7 +64,8 @@ type RuneId =
   | "Ber"
   | "Jah"
   | "Cham"
-  | "Zod";
+  | "Zod"
+	;
 
 type RuneDef = { name: RuneId; tier: RuneTier };
 
@@ -54,9 +75,9 @@ type Runeword = {
   title: RunewordId;
   runes: RuneId[];
   level: number;
-  ttype: string;
+  ttypes: ItemTypeId[];
   ladder?: boolean;
-  tclass?: string;
+  tinfos?: string;
 };
 
 type RunewordMeta = {

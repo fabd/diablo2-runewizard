@@ -239,6 +239,10 @@ object {
     }
   }
 
+  &-tdType a {
+    text-decoration: underline dotted;
+  }
+
   // the item type field can have optional <em>sub text</em>
   &-tdType em {
     @apply block text-[0.9em] opacity-80;
