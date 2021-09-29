@@ -104,7 +104,7 @@ import IconChevronDown from "@/icons/IconChevronDown.vue";
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
 import runewordsData from "@/data/runewords";
-import typeData from "@/data/types";
+import typeData from "@/data/item-types";
 import store from "@/store";
 
 /** @typedef {TVueInstanceOf<RunewordPopup>} TRunewordPopup */

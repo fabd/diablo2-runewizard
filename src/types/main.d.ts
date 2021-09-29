@@ -9,6 +9,26 @@ type EnumRuneTier = {
   RARE: 3;
 };
 
+type TypeId = 
+| "Helms"
+| "Swords"
+| "Axes"
+| "Maces"
+| "Melee Weapons"
+| "Body Armors"
+| "Staves"
+| "Shields"
+| "Scepters"
+| "Missile Weapons"
+| "Polearms"
+| "Clubs"
+| "Hammers"
+| "Wands"
+| "Weapons"
+| "Claws"
+| "Paladin Shields"
+;
+
 type RuneTier = Values<EnumRuneTier>;
 
 type RuneId =

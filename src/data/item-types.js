@@ -1,25 +1,5 @@
-
-type TypeId = 
-| "Helms"
-| "Swords"
-| "Axes"
-| "Maces"
-| "Melee Weapons"
-| "Body Armors"
-| "Staves"
-| "Shields"
-| "Scepters"
-| "Missile Weapons"
-| "Polearms"
-| "Clubs"
-| "Hammers"
-| "Wands"
-| "Weapons"
-| "Claws"
-| "Paladin Shields"
-;
-
-const types: {[key in TypeId]: {url?: string}} = {
+/** @type {{ [key in TypeId]: { url?: string } }} */
+const types = {
 	"Helms": { url: "https://diablo2.diablowiki.net/Helms" },
 	"Swords": { url: "https://diablo2.diablowiki.net/Swords" },
 	"Axes": { url: "https://diablo2.diablowiki.net/Axes" },
