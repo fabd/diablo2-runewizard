@@ -350,7 +350,7 @@ object {
   color: #48ac3f;
 
   &-title {
-    color: #908858; // #928a70;
+    color: #928a70;
     @apply text-[1.4em] leading-[1em] mb-2;
   }
   &-type {
@@ -366,7 +366,6 @@ object {
 
   // the runeword's stats
   &-body {
-    color: #6064d8;
     line-height: 1.4em;
   }
 
