@@ -76,7 +76,7 @@ export default defineComponent({
   computed: {
     /** @return {boolean} */
     hasPinnedRunewords() {
-      return this.runewordsList.some((item) => item.isPinned);
+      return this.pinnedRunewords.length > 0;
     },
 
     /** @return {Runeword[]} */
