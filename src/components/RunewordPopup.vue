@@ -3,7 +3,7 @@
     ref="root"
     class="rw-RunewordPopup absolute"
     :style="{
-      visibility: isVisible ? 'visible' : 'hidden',
+      display: isVisible ? 'block' : 'none',
       left: unitPx(position.x),
       top: unitPx(position.y),
     }"

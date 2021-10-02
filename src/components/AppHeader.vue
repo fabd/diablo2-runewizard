@@ -1,29 +1,28 @@
 <template>
   <!-- optional header to decorate the stand alone version -->
   <header>
-    <div class="rw-Layout-rowContainer h-[106px] flex">
-      <div class="pr-[20px] pt-[17px]">
+    <div class="rw-Layout-rowContainer items-center content-center mx-auto grid grid-cols-3">
+      <div class="mt-2 col-span-1 mx-auto mr-5 ">
         <img
           src="@assets/images/logo-rune.png"
           alt="Rune icon original art (c) BLIZZARD ENTERTAINMENT"
-          class="w-[69px] h-[67px]"
+          class="w-[69px] h-[67px] "
         />
       </div>
-      <div class="flex-1">
-        <h1 class="text-black text-[0px] mt-[19px] mb-[5px] w-[301px] h-[32px]">
+      <div class="col-span-2">
+        <h1 class="text-black text-[0px] mt-[19px] mb-[5px] mr-5 md:w-[400px]">
           <img
             src="@assets/images/logo-text-runewizard.png"
             alt="Runewizard"
             class="block w-full h-full"
           />
         </h1>
-        <div class="flex justify-between items-center text-lg text-[#b5b2b0]">
-          <div>
-            for <span class="text-[#b5b2b0] font-bold">{{ envGameName }}</span>
-            <span class="ml-2 text-[#71B643]">{{ `v${envGameVersion}` }}</span>
-          </div>
+      </div>
+      <div class="col-span-3">
+      <div class="justify-between items-center text-lg text-center mx-auto text-[#b5b2b0] pb-4">
+     
 
-          <div class="flex items-center text-[#514f4a] text-base">
+          <div class="items-center text-[#514f4a] text-base">
             <template v-if="envMainSiteUrl">
               <a :href="envMainSiteUrl" class="rw-Header-link"
                 >Back to main site</a
@@ -60,8 +59,6 @@ export default defineComponent({
     return {
       envGithubRepoUrl: import.meta.env.VITE_URL_GITHUB_REPO,
       envMainSiteUrl: import.meta.env.VITE_URL_MAIN_SITE,
-      envGameName: import.meta.env.VITE_GAME_NAME,
-      envGameVersion: import.meta.env.VITE_GAME_VERSION,
     };
   },
 });

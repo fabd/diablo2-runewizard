@@ -26,7 +26,9 @@
   </transition>
 
   <runeword-popup ref="popup" />
-
+  <div class="flex py-2">
+    <input type="text" class="w-full rw-search" v-model="searchTitle" placeholder="Search for item" />
+  </div>
   <table class="rw-Table w-full">
     <thead>
       <tr>
@@ -52,7 +54,7 @@
     </thead>
     <tbody>
       <tr
-        v-for="(item, i) in itemsBySort"
+        v-for="(item, i) in searchedItems"
         :key="i"
         class="rw-Table-tr"
         :class="cssCompleteRuneword(item)"
@@ -141,6 +143,8 @@ export default defineComponent({
       ],
 
       isHelpVisible: false,
+
+      searchTitle:'',
     };
   },
 
@@ -172,6 +176,15 @@ export default defineComponent({
     /** @return {Runeword[]} */
     items() {
       return runewordsData;
+    },
+
+    /** @return {Runeword[]} */
+    searchedItems (){
+      const list = this.itemsBySort;
+      const newList = list.filter((item)=> {
+        return item.title.toLowerCase().includes(this.searchTitle.toLowerCase());
+      });
+      return newList;
     },
 
     /** @return {Runeword[]} */

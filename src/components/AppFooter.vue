@@ -1,7 +1,6 @@
 <template>
-  <footer class="min-h-[300px]">
+  <footer>
     <div class="rw-Layout-goldBarSeparator opacity-50 mb-6"></div>
-
     <div class="text-center text-gold leading-6">
       <p class="text-base text-gold">
         Runewizard for Diablo II LoD by
