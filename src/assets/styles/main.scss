@@ -29,7 +29,7 @@
 // --------------------------------------------------------------------
 body {
   background: #000;
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.2em;
   color: #afafaf;
   @apply font-sans;
@@ -79,6 +79,11 @@ object {
   vertical-align: middle;
 }
 
+// sizing
+.ux-icon--lg {
+  font-size: 1.25em;
+}
+
 // fixed width
 .ux-icon--fw {
   text-align: center;
@@ -119,7 +124,17 @@ object {
 
 .rw-Header {
   &-link {
-    @apply text-[#BAB197] text-opacity-75 hover:text-opacity-95 hover:underline;
+    @apply text-gold-light;
+    @apply hover:underline;
+  }
+}
+
+.rw-Footer {
+  @apply text-gold;
+
+  &-link {
+    @apply text-gold-light opacity-75;
+    @apply hover:opacity-100 hover:underline;
   }
 }
 
