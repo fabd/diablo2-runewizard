@@ -370,7 +370,7 @@ object {
   }
   &-type {
     color: #fff;
-    font-size: (14 / 16) * 1em;
+    font-size: calc(14 / 16) * 1em;
     @apply mb-2;
 
     // optional subtext in runeword.ttype, eg. `(Amazon)`
