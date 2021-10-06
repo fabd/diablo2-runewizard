@@ -73,8 +73,7 @@ object {
   font-variant: normal;
   font-style: normal;
   text-rendering: auto;
-  line-height: 1em;
-
+  line-height: 1;
   font-weight: 400;
   vertical-align: middle;
 }
@@ -133,8 +132,8 @@ object {
   @apply text-gold;
 
   &-link {
-    @apply text-gold-light opacity-75;
-    @apply hover:opacity-100 hover:underline;
+    @apply text-gold-light;
+    @apply hover:underline;
   }
 }
 
