@@ -9,6 +9,15 @@
 
   <runeword-popup ref="popup" />
 
+  <div class="rw-Search mb-4">
+    <input
+      v-model="searchTitle"
+      type="text"
+      class="rw-Search-input"
+      placeholder="Search for Runeword"
+    />
+  </div>
+
   <table class="rw-Table w-full">
     <thead>
       <tr>
@@ -34,7 +43,7 @@
     </thead>
     <tbody>
       <tr
-        v-for="(item, i) in itemsBySort"
+        v-for="(item, i) in searchedItems"
         :key="i"
         class="rw-Table-tr"
         :class="cssCompleteRuneword(item)"
@@ -117,6 +126,8 @@ export default defineComponent({
         { key: "ttypes", label: "Type" },
         { key: "level", label: "Level" },
       ],
+
+      searchTitle: "",
     };
   },
 
@@ -148,6 +159,17 @@ export default defineComponent({
     /** @return {Runeword[]} */
     items() {
       return runewordsData;
+    },
+
+    /** @return {Runeword[]} */
+    searchedItems() {
+      const list = this.itemsBySort;
+      const newList = list.filter((item) => {
+        return item.title
+          .toLowerCase()
+          .includes(this.searchTitle.toLowerCase());
+      });
+      return newList;
     },
 
     /** @return {Runeword[]} */
