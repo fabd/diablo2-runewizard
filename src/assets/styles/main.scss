@@ -162,10 +162,25 @@ object {
 // runeword search box
 // --------------------------------------------------------------------
 .rw-Search {
+  label {
+    color: #a29f9d;
+  }
+
   &-input {
     @apply w-full rounded text-[#444];
     padding: 0.5rem;
-    border: 2px solid #ccc;
+    background: #000;
+    @apply border border-gold;
+    @apply text-gold-light;
+  }
+
+  &-input:focus {
+    @apply outline-none;
+    @apply border-gold-light;
+  }
+
+  &-input::placeholder {
+    @apply text-[#686047];
   }
 }
 

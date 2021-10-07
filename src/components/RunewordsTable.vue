@@ -1,22 +1,14 @@
 <template>
-  <div class="flex justify-between items-center mb-2">
-    <h2 class="rw-Title-h2 mb-0"
-      >Runewords<span v-if="availableCount">
-        ({{ availableCount }} available)</span
-      ></h2
-    >
+  <div class="rw-Search flex items-center mb-4">
+    <label class="text-gold whitespace-nowrap mr-4">{{ "Search" }}</label>
+    <input v-model="searchTitle" type="text" class="rw-Search-input" />
   </div>
+
+  <h2 class="rw-Title-h2 mb-2">
+    Runewords<span v-if="availableCount">({{ availableCount }} available)</span>
+  </h2>
 
   <runeword-popup ref="popup" />
-
-  <div class="rw-Search mb-4">
-    <input
-      v-model="searchTitle"
-      type="text"
-      class="rw-Search-input"
-      placeholder="Search for Runeword"
-    />
-  </div>
 
   <table class="rw-Table w-full">
     <thead>
