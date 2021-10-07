@@ -5,25 +5,7 @@
         ({{ availableCount }} available)</span
       ></h2
     >
-
-    <a
-      href="#"
-      class="rw-Help-link"
-      @click.prevent="isHelpVisible = !isHelpVisible"
-      >{{ "Help"
-      }}<icon-chevron-down
-        class="ux-icon ux-icon--fw ml-1"
-        :class="{
-          'transform rotate-180': isHelpVisible,
-        }"
-    /></a>
   </div>
-
-  <transition name="fadein">
-    <div v-if="isHelpVisible">
-      <help-box />
-    </div>
-  </transition>
 
   <runeword-popup ref="popup" />
 
@@ -97,10 +79,8 @@
 <script>
 import { defineComponent } from "vue";
 
-import HelpBox from "@/components/HelpBox.vue";
 import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
-import IconChevronDown from "@/icons/IconChevronDown.vue";
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
 import runewordsData from "@/data/runewords";
@@ -113,10 +93,8 @@ export default defineComponent({
   name: "RunewordsTable",
 
   components: {
-    HelpBox,
     IconArrowDown,
     IconArrowUp,
-    IconChevronDown,
     RunewordPopup,
   },
 
@@ -139,8 +117,6 @@ export default defineComponent({
         { key: "ttypes", label: "Type" },
         { key: "level", label: "Level" },
       ],
-
-      isHelpVisible: false,
     };
   },
 

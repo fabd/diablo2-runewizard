@@ -24,6 +24,19 @@
           </div>
 
           <div class="flex items-center text-[#514f4a]">
+            <a
+              href="#"
+              class="rw-HelpLink mr-6"
+              @click.prevent="isHelpVisible = !isHelpVisible"
+            >
+              <icon-chevron-down
+                class="ux-icon ux-icon--fw"
+                :class="{
+                  'transform rotate-180': isHelpVisible,
+                }"
+              /><span class="ml-1">{{ "Help" }}</span>
+            </a>
+
             <a :href="`${envGithubRepoUrl}/discussions`" class="rw-Header-link">
               <icon-chat class="ux-icon ux-icon--fw ux-icon--lg mr-1" />
               <span>{{ "Feedback" }}</span>
@@ -35,23 +48,35 @@
 
     <!-- separator between header and main content, div simply extends to edges -->
     <div class="rw-Layout-goldBarSeparator mb-2"></div>
+
+    <transition name="fadein">
+      <div v-if="isHelpVisible" class="rw-Layout-rowContainer mb-4">
+        <help-box />
+      </div>
+    </transition>
   </header>
 </template>
 
 <script>
 import { defineComponent } from "vue";
 
+import HelpBox from "@/components/HelpBox.vue";
 import IconChat from "@/icons/IconChat.vue";
+import IconChevronDown from "@/icons/IconChevronDown.vue";
 
 export default defineComponent({
   name: "AppHeader",
 
   components: {
+    HelpBox,
     IconChat,
+    IconChevronDown,
   },
 
   data() {
     return {
+      isHelpVisible: false,
+
       envGameName: /**@type {string}*/ (import.meta.env.VITE_GAME_NAME),
       envGameVersion: /**@type {string}*/ (import.meta.env.VITE_GAME_VERSION),
       envGithubRepoUrl: /**@type {string}*/ (import.meta.env
