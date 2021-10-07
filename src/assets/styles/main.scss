@@ -156,31 +156,37 @@ object {
 // --------------------------------------------------------------------
 // the "Help" toggle
 // --------------------------------------------------------------------
-.rw-Help {
+.rw-HelpLink {
   $linkColor: #b4ac92;
 
-  &-link {
-    // slighty better valign of the SVG icon
-    @apply inline-flex items-center;
-    color: $linkColor;
-    padding: 0.3em 0; // slightly increase mouseover area
-  }
-  &-link:hover {
+  // slighty better valign of the SVG icon
+  @apply inline-flex items-center;
+  color: $linkColor;
+  padding: 0.3em 0; // slightly increase mouseover area
+
+  &:hover {
     color: mix($linkColor, #fed, 50);
     @apply underline;
   }
 }
 
 // --------------------------------------------------------------------
-// HelpText : base class top format markdown output inside it
+// Help : base class top format markdown output inside it
 // --------------------------------------------------------------------
-.rw-HelpText {
-  background: #303030;
-  color: #928a70;
+.rw-Help {
+  // popup?
+  // @apply absolute left-[5vw] top-[5rem] w-[90vw] z-[666];
+
+  @apply px-4 pt-6 pb-6;
+  @apply border-b border-[#444] mb-6;
+
+  color: #aca798;
+  line-height: 1.4em;
 
   h2 {
-    @apply mb-2;
-    color: #44aa44;
+    @apply font-bold mb-2;
+    font-variant: small-caps;
+    color: #c96e0b;
   }
   h2:not(:first-child) {
     @apply mt-6;
@@ -188,7 +194,7 @@ object {
 
   a {
     @apply underline;
-    color: lighten(#928a70, 20);
+    color: #daaf77;
   }
 
   p {
