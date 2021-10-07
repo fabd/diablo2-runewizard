@@ -1,11 +1,12 @@
 <template>
-  <div class="flex justify-between items-center mb-2">
-    <h2 class="rw-Title-h2 mb-0"
-      >Runewords<span v-if="availableCount">
-        ({{ availableCount }} available)</span
-      ></h2
-    >
+  <div class="rw-Search flex items-center mb-4">
+    <label class="text-gold whitespace-nowrap mr-4">{{ "Search" }}</label>
+    <input v-model="searchTitle" type="text" class="rw-Search-input" />
   </div>
+
+  <h2 class="rw-Title-h2 mb-2">
+    Runewords<span v-if="availableCount">({{ availableCount }} available)</span>
+  </h2>
 
   <runeword-popup ref="popup" />
 
@@ -34,7 +35,7 @@
     </thead>
     <tbody>
       <tr
-        v-for="(item, i) in itemsBySort"
+        v-for="(item, i) in searchedItems"
         :key="i"
         class="rw-Table-tr"
         :class="cssCompleteRuneword(item)"
@@ -117,6 +118,8 @@ export default defineComponent({
         { key: "ttypes", label: "Type" },
         { key: "level", label: "Level" },
       ],
+
+      searchTitle: "",
     };
   },
 
@@ -148,6 +151,17 @@ export default defineComponent({
     /** @return {Runeword[]} */
     items() {
       return runewordsData;
+    },
+
+    /** @return {Runeword[]} */
+    searchedItems() {
+      const list = this.itemsBySort;
+      const newList = list.filter((item) => {
+        return item.title
+          .toLowerCase()
+          .includes(this.searchTitle.toLowerCase());
+      });
+      return newList;
     },
 
     /** @return {Runeword[]} */

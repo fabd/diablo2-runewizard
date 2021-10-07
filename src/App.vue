@@ -5,7 +5,7 @@
     <div class="mr-16">
       <runes />
     </div>
-    <div class="flex-1">
+    <div class="overflow-auto flex-1">
       <runewords-table />
     </div>
   </main>
