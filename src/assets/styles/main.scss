@@ -35,6 +35,11 @@ body {
   @apply font-sans;
 }
 
+div {
+  /* stylelint-disable-next-line declaration-no-important */
+  cursor: url("@/assets/images/mouse.png") 2 2, pointer !important;
+}
+
 h1,
 h2,
 h3,
@@ -60,10 +65,6 @@ iframe,
 embed,
 object {
   display: inline-block;
-}
-
-div{
-  cursor: url("@/assets/images/mouse.png") 2 2, pointer !important;
 }
 
 // --------------------------------------------------------------------
