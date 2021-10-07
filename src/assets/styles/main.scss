@@ -62,6 +62,10 @@ object {
   display: inline-block;
 }
 
+div{
+  cursor: url("@/assets/images/mouse.png") 2 2, pointer !important;
+}
+
 // --------------------------------------------------------------------
 // icons (use similar classes/styles as FontAwesome)
 // --------------------------------------------------------------------
