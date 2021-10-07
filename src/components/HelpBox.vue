@@ -1,5 +1,5 @@
 <template>
-  <div class="rw-HelpText px-4 pt-4 pb-2 mb-6 text-sm">
+  <div class="rw-Help text-md">
     <HelpText class="" />
   </div>
 </template>
