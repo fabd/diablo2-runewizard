@@ -30,6 +30,9 @@
         :key="i"
         class="rw-Table-tr"
         :class="cssCompleteRuneword(item)"
+        :style="{
+          display: item.filterMatch ? '' : 'none',
+        }"
       >
         <td
           class="rw-Table-td rw-Table-tdTitle p-0 text-left relative min-w-[10em]"
@@ -237,17 +240,7 @@ export default defineComponent({
       // paranoia
       if (!ev.target) return;
 
-      let { x, y } = /**@type{Element}*/ (ev.target).getBoundingClientRect();
-
-      // don't overlap the mouseover area, avoids flickering & simplifies code
-      x = x + 50;
-      y =
-        y +
-        window.pageYOffset +
-        /**@type{HTMLElement}*/ (ev.target).offsetHeight +
-        4;
-
-      this.refPopup.setContents(runeword).moveTo(x, y).setVisible(true);
+      this.refPopup.showRuneword(runeword, /**@type HTMLElement*/ (ev.target));
     },
 
     onLeaveRuneword() {

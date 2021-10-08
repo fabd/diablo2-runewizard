@@ -1,14 +1,23 @@
 <template>
-  <footer class="min-h-[300px]">
+  <footer class="rw-Footer min-h-[200px]">
     <div class="rw-Layout-goldBarSeparator opacity-50 mb-6"></div>
 
-    <div class="text-center text-gold leading-6">
-      <p class="text-base text-gold">
-        Runewizard for Diablo II LoD by
-        <a href="https://github.com/fabd" class="text-gold-light underline"
-          >fabd</a
-        >.
-      </p>
+    <div class="text-center text-lg text-gold leading-1">
+      <div v-if="envMainSiteUrl" class="mb-2">
+        Also check out
+        <a :href="envMainSiteUrl" class="rw-Footer-link ml-2">{{
+          "The Tankazon Resource"
+        }}</a>
+      </div>
+      <div>
+        Development
+        <a :href="envGithubRepoUrl" class="rw-Footer-link ml-2">
+          <icon-github class="ux-icon ux-icon--fw mr-1 mt-[-0.2em]" /><span
+            class=""
+            >{{ "fabd/diablo2-runewizard" }}</span
+          >
+        </a>
+      </div>
     </div>
   </footer>
 </template>
@@ -16,7 +25,21 @@
 <script>
 import { defineComponent } from "vue";
 
+import IconGithub from "@/icons/IconGithub.vue";
+
 export default defineComponent({
   name: "AppFooter",
+
+  components: {
+    IconGithub,
+  },
+
+  data() {
+    return {
+      envGithubRepoUrl: /**@type {string}*/ (import.meta.env
+        .VITE_URL_GITHUB_REPO),
+      envMainSiteUrl: /**@type {string}*/ (import.meta.env.VITE_URL_MAIN_SITE),
+    };
+  },
 });
 </script>

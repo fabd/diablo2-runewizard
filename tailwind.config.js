@@ -14,6 +14,12 @@ module.exports = {
         DEFAULT: "#8A8062",
       },
     },
+
+    extend: {
+      fontSize: {
+        md: "1rem",
+      },
+    },
   },
 
   variants: {},

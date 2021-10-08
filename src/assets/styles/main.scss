@@ -29,10 +29,15 @@
 // --------------------------------------------------------------------
 body {
   background: #000;
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.2em;
   color: #afafaf;
   @apply font-sans;
+}
+
+div {
+  /* stylelint-disable-next-line declaration-no-important */
+  cursor: url("@/assets/images/mouse.png") 2 2, pointer !important;
 }
 
 h1,
@@ -73,10 +78,14 @@ object {
   font-variant: normal;
   font-style: normal;
   text-rendering: auto;
-  line-height: 1em;
-
+  line-height: 1;
   font-weight: 400;
   vertical-align: middle;
+}
+
+// sizing
+.ux-icon--lg {
+  font-size: 1.25em;
 }
 
 // fixed width
@@ -119,7 +128,17 @@ object {
 
 .rw-Header {
   &-link {
-    @apply text-[#BAB197] text-opacity-75 hover:text-opacity-95 hover:underline;
+    @apply text-gold-light;
+    @apply hover:underline;
+  }
+}
+
+.rw-Footer {
+  @apply text-gold;
+
+  &-link {
+    @apply text-gold-light;
+    @apply hover:underline;
   }
 }
 
@@ -140,33 +159,62 @@ object {
 }
 
 // --------------------------------------------------------------------
+// runeword search box
+// --------------------------------------------------------------------
+.rw-Search {
+  label {
+    color: #a29f9d;
+  }
+
+  &-input {
+    @apply w-full rounded text-[#444];
+    padding: 0.5rem;
+    background: #000;
+    @apply border border-gold;
+    @apply text-gold-light;
+  }
+
+  &-input:focus {
+    @apply outline-none;
+    @apply border-gold-light;
+  }
+
+  &-input::placeholder {
+    @apply text-[#686047];
+  }
+}
+
+// --------------------------------------------------------------------
 // the "Help" toggle
 // --------------------------------------------------------------------
-.rw-Help {
+.rw-HelpLink {
   $linkColor: #b4ac92;
 
-  &-link {
-    // slighty better valign of the SVG icon
-    @apply inline-flex items-center;
-    color: $linkColor;
-    padding: 0.3em 0; // slightly increase mouseover area
-  }
-  &-link:hover {
+  // slighty better valign of the SVG icon
+  @apply inline-flex items-center;
+  color: $linkColor;
+  padding: 0.3em 0; // slightly increase mouseover area
+
+  &:hover {
     color: mix($linkColor, #fed, 50);
     @apply underline;
   }
 }
 
 // --------------------------------------------------------------------
-// HelpText : base class top format markdown output inside it
+// Help : base class top format markdown output inside it
 // --------------------------------------------------------------------
-.rw-HelpText {
-  background: #303030;
-  color: #928a70;
+.rw-Help {
+  @apply px-4 pt-6 pb-6;
+  @apply border-b border-[#444] mb-6;
+
+  color: #aca798;
+  line-height: 1.4em;
 
   h2 {
-    @apply mb-2;
-    color: #44aa44;
+    @apply font-bold mb-2;
+    font-variant: small-caps;
+    color: #c96e0b;
   }
   h2:not(:first-child) {
     @apply mt-6;
@@ -174,7 +222,7 @@ object {
 
   a {
     @apply underline;
-    color: lighten(#928a70, 20);
+    color: #daaf77;
   }
 
   p {
@@ -355,7 +403,7 @@ object {
   }
   &-type {
     color: #fff;
-    font-size: (14 / 16) * 1em;
+    font-size: calc(14 / 16) * 1em;
     @apply mb-2;
 
     // optional subtext in runeword.ttype, eg. `(Amazon)`

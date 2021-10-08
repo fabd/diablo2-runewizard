@@ -8,7 +8,6 @@
 
 <p align="center"><em>Runewizard for Diablo II helps you keep track of the runes you have found and what runewords you can make with them.</em></p>
 
-
 <!-- TOC depthFrom:1 -->
 <!-- /TOC -->
 
@@ -19,7 +18,6 @@ _Runewizard_ used to be part of my mini fan site for Diablo II LoD called [_The 
 This repo is a full rewrite of the vanilla JS version I wrote ten+ years ago. It uses **ViteJs, Vue3, and TailwindCSS/JIT**. Typechecking is provided via JSDoc + TS types in ambient .d.ts files.
 
 Should there be any new runewords / updates with _Diablo II Resurrected_, I hope this new repo will make it easier to keep the site updated!
-
 
 ## Changelog
 
@@ -96,13 +94,17 @@ And instead add script & style tags and copy the file contents inside:
 </body>
 ```
 
-# Dev notes
+# Development notes
 
-## Typechecking with JSDoc + TypeScript types
+## VSCode setup
 
-The project now uses JSDoc + TypeScript types via ambient `.d.ts` files. This is mainly an experiment, and also a way to make TypeScript optional.
+The package **prettier** is locked at 2.2.1 because of prettier issue [10918](https://github.com/prettier/prettier/issues/10918)
 
-You should get correct code completions as well as TypeScript errors in the IDE with VSCode + Vetur (or Volar) extension.
+Likewise **Vetur** extension in VSCode should be locked at 0.33.1, last version to use prettier 2.2.1 (I use _Vue Language Features (Volar)_ which seems to work better with Vue3).
+
+### Typechecking with JSDoc + TypeScript types
+
+The project now uses JSDoc + TypeScript types via ambient `.d.ts` files. This is mainly an experiment, and also a way to make TypeScript optional. You should get correct code completions as well as TypeScript errors in the IDE with VSCode + Volar extension.
 
 ## Customizing the header
 

@@ -84,4 +84,5 @@ type RunewordMeta = {
 
 type RunewordItem = Runeword & {
   isPinned: boolean;
+  filterMatch: boolean; // true if this item matches current search filter
 }

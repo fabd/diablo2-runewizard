@@ -1,24 +1,14 @@
 <template>
   <div>
-    <div class="flex justify-end items-center mb-2">
-      <a
-        href="#"
-        class="rw-Help-link self-"
-        @click.prevent="isHelpVisible = !isHelpVisible"
-        >{{ "Help"
-        }}<icon-chevron-down
-          class="ux-icon ux-icon--fw ml-1"
-          :class="{
-            'transform rotate-180': isHelpVisible,
-          }"
-      /></a>
+    <div class="rw-Search flex items-center mb-4">
+      <label class="text-gold whitespace-nowrap mr-4">{{ "Search" }}</label>
+      <input
+        v-model="searchTitle"
+        type="text"
+        class="rw-Search-input"
+        @input="onSearchInput"
+      />
     </div>
-
-    <transition name="fadein">
-      <div v-if="isHelpVisible">
-        <help-box />
-      </div>
-    </transition>
 
     <div v-if="hasPinnedRunewords" class="mb-8">
       <div class="flex items-center justify-between mb-2">
@@ -48,10 +38,11 @@
 
 <script>
 import { defineComponent } from "vue";
+
 import HelpBox from "@/components/HelpBox.vue";
 import IconCancel from "@/icons/IconCancel.vue";
-import IconChevronDown from "@/icons/IconChevronDown.vue";
 import RunewordsTable from "@/components/RunewordsTable.vue";
+
 import runewordsData from "@/data/runewords";
 
 export default defineComponent({
@@ -60,7 +51,6 @@ export default defineComponent({
   components: {
     HelpBox,
     IconCancel,
-    IconChevronDown,
     RunewordsTable,
   },
 
@@ -68,8 +58,10 @@ export default defineComponent({
     return {
       isHelpVisible: false,
 
-      /** @type{RunewordItem[]}*/
+      /** @type {RunewordItem[]} */
       runewordsList: [],
+
+      searchTitle: "",
     };
   },
 
@@ -79,12 +71,12 @@ export default defineComponent({
       return this.pinnedRunewords.length > 0;
     },
 
-    /** @return {Runeword[]} */
+    /** @return {RunewordItem[]} */
     pinnedRunewords() {
       return this.runewordsList.filter((item) => item.isPinned);
     },
 
-    /** @return {Runeword[]} */
+    /** @return {RunewordItem[]} */
     unpinnedRunewords() {
       return this.runewordsList.filter((item) => !item.isPinned);
     },
@@ -93,6 +85,30 @@ export default defineComponent({
   created() {
     this.runewordsList = /** @type{RunewordItem[]}*/ (runewordsData.slice());
     this.runewordsList.forEach((item) => (item.isPinned = false));
+    this.updateFilter(this.searchTitle);
+  },
+
+  methods: {
+    onSearchInput() {
+      this.updateFilter(this.searchTitle);
+    },
+
+    /** @param {string} text */
+    updateFilter(text) {
+      const searchText = text.toLowerCase();
+
+      /** @param {RunewordItem} item */
+      const matches = (item) => {
+        return (
+          searchText === "" ||
+          item.title.toLowerCase().includes(searchText.toLowerCase())
+        );
+      };
+
+      this.runewordsList.forEach((item) => {
+        item.filterMatch = matches(item);
+      });
+    },
   },
 });
 </script>
