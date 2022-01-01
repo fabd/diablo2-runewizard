@@ -157,9 +157,14 @@ export default defineComponent({
     searchedItems() {
       const list = this.itemsBySort;
       const newList = list.filter((item) => {
-        return item.title
+        const matchesTitle = item.title
           .toLowerCase()
           .includes(this.searchTitle.toLowerCase());
+        const matchesType = !!item.ttypes.find((type) => {
+          return type.toLowerCase()
+              .includes(this.searchTitle.toLowerCase());
+        });
+        return matchesTitle || matchesType;
       });
       return newList;
     },
