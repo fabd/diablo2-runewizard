@@ -156,14 +156,14 @@ export default defineComponent({
     /** @return {Runeword[]} */
     searchedItems() {
       const list = this.itemsBySort;
+      const searchTerm = this.searchTitle.toLowerCase();
+
       const newList = list.filter((item) => {
-        const matchesTitle = item.title
-          .toLowerCase()
-          .includes(this.searchTitle.toLowerCase());
-        const matchesType = !!item.ttypes.find((type) => {
-          return type.toLowerCase()
-              .includes(this.searchTitle.toLowerCase());
+        const matchesTitle = item.title.toLowerCase().includes(searchTerm);
+        const matchesType = item.ttypes.some((type) => {
+          return type.toLowerCase().includes(searchTerm);
         });
+        
         return matchesTitle || matchesType;
       });
       return newList;
