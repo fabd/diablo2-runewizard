@@ -39,7 +39,6 @@
 <script>
 import { defineComponent } from "vue";
 
-import HelpBox from "@/components/HelpBox.vue";
 import IconCancel from "@/icons/IconCancel.vue";
 import RunewordsTable from "@/components/RunewordsTable.vue";
 
@@ -49,7 +48,6 @@ export default defineComponent({
   name: "Runewords",
 
   components: {
-    HelpBox,
     IconCancel,
     RunewordsTable,
   },
@@ -95,14 +93,16 @@ export default defineComponent({
 
     /** @param {string} text */
     updateFilter(text) {
-      const searchText = text.toLowerCase();
+      const searchTerm = text.toLowerCase();
 
       /** @param {RunewordItem} item */
       const matches = (item) => {
-        return (
-          searchText === "" ||
-          item.title.toLowerCase().includes(searchText.toLowerCase())
-        );
+        const matchesTitle = item.title.toLowerCase().includes(searchTerm);
+        const matchesType = item.ttypes.some((type) => {
+          return type.toLowerCase().includes(searchTerm);
+        });
+
+        return searchTerm === "" || matchesTitle || matchesType;
       };
 
       this.runewordsList.forEach((item) => {
