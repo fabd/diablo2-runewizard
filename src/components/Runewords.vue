@@ -10,7 +10,7 @@
         <h2 class="rw-Title-h2 mb-0">Runewords (pinned)</h2>
 
         <div v-if="1" class="ml-8">
-          <a class="rw-Runes-clear" href="#" @click.prevent="0">
+          <a class="rw-Runes-clear" href="#" @click.prevent="unpinAll">
             <icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1" />unpin all
           </a>
         </div>
@@ -75,13 +75,17 @@ export default defineComponent({
 
   created() {
     this.runewordsList = /** @type{RunewordItem[]}*/ (runewordsData.slice());
-    this.runewordsList.forEach((item) => (item.isPinned = false));
+    this.unpinAll();
     this.updateFilter(this.searchText);
   },
 
   methods: {
     onSearchInput() {
       this.updateFilter(this.searchText);
+    },
+
+    unpinAll() {
+      this.runewordsList.forEach((item) => { item.isPinned = false; });
     },
 
     /** @param {string} text */
