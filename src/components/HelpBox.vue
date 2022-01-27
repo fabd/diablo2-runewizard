@@ -1,6 +1,6 @@
 <template>
   <div class="rw-Help text-md">
-    <HelpText class="" />
+    <HelpText class />
   </div>
 </template>
 

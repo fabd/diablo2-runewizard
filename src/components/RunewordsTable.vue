@@ -15,12 +15,12 @@
           @click="onSortBy(col.key)"
         >
           {{ col.label }}
-          <span v-if="isSortKey(col.key) && sortAsc" class="rw-Table-thIcon"
-            ><icon-arrow-down class="ux-icon ux-icon--fw"
-          /></span>
-          <span v-if="isSortKey(col.key) && !sortAsc" class="rw-Table-thIcon"
-            ><icon-arrow-up class="ux-icon ux-icon--fw"
-          /></span>
+          <span v-if="isSortKey(col.key) && sortAsc" class="rw-Table-thIcon">
+            <icon-arrow-down class="ux-icon ux-icon--fw" />
+          </span>
+          <span v-if="isSortKey(col.key) && !sortAsc" class="rw-Table-thIcon">
+            <icon-arrow-up class="ux-icon ux-icon--fw" />
+          </span>
         </th>
       </tr>
     </thead>
@@ -34,17 +34,15 @@
           display: item.filterMatch ? '' : 'none',
         }"
       >
-        <td
-          class="rw-Table-td rw-Table-tdTitle p-0 text-left relative min-w-[10em]"
-        >
+        <td class="rw-Table-td rw-Table-tdTitle p-0 text-left relative min-w-[10em]">
           <span
             class="rw-Table-tdTitleSpan cursor-pointer"
             @mouseenter="onEnterRuneword($event, item)"
             @mouseleave="onLeaveRuneword()"
             @click="onEnterRuneword($event, item)"
-            >{{ item.title }}</span
-          ><span v-if="item.ladder" class="rw-Md-ladder">L</span>
-          
+          >{{ item.title }}</span>
+          <span v-if="item.ladder" class="rw-Md-ladder">L</span>
+
           <div
             class="rw-Table-pin"
             :class="{
@@ -53,31 +51,40 @@
             @click="item.isPinned = !item.isPinned"
           >
             <icon-check-on class="rw-Table-pinIcon" v-if="item.isPinned" />
-            <icon-check-off class="rw-Table-pinIcon" v-else/>
+            <icon-check-off class="rw-Table-pinIcon" v-else />
           </div>
         </td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">{{
-          item.runes[0]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[1])">{{
-          item.runes[1]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[2])">{{
-          item.runes[2]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[3])">{{
-          item.runes[3]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[4])">{{
-          item.runes[4]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">{{
-          item.runes[5]
-        }}</td>
-        <td
-          class="rw-Table-td rw-Table-tdType min-w-[10em]"
-          v-html="getTypeCellHtml(item)"
-        ></td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">
+          {{
+            item.runes[0]
+          }}
+        </td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[1])">
+          {{
+            item.runes[1]
+          }}
+        </td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[2])">
+          {{
+            item.runes[2]
+          }}
+        </td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[3])">
+          {{
+            item.runes[3]
+          }}
+        </td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[4])">
+          {{
+            item.runes[4]
+          }}
+        </td>
+        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">
+          {{
+            item.runes[5]
+          }}
+        </td>
+        <td class="rw-Table-td rw-Table-tdType min-w-[10em]" v-html="getTypeCellHtml(item)"></td>
         <td class="rw-Table-td">{{ item.level }}</td>
       </tr>
     </tbody>
@@ -250,7 +257,7 @@ export default defineComponent({
       // paranoia
       if (!ev.target) return;
 
-      this.refPopup.showRuneword(runeword, /**@type HTMLElement*/ (ev.target));
+      this.refPopup.showRuneword(runeword, /**@type HTMLElement*/(ev.target));
     },
 
     onLeaveRuneword() {

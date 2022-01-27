@@ -2,12 +2,7 @@
   <div>
     <div class="rw-Search flex items-center mb-4">
       <label class="text-gold whitespace-nowrap mr-4">{{ "Search" }}</label>
-      <input
-        v-model="searchTitle"
-        type="text"
-        class="rw-Search-input"
-        @input="onSearchInput"
-      />
+      <input v-model="searchTitle" type="text" class="rw-Search-input" @input="onSearchInput" />
     </div>
 
     <div v-if="hasPinnedRunewords" class="mb-8">
@@ -15,11 +10,9 @@
         <h2 class="rw-Title-h2 mb-0">Runewords (pinned)</h2>
 
         <div v-if="1" class="ml-8">
-          <a class="rw-Runes-clear" href="#" @click.prevent="0"
-            ><icon-cancel
-              class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1"
-            />unpin all</a
-          >
+          <a class="rw-Runes-clear" href="#" @click.prevent="0">
+            <icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1" />unpin all
+          </a>
         </div>
       </div>
 
