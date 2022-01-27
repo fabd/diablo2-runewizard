@@ -21,16 +21,17 @@ module.exports = {
   rules: {
     // console.* are removed by @rollup/plugin-strip
     "no-console": "off",
-    "no-unused-vars": [
-      "warn",
-      {
-        vars: "local",
-        args: "after-used",
-        argsIgnorePattern: "(^reject$|^_+$)",
-        varsIgnorePattern: "(^RW$)"},
-    ],
+
+    // buggy with TS types, recommended off on TS projects (let TS do it)
+    "no-undef": "off",
+    "no-unused-vars": "off",
+
+    //
     "prefer-const": "warn",
+    
+    //
     "vue/max-attributes-per-line": "off",
     "vue/no-unused-components": "warn",
-    "vue/no-v-html": "off"},
+    "vue/no-v-html": "off"
+  },
 };
