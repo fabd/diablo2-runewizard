@@ -7,9 +7,6 @@ import { runesIds } from "@/data/runes";
 
 const USERDATA_STORAGE_KEY = "runewizard";
 
-/** @typedef {{haveRunes: {[key in RuneId]?: boolean}}} TStore */
-/** @typedef {{selectedRunes: RuneId[]}} TUserData */
-
 const store = {
   state: reactive(
     /** @type {TStore} */ ({
