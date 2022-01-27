@@ -2,7 +2,7 @@
   <div>
     <div class="rw-Search flex items-center mb-4">
       <label class="text-gold whitespace-nowrap mr-4">{{ "Search" }}</label>
-      <input v-model="searchTitle" type="text" class="rw-Search-input" @input="onSearchInput" />
+      <input v-model="searchText" type="text" class="rw-Search-input" @input="onSearchInput" />
     </div>
 
     <div v-if="hasPinnedRunewords" class="mb-8">
@@ -52,7 +52,7 @@ export default defineComponent({
       /** @type {RunewordItem[]} */
       runewordsList: [],
 
-      searchTitle: "",
+      searchText: "",
     };
   },
 
@@ -76,12 +76,12 @@ export default defineComponent({
   created() {
     this.runewordsList = /** @type{RunewordItem[]}*/ (runewordsData.slice());
     this.runewordsList.forEach((item) => (item.isPinned = false));
-    this.updateFilter(this.searchTitle);
+    this.updateFilter(this.searchText);
   },
 
   methods: {
     onSearchInput() {
-      this.updateFilter(this.searchTitle);
+      this.updateFilter(this.searchText);
     },
 
     /** @param {string} text */
