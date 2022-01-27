@@ -44,12 +44,17 @@
             @click="onEnterRuneword($event, item)"
             >{{ item.title }}</span
           ><span v-if="item.ladder" class="rw-Md-ladder">L</span>
-          <span
-            class="absolute right-1 top-1/2 -mt-2 bottom-0 bg-[#444] w-4 h-4 hover:text-[#fff] cursor-pointer"
+          
+          <div
+            class="rw-Table-pin"
+            :class="{
+              'is-pinned': item.isPinned
+            }"
             @click="item.isPinned = !item.isPinned"
           >
-            ...
-          </span>
+            <icon-check-on class="rw-Table-pinIcon" v-if="item.isPinned" />
+            <icon-check-off class="rw-Table-pinIcon" v-else/>
+          </div>
         </td>
         <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">{{
           item.runes[0]
@@ -84,6 +89,9 @@ import { defineComponent } from "vue";
 
 import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
+import IconCheckOn from "@/icons/IconCheckOn.vue";
+import IconCheckOff from "@/icons/IconCheckOff.vue";
+
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
 import itemTypesData from "@/data/item-types";
@@ -97,6 +105,8 @@ export default defineComponent({
   components: {
     IconArrowDown,
     IconArrowUp,
+    IconCheckOn,
+    IconCheckOff,
     RunewordPopup,
   },
 

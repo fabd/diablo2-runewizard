@@ -287,6 +287,32 @@ object {
     }
   }
 
+  // pin icon next to runeword title
+  &-pin {
+    @apply absolute right-0;
+    @apply cursor-pointer;
+
+    &:hover {
+      @apply text-[#f4f2f0];
+    }
+    &.is-pinned {
+      @apply text-[#545250];
+    }
+
+    // background: red;
+    width: 1.5em;
+    height: 1.5em;
+
+    // vertical centering
+    @apply top-[50%] mt-[-0.75em];
+
+    // center the icon with auto margin trick
+    @apply flex;
+    &Icon {
+      @apply m-auto;
+    }
+  }
+
   &-tdType a {
     text-decoration: underline dotted;
   }
