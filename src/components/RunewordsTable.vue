@@ -142,7 +142,7 @@ export default defineComponent({
         { key: "rune3", label: "Rune" },
         { key: "rune4", label: "Rune" },
         { key: "rune5", label: "Rune" },
-        { key: "ttypes", label: "Type" },
+        { key: "ttypes", label: "Item Types" },
         { key: "level", label: "Level" },
       ],
     };
