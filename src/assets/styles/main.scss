@@ -117,7 +117,7 @@ object {
 // pretend component to group layout utils
 .rw-Layout {
   &-rowContainer {
-    @apply max-w-[1000px] pl-8 pr-4;
+    @apply max-w-[1100px] pl-8 pr-4;
   }
 
   &-goldBarSeparator {
@@ -281,6 +281,9 @@ object {
     @apply inline-block px-[5px] py-[7px]; // increase the mouseover area
 
     color: #74726c;
+
+    font-family: Georgia, serif;
+    font-size: 1rem;
 
     &:hover {
       color: #b9b6ac;
