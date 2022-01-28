@@ -36,6 +36,7 @@ import IconCancel from "@/icons/IconCancel.vue";
 import RunewordsTable from "@/components/RunewordsTable.vue";
 
 import runewordsData from "@/data/runewords";
+import store from "@/store";
 
 export default defineComponent({
   name: "Runewords",
@@ -64,18 +65,17 @@ export default defineComponent({
 
     /** @return {RunewordItem[]} */
     pinnedRunewords() {
-      return this.runewordsList.filter((item) => item.isPinned);
+      return this.runewordsList.filter((item) => store.isPinned(item.title));
     },
 
     /** @return {RunewordItem[]} */
     unpinnedRunewords() {
-      return this.runewordsList.filter((item) => !item.isPinned);
+      return this.runewordsList.filter((item) => !store.isPinned(item.title));
     },
   },
 
   created() {
     this.runewordsList = /** @type{RunewordItem[]}*/ (runewordsData.slice());
-    this.unpinAll();
     this.updateFilter(this.searchText);
   },
 
@@ -85,7 +85,9 @@ export default defineComponent({
     },
 
     unpinAll() {
-      this.runewordsList.forEach((item) => { item.isPinned = false; });
+      const ids = store.getPinned();
+      store.setPinned(ids, false);
+      store.saveState();
     },
 
     /** @param {string} text */

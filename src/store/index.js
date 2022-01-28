@@ -11,6 +11,7 @@ const store = {
   state: reactive(
     /** @type {TStore} */ ({
       haveRunes: [],
+      pinned: new Set(),
     })
   ),
 
@@ -68,6 +69,30 @@ const store = {
     this.clearRunes();
   },
 
+  /**
+   * @return {RunewordId[]}
+   */
+  getPinned() {
+    return Array.from(this.state.pinned.values());
+  },
+
+  /**
+   * @param {RunewordId} id
+   */
+  isPinned(id) {
+    return this.state.pinned.has(id);
+  },
+
+  /**
+   * @param {RunewordId[]} ids
+   */
+  setPinned(ids, state = true) {
+    const fn = state ? "add" : "delete";
+    ids.forEach((id) => {
+      this.state.pinned[fn](id);
+    });
+  },
+
   loadState() {
     console.log("store.loadState()");
 
@@ -79,18 +104,22 @@ const store = {
     const userData = /** @type {TUserData} */ (JSON.parse(storedData));
 
     this.setRunes(userData.selectedRunes);
+    
+    // note! watchout for existing users not having updated keys
+    this.setPinned(userData.pinnedRunewords || []);
   },
 
   saveState() {
-    console.log("store.saveState()");
-
     let storedData = "";
 
     if (!this.storage) return;
 
     const userData = /** @type {TUserData} */ ({
       selectedRunes: this.getRunes(),
+      pinnedRunewords: this.getPinned(),
     });
+
+    // console.log("store.saveState()", userData);
 
     try {
       storedData = JSON.stringify(userData);

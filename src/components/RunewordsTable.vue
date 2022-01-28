@@ -44,14 +44,14 @@
           <span v-if="item.ladder" class="rw-Md-ladder">L</span>
 
           <div
-            class="rw-Table-pin"
-            :class="{
-              'is-pinned': item.isPinned
-            }"
-            @click="item.isPinned = !item.isPinned"
+            v-if="pinnedRunewords.has(item.title)"
+            class="rw-Table-pin is-pinned"
+            @click="onTogglePin(item.title)"
           >
-            <icon-check-on class="rw-Table-pinIcon" v-if="item.isPinned" />
-            <icon-check-off class="rw-Table-pinIcon" v-else />
+            <icon-check-on class="rw-Table-pinIcon" />
+          </div>
+          <div v-else class="rw-Table-pin" @click="onTogglePin(item.title)">
+            <icon-check-off class="rw-Table-pinIcon" />
           </div>
         </td>
         <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">
@@ -128,6 +128,7 @@ export default defineComponent({
   data() {
     return {
       haveRunes: store.state.haveRunes,
+      pinnedRunewords: store.state.pinned,
 
       // this is our default sort
       sortKey: "level",
@@ -269,6 +270,13 @@ export default defineComponent({
       this.sortAsc = this.sortKey === key ? !this.sortAsc : true;
       this.sortKey = key;
     },
+
+    /** @param {RunewordId} id */
+    onTogglePin(id) {
+      const state = store.isPinned(id);
+      store.setPinned([id], !state);
+      store.saveState();
+    }
   },
 });
 </script>
