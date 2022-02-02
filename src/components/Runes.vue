@@ -4,11 +4,9 @@
       <h2 class="rw-Title-h2 mb-0">Runes</h2>
 
       <div v-if="isAnyRuneSelected" class="-mt-2px">
-        <a class="rw-Runes-clear" href="#" @click.prevent="onClearRunes"
-          ><icon-cancel
-            class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1"
-          />clear</a
-        >
+        <a class="rw-Runes-clear" href="#" @click.prevent="onClearRunes">
+          <icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1" />clear
+        </a>
       </div>
     </div>
 

@@ -81,3 +81,7 @@ type Runeword = {
 type RunewordMeta = {
   [runewordId: string]: string;
 };
+
+type RunewordItem = Runeword & {
+  filterMatch: boolean; // true if this item matches current search filter
+}

@@ -1,13 +1,4 @@
 <template>
-  <div class="rw-Search flex items-center mb-4">
-    <label class="text-gold whitespace-nowrap mr-4">{{ "Search" }}</label>
-    <input v-model="searchTitle" type="text" class="rw-Search-input" />
-  </div>
-
-  <h2 class="rw-Title-h2 mb-2">
-    Runewords<span v-if="availableCount">({{ availableCount }} available)</span>
-  </h2>
-
   <runeword-popup ref="popup" />
 
   <table class="rw-Table w-full">
@@ -24,55 +15,99 @@
           @click="onSortBy(col.key)"
         >
           {{ col.label }}
-          <span v-if="isSortKey(col.key) && sortAsc" class="rw-Table-thIcon"
-            ><icon-arrow-down class="ux-icon ux-icon--fw"
-          /></span>
-          <span v-if="isSortKey(col.key) && !sortAsc" class="rw-Table-thIcon"
-            ><icon-arrow-up class="ux-icon ux-icon--fw"
-          /></span>
+          <span v-if="isSortKey(col.key) && sortAsc" class="rw-Table-thIcon">
+            <icon-arrow-down class="ux-icon ux-icon--fw" />
+          </span>
+          <span v-if="isSortKey(col.key) && !sortAsc" class="rw-Table-thIcon">
+            <icon-arrow-up class="ux-icon ux-icon--fw" />
+          </span>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr
-        v-for="(item, i) in searchedItems"
-        :key="i"
-        class="rw-Table-tr"
-        :class="cssCompleteRuneword(item)"
-      >
-        <td class="rw-Table-td rw-Table-tdTitle p-0 text-left"
-          ><span
-            class="rw-Table-tdTitleSpan cursor-pointer"
-            @mouseenter="onEnterRuneword($event, item)"
-            @mouseleave="onLeaveRuneword()"
-            @click="onEnterRuneword($event, item)"
-            >{{ item.title }}</span
-          ><span v-if="item.ladder" class="rw-Md-ladder">L</span></td
+      <template v-for="(item, i) in itemsBySort" :key="i">
+        <template v-if="pinnedRunewords.size && i === 0">
+          <tr class="rw-Table-tr">
+            <td class="rw-Table-td" colspan="9">
+              <div class="text-center mt-6 py-2 relative">
+                <span class="text-md text-gold tracking-[.2em]">PINNED RUNEWORDS</span>
+                <a class="rw-Runes-clear absolute right-0 top-1" href="#" @click.prevent="unpinAll">
+                  <icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1" />unpin all
+                </a>
+              </div>
+            </td>
+          </tr>
+        </template>
+
+        <template v-if="pinnedRunewords.size && i === pinnedRunewords.size">
+          <tr class="rw-Table-tr">
+            <td class="rw-Table-td" colspan="9">
+              <div class="text-center text-md text-gold tracking-[.2em] mt-6 py-2">ALL RUNEWORDS</div>
+            </td>
+          </tr>
+        </template>
+
+        <tr
+          class="rw-Table-tr"
+          :class="cssCompleteRuneword(item)"
+          :style="{
+            display: item.filterMatch ? '' : 'none',
+          }"
         >
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">{{
-          item.runes[0]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[1])">{{
-          item.runes[1]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[2])">{{
-          item.runes[2]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[3])">{{
-          item.runes[3]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[4])">{{
-          item.runes[4]
-        }}</td>
-        <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">{{
-          item.runes[5]
-        }}</td>
-        <td
-          class="rw-Table-td rw-Table-tdType"
-          v-html="getTypeCellHtml(item)"
-        ></td>
-        <td class="rw-Table-td">{{ item.level }}</td>
-      </tr>
+          <td class="rw-Table-td rw-Table-tdTitle p-0 text-left relative min-w-[10em]">
+            <span
+              class="rw-Table-tdTitleSpan cursor-pointer"
+              @mouseenter="onEnterRuneword($event, item)"
+              @mouseleave="onLeaveRuneword()"
+              @click="onEnterRuneword($event, item)"
+            >{{ item.title }}</span>
+            <span v-if="item.ladder" class="rw-Md-ladder">L</span>
+
+            <div
+              v-if="pinnedRunewords.has(item.title)"
+              class="rw-Table-pin is-pinned"
+              @click="onTogglePin(item.title)"
+            >
+              <icon-check-on class="rw-Table-pinIcon" />
+            </div>
+            <div v-else class="rw-Table-pin" @click="onTogglePin(item.title)">
+              <icon-check-off class="rw-Table-pinIcon" />
+            </div>
+          </td>
+          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">
+            {{
+              item.runes[0]
+            }}
+          </td>
+          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[1])">
+            {{
+              item.runes[1]
+            }}
+          </td>
+          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[2])">
+            {{
+              item.runes[2]
+            }}
+          </td>
+          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[3])">
+            {{
+              item.runes[3]
+            }}
+          </td>
+          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[4])">
+            {{
+              item.runes[4]
+            }}
+          </td>
+          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">
+            {{
+              item.runes[5]
+            }}
+          </td>
+          <td class="rw-Table-td rw-Table-tdType min-w-[10em]" v-html="getTypeCellHtml(item)"></td>
+          <td class="rw-Table-td">{{ item.level }}</td>
+        </tr>
+      </template>
     </tbody>
   </table>
 </template>
@@ -82,9 +117,12 @@ import { defineComponent } from "vue";
 
 import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
+import IconCancel from "@/icons/IconCancel.vue";
+import IconCheckOn from "@/icons/IconCheckOn.vue";
+import IconCheckOff from "@/icons/IconCheckOff.vue";
+
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
-import runewordsData from "@/data/runewords";
 import itemTypesData from "@/data/item-types";
 import store from "@/store";
 
@@ -96,12 +134,24 @@ export default defineComponent({
   components: {
     IconArrowDown,
     IconArrowUp,
+    IconCancel,
+    IconCheckOn,
+    IconCheckOff,
     RunewordPopup,
+  },
+
+  props: {
+    items: {
+      /** @type {import("vue").PropType<RunewordItem[]>} */
+      type: Array,
+      required: true,
+    },
   },
 
   data() {
     return {
       haveRunes: store.state.haveRunes,
+      pinnedRunewords: store.state.pinned,
 
       // this is our default sort
       sortKey: "level",
@@ -115,21 +165,19 @@ export default defineComponent({
         { key: "rune3", label: "Rune" },
         { key: "rune4", label: "Rune" },
         { key: "rune5", label: "Rune" },
-        { key: "ttypes", label: "Type" },
+        { key: "ttypes", label: "Item Types" },
         { key: "level", label: "Level" },
       ],
-
-      searchTitle: "",
     };
   },
 
   computed: {
     /** @return {number} */
-    availableCount() {
-      let count = 0;
-      this.runewordIsComplete.forEach((isComplete) => isComplete && count++);
-      return count;
-    },
+    // availableCount() {
+    //   let count = 0;
+    //   this.runewordIsComplete.forEach((isComplete) => isComplete && count++);
+    //   return count;
+    //},
 
     /** @return {Map<string, boolean>} */
     runewordIsComplete() {
@@ -138,7 +186,7 @@ export default defineComponent({
       /** @type {Map<string, boolean>} */
       const map = new Map();
 
-      runewordsData.forEach((runeword) => {
+      this.items.forEach((runeword) => {
         map.set(
           runeword.title,
           runeword.runes.every((runeId) => this.haveRunes[runeId])
@@ -148,28 +196,7 @@ export default defineComponent({
       return map;
     },
 
-    /** @return {Runeword[]} */
-    items() {
-      return runewordsData;
-    },
-
-    /** @return {Runeword[]} */
-    searchedItems() {
-      const list = this.itemsBySort;
-      const searchTerm = this.searchTitle.toLowerCase();
-
-      const newList = list.filter((item) => {
-        const matchesTitle = item.title.toLowerCase().includes(searchTerm);
-        const matchesType = item.ttypes.some((type) => {
-          return type.toLowerCase().includes(searchTerm);
-        });
-        
-        return matchesTitle || matchesType;
-      });
-      return newList;
-    },
-
-    /** @return {Runeword[]} */
+    /** @return {RunewordItem[]} */
     itemsBySort() {
       const list = this.items.slice();
 
@@ -200,13 +227,18 @@ export default defineComponent({
       !this.sortAsc && list.reverse();
 
       // move completed items to the top
-      const list2 = list
-        .filter((word) => this.runewordIsComplete.get(word.title))
-        .concat(
-          list.filter((word) => !this.runewordIsComplete.get(word.title))
-        );
+      const list2 = [
+        ...list.filter((word) => this.runewordIsComplete.get(word.title)),
+        ...list.filter((word) => !this.runewordIsComplete.get(word.title))
+      ];
 
-      return list2;
+      //
+      const list3 = [
+        ...list2.filter((word) => this.pinnedRunewords.has(word.title)),
+        ...list2.filter((word) => !this.pinnedRunewords.has(word.title))
+      ];
+
+      return list3;
     },
 
     /** @return {TRunewordPopup} */
@@ -254,7 +286,7 @@ export default defineComponent({
       // paranoia
       if (!ev.target) return;
 
-      this.refPopup.showRuneword(runeword, /**@type HTMLElement*/ (ev.target));
+      this.refPopup.showRuneword(runeword, /**@type HTMLElement*/(ev.target));
     },
 
     onLeaveRuneword() {
@@ -265,6 +297,19 @@ export default defineComponent({
     onSortBy(key) {
       this.sortAsc = this.sortKey === key ? !this.sortAsc : true;
       this.sortKey = key;
+    },
+
+    /** @param {RunewordId} id */
+    onTogglePin(id) {
+      const state = store.isPinned(id);
+      store.setPinned([id], !state);
+      store.saveState();
+    },
+
+    unpinAll() {
+      const ids = store.getPinned();
+      store.setPinned(ids, false);
+      store.saveState();
     },
   },
 });

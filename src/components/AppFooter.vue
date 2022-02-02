@@ -5,17 +5,17 @@
     <div class="text-center text-lg text-gold leading-1">
       <div v-if="envMainSiteUrl" class="mb-2">
         Also check out
-        <a :href="envMainSiteUrl" class="rw-Footer-link ml-2">{{
-          "The Tankazon Resource"
-        }}</a>
+        <a :href="envMainSiteUrl" class="rw-Footer-link ml-2">
+          {{
+            "The Tankazon Resource"
+          }}
+        </a>
       </div>
       <div>
         Development
         <a :href="envGithubRepoUrl" class="rw-Footer-link ml-2">
-          <icon-github class="ux-icon ux-icon--fw mr-1 mt-[-0.2em]" /><span
-            class=""
-            >{{ "fabd/diablo2-runewizard" }}</span
-          >
+          <icon-github class="ux-icon ux-icon--fw mr-1 mt-[-0.2em]" />
+          <span class>{{ "fabd/diablo2-runewizard" }}</span>
         </a>
       </div>
     </div>
