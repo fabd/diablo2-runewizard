@@ -73,7 +73,7 @@ const runewords = [
     runes: ["Lum", "Io", "Sol", "Eth"],
     level: 37,
     ttypes: ["Staves"],
-    tinfos: "(Not Orbs)",
+    tinfos: "(Not Orbs/Wands)",
   },
   {
     title: "Nadir",
