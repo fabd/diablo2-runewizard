@@ -1,4 +1,5 @@
 <template>
+  <rune-popup ref="runePopup" />
   <div class="relative">
     <div class="flex justify-between items-center mb-2">
       <h2 class="rw-Title-h2 mb-0">Runes</h2>
@@ -21,6 +22,8 @@
             'is-selected': haveRunes[rune.name],
           }"
           @click="onToggleRune(rune.name)"
+          @mouseenter="onEnterRune($event, rune.name)"
+          @mouseleave="onLeaveRune()"
         >
           <span class="mx-auto my-auto">{{ rune.name }}</span>
         </div>
@@ -32,16 +35,20 @@
 <script>
 import { defineComponent } from "vue";
 import IconCancel from "@/icons/IconCancel.vue";
+import RunePopup from "@/components/RunePopup.vue"
 
 import { EnumRuneTier } from "@/data/runes";
 import runesData from "@/data/runes";
 import store from "@/store";
+
+/** @typedef {TVueInstanceOf<RunePopup>} TRunePopup */
 
 export default defineComponent({
   name: "Runes",
 
   components: {
     IconCancel,
+    RunePopup
   },
 
   data() {
@@ -69,12 +76,32 @@ export default defineComponent({
 
       return tiers;
     },
+
+    /** @return {TRunePopup} */
+    runePopup() {
+      return /** @type {TRunePopup} */ (this.$refs.runePopup);
+    },
   },
 
   methods: {
     onClearRunes() {
       store.clearRunes();
       store.saveState();
+    },
+
+    /**
+     * @param {Event} ev
+     * @param {RuneId} rune
+     */
+    onEnterRune(ev, rune) {
+      // paranoia
+      if (!ev.target) return;
+
+      this.runePopup.showRune(rune.toString(), /**@type HTMLElement*/(ev.target));
+    },
+
+    onLeaveRune() {
+      this.runePopup.setVisible(false);
     },
 
     /** @param {RuneId} runeId */
