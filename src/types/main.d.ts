@@ -1,13 +1,7 @@
-/* eslint-disable no-unused-vars */
-
 // helper to create a union of possible values in our enums
 type Values<T> = T[keyof T];
 
-type EnumRuneTier = {
-  COMMON: 1;
-  SEMIRARE: 2;
-  RARE: 3;
-};
+type ERuneTier = import("@/data/runes").ERuneTier;
 
 type ItemTypeId =
   | "Helms"
@@ -27,8 +21,6 @@ type ItemTypeId =
   | "Weapons"
   | "Claws"
   | "Paladin Shields";
-
-type RuneTier = Values<EnumRuneTier>;
 
 type RuneId =
   | "El"
@@ -65,7 +57,10 @@ type RuneId =
   | "Cham"
   | "Zod";
 
-type RuneDef = { name: RuneId; tier: RuneTier };
+type RuneDef = {
+  name: RuneId;
+  tier: ERuneTier;
+};
 
 type RunewordId = string;
 
@@ -84,4 +79,4 @@ type RunewordMeta = {
 
 type RunewordItem = Runeword & {
   filterMatch: boolean; // true if this item matches current search filter
-}
+};

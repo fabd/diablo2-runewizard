@@ -13,7 +13,7 @@
   <app-footer />
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 
 import AppHeader from "@/components/AppHeader.vue";
@@ -32,8 +32,7 @@ export default defineComponent({
   },
 
   computed: {
-    /** @return {boolean} */
-    useLayoutHeader() {
+    useLayoutHeader(): boolean {
       return import.meta.env.VITE_LAYOUT_HEADER === "true";
     },
   },

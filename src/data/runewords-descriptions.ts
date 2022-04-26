@@ -1,5 +1,4 @@
-/** @type {RunewordMeta} */
-const runewordsDesc = {
+const runewordsDesc: RunewordMeta = {
   "Ancient's Pledge": `
   +50% Enhanced Defense
   Cold Resist +43%

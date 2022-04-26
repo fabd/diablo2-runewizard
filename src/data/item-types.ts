@@ -1,5 +1,4 @@
-/** @type {{ [key in ItemTypeId]: { url?: string } }} */
-const types = {
+const itemTypes: { [key in ItemTypeId]: { url?: string } } = {
   Helms: { url: "https://diablo2.diablowiki.net/Helms" },
   Swords: { url: "https://diablo2.diablowiki.net/Swords" },
   Axes: { url: "https://diablo2.diablowiki.net/Axes" },
@@ -19,4 +18,4 @@ const types = {
   "Paladin Shields": { url: "https://diablo2.diablowiki.net/Paladin_Items" },
 };
 
-export default types;
+export default itemTypes;

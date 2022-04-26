@@ -1,22 +1,25 @@
 module.exports = {
+  parserOptions: {
+    parser: "@typescript-eslint/parser", // allows ESLint to understand TypeScript syntax
+  },
+  plugins: ["prettier", "vue", "@typescript-eslint"],
   env: {
     browser: true,
     es6: true,
-    node: true},
+    node: true,
+  },
   extends: [
+    // small set of rules which lint for well-known best-practices
     "eslint:recommended",
+    // 'recommended' set of rules only from TypeScript-specific plugin (optional)
+    "plugin:@typescript-eslint/recommended",
+    //
+    "plugin:compat/recommended",
+    // parse Single File Components + Vue specific rules
     "plugin:vue/vue3-recommended",
+    //
     "prettier",
   ],
-  plugins: ["vue"],
-  parserOptions: {
-    // NOTE! https://eslint.vuejs.org/user-guide/#how-to-use-a-custom-parser
-    parser: "@typescript-eslint/parser",
-    ecmaVersion: 2019,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true},
-  },
   root: true,
   rules: {
     // console.* are removed by @rollup/plugin-strip
@@ -28,10 +31,10 @@ module.exports = {
 
     //
     "prefer-const": "warn",
-    
+
     //
     "vue/max-attributes-per-line": "off",
     "vue/no-unused-components": "warn",
-    "vue/no-v-html": "off"
+    "vue/no-v-html": "off",
   },
 };
