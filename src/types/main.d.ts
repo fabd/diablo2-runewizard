@@ -1,9 +1,6 @@
-// helper to create a union of possible values in our enums
-type Values<T> = T[keyof T];
-
 type ERuneTier = import("@/data/runes").ERuneTier;
 
-type ItemTypeId =
+type TItemTypeId =
   | "Helms"
   | "Swords"
   | "Axes"
@@ -22,7 +19,7 @@ type ItemTypeId =
   | "Claws"
   | "Paladin Shields";
 
-type RuneId =
+type TRuneId =
   | "El"
   | "Eld"
   | "Tir"
@@ -57,26 +54,26 @@ type RuneId =
   | "Cham"
   | "Zod";
 
-type RuneDef = {
-  name: RuneId;
+type TRuneDef = {
+  name: TRuneId;
   tier: ERuneTier;
 };
 
-type RunewordId = string;
+type TRunewordId = string;
 
-type Runeword = {
-  title: RunewordId;
-  runes: RuneId[];
+type TRuneword = {
+  title: TRunewordId;
+  runes: TRuneId[];
   level: number;
-  ttypes: ItemTypeId[];
+  ttypes: TItemTypeId[];
   ladder?: boolean;
   tinfos?: string;
 };
 
-type RunewordMeta = {
+type TRunewordMeta = {
   [runewordId: string]: string;
 };
 
-type RunewordItem = Runeword & {
+type TRunewordItem = TRuneword & {
   filterMatch: boolean; // true if this item matches current search filter
 };

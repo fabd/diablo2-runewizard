@@ -115,16 +115,15 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 
+import itemTypesData from "@/data/item-types";
+import store from "@/store";
+
 import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
 import IconCancel from "@/icons/IconCancel.vue";
 import IconCheckOn from "@/icons/IconCheckOn.vue";
 import IconCheckOff from "@/icons/IconCheckOff.vue";
-
 import RunewordPopup from "@/components/RunewordPopup.vue";
-
-import itemTypesData from "@/data/item-types";
-import store from "@/store";
 
 type TRunewordPopup = TVueInstanceOf<typeof RunewordPopup>;
 
@@ -141,7 +140,7 @@ export default defineComponent({
   },
 
   props: {
-    items: { type: Array as PropType<RunewordItem[]>, required: true, },
+    items: { type: Array as PropType<TRunewordItem[]>, required: true, },
   },
 
   data() {
@@ -191,11 +190,11 @@ export default defineComponent({
       return map;
     },
 
-    itemsBySort(): RunewordItem[] {
+    itemsBySort(): TRunewordItem[] {
       const list = this.items.slice();
 
-      // let compareFn: ((a: Runeword, b: Runeword) => number) | undefined;
-      let compareFn: ((a: Runeword, b: Runeword) => number) | undefined;
+      // let compareFn: ((a: TRuneword, b: TRuneword) => number) | undefined;
+      let compareFn: ((a: TRuneword, b: TRuneword) => number) | undefined;
 
       if (this.sortKey === "title") {
         compareFn = ({ title: a }, { title: b }) =>
@@ -241,15 +240,15 @@ export default defineComponent({
   },
 
   methods: {
-    cssActiveRune(runeId: RuneId) {
+    cssActiveRune(runeId: TRuneId) {
       return this.haveRunes[runeId] ? "is-active" : "";
     },
 
-    cssCompleteRuneword(word: Runeword) {
+    cssCompleteRuneword(word: TRuneword) {
       return this.runewordIsComplete.get(word.title) ? "is-complete" : "";
     },
 
-    getTypeCellHtml(word: Runeword) {
+    getTypeCellHtml(word: TRuneword) {
       // could do additional formatting here
       let cellHtml = word.ttypes
         .map((type) => {
@@ -267,7 +266,7 @@ export default defineComponent({
       return key === this.sortKey;
     },
 
-    onEnterRuneword(ev: Event, runeword: Runeword) {
+    onEnterRuneword(ev: Event, runeword: TRuneword) {
       // paranoia
       if (!ev.target) return;
 
@@ -283,7 +282,7 @@ export default defineComponent({
       this.sortKey = key;
     },
 
-    onTogglePin(id: RunewordId) {
+    onTogglePin(id: TRunewordId) {
       const state = store.isPinned(id);
       store.setPinned([id], !state);
       store.saveState();

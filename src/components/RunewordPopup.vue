@@ -25,6 +25,7 @@
  * 
  */
 import { defineComponent } from "vue";
+
 import runewordsMetaData from "@/data/runewords-descriptions";
 
 export default defineComponent({
@@ -40,7 +41,7 @@ export default defineComponent({
         title: "",
         ttypes: [],
         level: 0,
-      } as Pick<Runeword, "title" | "ttypes" | "level">,
+      } as Pick<TRuneword, "title" | "ttypes" | "level">,
     };
   },
 
@@ -107,7 +108,7 @@ export default defineComponent({
       this.position = { x: popX, y: popY };
     },
 
-    showRuneword(runeword: Runeword, target: HTMLElement) {
+    showRuneword(runeword: TRuneword, target: HTMLElement) {
       this.runeword = runeword;
       this.$nextTick(() => {
         this.moveTo(target);

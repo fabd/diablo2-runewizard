@@ -4,7 +4,7 @@ export const enum ERuneTier {
   RARE = 3,
 };
 
-const runes: RuneDef[] = [
+const runes: TRuneDef[] = [
   { name: "El", tier: 1 },
   { name: "Eld", tier: 1 },
   { name: "Tir", tier: 1 },

@@ -1,4 +1,4 @@
-const runewords: Runeword[] = [
+const runewords: TRuneword[] = [
   /* 1.09 */
   {
     title: "Ancient's Pledge",

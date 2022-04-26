@@ -14,10 +14,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import RunewordsTable from "@/components/RunewordsTable.vue";
-
 import runewordsData from "@/data/runewords";
-// import store from "@/store";
+
+import RunewordsTable from "@/components/RunewordsTable.vue";
 
 export default defineComponent({
   name: "Runewords",
@@ -30,14 +29,14 @@ export default defineComponent({
     return {
       isHelpVisible: false,
 
-      runewordsList: [] as RunewordItem[],
+      runewordsList: [] as TRunewordItem[],
 
       searchText: "",
     };
   },
 
   created() {
-    this.runewordsList = runewordsData.slice() as RunewordItem[];
+    this.runewordsList = runewordsData.slice() as TRunewordItem[];
     this.updateFilter(this.searchText);
   },
 
@@ -50,7 +49,7 @@ export default defineComponent({
     updateFilter(text: string) {
       const searchTerm = text.toLowerCase();
 
-      const matches = (item: RunewordItem) => {
+      const matches = (item: TRunewordItem) => {
         const matchesTitle = item.title.toLowerCase().includes(searchTerm);
         const matchesType = item.ttypes.some((type) => {
           return type.toLowerCase().includes(searchTerm);

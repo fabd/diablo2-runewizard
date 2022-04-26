@@ -31,10 +31,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import IconCancel from "@/icons/IconCancel.vue";
 
 import runesData, { ERuneTier } from "@/data/runes";
 import store from "@/store";
+
+import IconCancel from "@/icons/IconCancel.vue";
 
 export default defineComponent({
   name: "Runes",
@@ -55,7 +56,7 @@ export default defineComponent({
       return store.getRunes().length > 0;
     },
 
-    runesByTier(): RuneDef[][] {
+    runesByTier(): TRuneDef[][] {
       const tiers = [
         this.runes.filter((rune) => rune.tier === ERuneTier.COMMON),
         this.runes.filter((rune) => rune.tier === ERuneTier.SEMIRARE),
@@ -74,7 +75,7 @@ export default defineComponent({
       store.saveState();
     },
 
-    onToggleRune(runeId: RuneId) {
+    onToggleRune(runeId: TRuneId) {
       const state = store.hasRune(runeId);
 
       store.setRunes([runeId], !state);

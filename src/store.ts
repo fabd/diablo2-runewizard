@@ -10,13 +10,13 @@ import { runesIds } from "@/data/runes";
 
 type TStoreState = {
   haveRunes: { [key in TRuneId]?: boolean };
-  pinned: Set<RunewordId>;
+  pinned: Set<TRunewordId>;
 };
 
 // user data as stored in browser's localStorage
 type TUserData = {
   selectedRunes: TRuneId[];
-  pinnedRunewords: RunewordId[];
+  pinnedRunewords: TRunewordId[];
 };
 
 const USERDATA_STORAGE_KEY = "runewizard";
@@ -70,15 +70,15 @@ const store = {
     this.clearRunes();
   },
 
-  getPinned(): RunewordId[] {
+  getPinned(): TRunewordId[] {
     return Array.from(this.state.pinned.values());
   },
 
-  isPinned(id: RunewordId) {
+  isPinned(id: TRunewordId) {
     return this.state.pinned.has(id);
   },
 
-  setPinned(ids: RunewordId[], state = true) {
+  setPinned(ids: TRunewordId[], state = true) {
     const fn = state ? "add" : "delete";
     ids.forEach((id) => {
       this.state.pinned[fn](id);
