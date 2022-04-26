@@ -20,7 +20,7 @@
         <div class="flex justify-between items-center">
           <div class="text-lg text-[#b5b2b0]">
             for <span class="text-[#b5b2b0] font-bold">{{ envGameName }}</span>
-            <span class="ml-2 text-[#71B643]">{{ `v${envGameVersion}` }}</span>
+            <span class="ml-2 text-[#71B643]">{{ envGameVersion }}</span>
           </div>
 
           <div class="flex items-center text-[#514f4a]">

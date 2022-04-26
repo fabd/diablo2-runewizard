@@ -374,14 +374,14 @@ const runewords: TRuneword[] = [
     title: "Infinity",
     runes: ["Ber", "Mal", "Ber", "Ist"],
     level: 63,
-    ttypes: ["Polearms"],
+    ttypes: ["Polearms", "Spears"],
     ladder: true,
   },
   {
     title: "Insight",
     runes: ["Ral", "Tir", "Tal", "Sol"],
     level: 27,
-    ttypes: ["Polearms", "Staves"],
+    ttypes: ["Missile Weapons", "Polearms", "Staves"],
     ladder: true,
   },
   {
@@ -409,7 +409,7 @@ const runewords: TRuneword[] = [
     title: "Obedience",
     runes: ["Hel", "Ko", "Thul", "Eth", "Fal"],
     level: 41,
-    ttypes: ["Polearms"],
+    ttypes: ["Polearms", "Spears"],
     ladder: true,
   },
   {
@@ -423,7 +423,7 @@ const runewords: TRuneword[] = [
     title: "Pride",
     runes: ["Cham", "Sur", "Io", "Lo"],
     level: 67,
-    ttypes: ["Polearms"],
+    ttypes: ["Polearms", "Spears"],
     ladder: true,
   },
   {
@@ -503,6 +503,56 @@ const runewords: TRuneword[] = [
     level: 43,
     ttypes: ["Body Armors"],
     tinfos: "(Assassin)",
+  },
+  /* D2R 2.4 */
+  {
+    title: "Plague",
+    runes: ["Cham", "Shael", "Um"],
+    level: 1,
+    ttypes: ["Swords", "Claws", "Daggers"],
+    tinfos: "(Patch 2.4)",
+  },
+  {
+    title: "Pattern",
+    runes: ["Tal", "Ort", "Thul"],
+    level: 1,
+    ttypes: ["Claws"],
+    tinfos: "(Patch 2.4)",
+  },
+  {
+    title: "Unbending Will",
+    runes: ["Fal", "Io", "Ith", "Eld", "El", "Hel"],
+    level: 1,
+    ttypes: ["Swords"],
+    tinfos: "(Patch 2.4)",
+  },
+  {
+    title: "Wisdom",
+    runes: ["Pul", "Ith", "Eld"],
+    level: 1,
+    ttypes: ["Helms"],
+    tinfos: "(Patch 2.4)",
+  },
+  {
+    title: "Obsession",
+    runes: ["Zod", "Ist", "Lem", "Lum", "Io", "Nef"],
+    level: 1,
+    ttypes: ["Staves"],
+    tinfos: "(Patch 2.4)",
+  },
+  {
+    title: "Flickering Flame",
+    runes: ["Nef", "Pul", "Vex"],
+    level: 1,
+    ttypes: ["Helms"],
+    tinfos: "(Patch 2.4)",
+  },
+  {
+    title: "Mist",
+    runes: ["Cham", "Shael", "Gul", "Thul", "Ith"],
+    level: 1,
+    ttypes: ["Missile Weapons"],
+    tinfos: "(Patch 2.4)",
   },
 ];
 

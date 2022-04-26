@@ -1026,6 +1026,105 @@ const runewordsDesc: TRunewordMeta = {
   Cold Resist +30%
   50% Extra Gold From Monsters
   `,
+
+  /* Patch 2.4 - alpha sort maybe later, keep here for now easier to find */
+  Plague: `
+  20% Chance to Cast level 12 Lower Resist when struck
+  25% Chance to Cast level 15 Poison Nova on striking
+  Level 13-17 Cleansing Aura When Equipped (varies)
+  +1-2 All Skills
+  +20% Increased Attack Speed
+  +220-320% Enhanced Damage (varies)
+  -23% To Enemy Poison Resistance
+  0.3% (0-29.7) Deadly Strike (Based on Character Level)
+  +25% Chance of Open Wounds
+  Freezes Target +3
+  `,
+
+  Pattern: `
+  +30% Faster Block Rate
+  +40-80% Enhanced Damage (varies)
+  10% Bonus to Attack Rating
+  Adds 17-62 Fire Damage
+  Adds 1-50 Lightning Damage
+  Adds 3-14 Cold Damage
+  +75 Poison Damage Over 5 Seconds
+  +6 to Strength
+  +6 to Dexterity
+  All Resistances +15
+  `,
+
+  "Unbending Will": `
+  18% Chance to cast Level 18 Taunt on striking
+  +3 To Combat Skills (Barbarian Only)
+  +20-30% Increased Attack Speed (varies)
+  +300-350% Enhanced Damage (varies)
+  +9 To Maximum Damage
+  +50 To Attack Rating
+  +75% Damage to Undead
+  +50 Attack Rating Against Undead
+  8-10% Life Stolen Per Hit (varies)
+  Prevent Monster Heal
+  +10 To Strength
+  +10 To Vitality
+  Damage Reduced By 8
+  +1 Light Radius
+  Requirements -20%
+  `,
+
+  Wisdom: `
+  +33% Piercing Attack
+  +15-25% Bonus to Attack Rating (varies)
+  4-8% Mana Stolen Per Hit (varies)
+  +30% Enhanced Defense
+  +10 Energy
+  15% Slower Stamina Drain
+  Cannot Be Frozen
+  +5 Mana After Each Kill
+  15% Damage Taken Goes to Mana
+  `,
+
+  Obsession: `
+  Indestructible
+  24% Chance to cast level 10 Weaken when struck
+  +4 To All Skills
+  +65% Faster Cast Rate
+  +60% Faster Hit Recovery
+  Knockback
+  +10 To Vitality
+  +10 To Energy
+  Increase Maximum Life 15-25% (varies)
+  Regenerate Mana 15-30% (varies)
+  All Resistances +60-70 (varies)
+  75% Extra Gold from Monsters
+  30% Better Chance of Getting Magic Items
+  `,
+
+  "Flickering Flame": `
+  Level 4-8 Resist Fire Aura When Equipped (varies)
+  +3 To Fire Skills
+  -10-15% to Enemy Fire Resistance (varies)
+  +30% Enhanced Defense
+  +30 Defense Vs. Missile
+  +50-75 To Mana (varies)
+  Half Freeze Duration
+  +5% To Maximum Fire Resist
+  Poison Length Reduced by 50%
+  `,
+
+  Mist: `
+  Level 8-12 Concentration Aura When Equipped (varies)
+  +3 To All Skills
+  20% Increased Attack Speed
+  +100% Piercing Attack
+  +325-375% Enhanced Damage (varies)
+  +9 To Maximum Damage
+  20% Bonus to Attack Rating
+  Adds 3-14 Cold Damage
+  Freeze Target +3
+  +24 Vitality
+  All Resistances +40
+  `,
 };
 
 export default runewordsDesc;
