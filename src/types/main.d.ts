@@ -1,23 +1,23 @@
 type ERuneTier = import("@/data/runes").ERuneTier;
 
 type TItemTypeId =
-  | "Helms"
-  | "Swords"
   | "Axes"
-  | "Maces"
-  | "Melee Weapons"
   | "Body Armors"
-  | "Staves"
-  | "Shields"
-  | "Scepters"
-  | "Missile Weapons"
-  | "Polearms"
+  | "Claws"
   | "Clubs"
   | "Hammers"
+  | "Helms"
+  | "Maces"
+  | "Melee Weapons"
+  | "Missile Weapons"
+  | "Paladin Shields"
+  | "Polearms"
+  | "Scepters"
+  | "Shields"
+  | "Staves"
+  | "Swords"
   | "Wands"
-  | "Weapons"
-  | "Claws"
-  | "Paladin Shields";
+  | "Weapons";
 
 type TRuneId =
   | "El"
