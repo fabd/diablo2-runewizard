@@ -1,22 +1,33 @@
-// simple store pattern to
-// - handle state across components
-// - persist user data in local storage
+/**
+ * Simple store pattern.
+ * 
+ *   - handle state across components
+ *   - persist the state (eg. selected runes) in local storage
+ */
 
 import { reactive } from "vue";
 import { runesIds } from "@/data/runes";
 
+type TStoreState = {
+  haveRunes: { [key in TRuneId]?: boolean };
+  pinned: Set<TRunewordId>;
+};
+
+// user data as stored in browser's localStorage
+type TUserData = {
+  selectedRunes: TRuneId[];
+  pinnedRunewords: TRunewordId[];
+};
+
 const USERDATA_STORAGE_KEY = "runewizard";
 
 const store = {
-  state: reactive(
-    /** @type {TStore} */ ({
-      haveRunes: [],
-      pinned: new Set(),
-    })
-  ),
+  state: reactive({
+    haveRunes: [],
+    pinned: new Set(),
+  }) as TStoreState,
 
-  /** @type {Storage?} */
-  storage: null,
+  storage: null as Storage | null,
 
   initialize() {
     this.storage = window.localStorage;
@@ -29,15 +40,11 @@ const store = {
 
   /**
    * returns an array of selected rune ids
-   * @returns {RuneId[]}
    */
   getRunes() {
-    /** @type {RuneId[]} */
-    const runesIds = [];
+    const runesIds: TRuneId[] = [];
 
-    for (const runeId of /** @type {RuneId[]}*/ (Object.keys(
-      this.state.haveRunes
-    ))) {
+    for (const runeId of Object.keys(this.state.haveRunes) as TRuneId[]) {
       if (this.state.haveRunes[runeId]) {
         runesIds.push(runeId);
       }
@@ -48,20 +55,14 @@ const store = {
 
   /**
    * sets selected runes from an array of rune ids
-   * @param {RuneId[]} runes
-   * @param {boolean} state
    */
-  setRunes(runes, state = true) {
+  setRunes(runes: TRuneId[], state = true) {
     for (const runeId of runes) {
       this.state.haveRunes[runeId] = state;
     }
   },
 
-  /**
-   * @param {RuneId} runeId
-   * @returns {boolean}
-   */
-  hasRune(runeId) {
+  hasRune(runeId: TRuneId) {
     return this.state.haveRunes[runeId] || false;
   },
 
@@ -69,24 +70,15 @@ const store = {
     this.clearRunes();
   },
 
-  /**
-   * @return {RunewordId[]}
-   */
-  getPinned() {
+  getPinned(): TRunewordId[] {
     return Array.from(this.state.pinned.values());
   },
 
-  /**
-   * @param {RunewordId} id
-   */
-  isPinned(id) {
+  isPinned(id: TRunewordId) {
     return this.state.pinned.has(id);
   },
 
-  /**
-   * @param {RunewordId[]} ids
-   */
-  setPinned(ids, state = true) {
+  setPinned(ids: TRunewordId[], state = true) {
     const fn = state ? "add" : "delete";
     ids.forEach((id) => {
       this.state.pinned[fn](id);
@@ -101,10 +93,10 @@ const store = {
     const storedData = this.storage.getItem(USERDATA_STORAGE_KEY);
     if (!storedData) return;
 
-    const userData = /** @type {TUserData} */ (JSON.parse(storedData));
+    const userData: TUserData = JSON.parse(storedData);
 
     this.setRunes(userData.selectedRunes);
-    
+
     // note! watchout for existing users not having updated keys
     this.setPinned(userData.pinnedRunewords || []);
   },
@@ -114,10 +106,10 @@ const store = {
 
     if (!this.storage) return;
 
-    const userData = /** @type {TUserData} */ ({
+    const userData = /** @type {TUserData} */ {
       selectedRunes: this.getRunes(),
       pinnedRunewords: this.getPinned(),
-    });
+    };
 
     // console.log("store.saveState()", userData);
 

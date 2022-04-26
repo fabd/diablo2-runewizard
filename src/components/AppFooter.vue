@@ -22,7 +22,7 @@
   </footer>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 
 import IconGithub from "@/icons/IconGithub.vue";
@@ -36,9 +36,8 @@ export default defineComponent({
 
   data() {
     return {
-      envGithubRepoUrl: /**@type {string}*/ (import.meta.env
-        .VITE_URL_GITHUB_REPO),
-      envMainSiteUrl: /**@type {string}*/ (import.meta.env.VITE_URL_MAIN_SITE),
+      envGithubRepoUrl: import.meta.env.VITE_URL_GITHUB_REPO as string,
+      envMainSiteUrl: import.meta.env.VITE_URL_MAIN_SITE as string,
     };
   },
 });

@@ -11,13 +11,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 
-import RunewordsTable from "@/components/RunewordsTable.vue";
-
 import runewordsData from "@/data/runewords";
-// import store from "@/store";
+
+import RunewordsTable from "@/components/RunewordsTable.vue";
 
 export default defineComponent({
   name: "Runewords",
@@ -30,15 +29,14 @@ export default defineComponent({
     return {
       isHelpVisible: false,
 
-      /** @type {RunewordItem[]} */
-      runewordsList: [],
+      runewordsList: [] as TRunewordItem[],
 
       searchText: "",
     };
   },
 
   created() {
-    this.runewordsList = /** @type{RunewordItem[]}*/ (runewordsData.slice());
+    this.runewordsList = runewordsData.slice() as TRunewordItem[];
     this.updateFilter(this.searchText);
   },
 
@@ -48,12 +46,10 @@ export default defineComponent({
     },
 
 
-    /** @param {string} text */
-    updateFilter(text) {
+    updateFilter(text: string) {
       const searchTerm = text.toLowerCase();
 
-      /** @param {RunewordItem} item */
-      const matches = (item) => {
+      const matches = (item: TRunewordItem) => {
         const matchesTitle = item.title.toLowerCase().includes(searchTerm);
         const matchesType = item.ttypes.some((type) => {
           return type.toLowerCase().includes(searchTerm);

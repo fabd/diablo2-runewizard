@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 /** 
  * NOTES
  * 
@@ -25,6 +25,7 @@
  * 
  */
 import { defineComponent } from "vue";
+
 import runewordsMetaData from "@/data/runewords-descriptions";
 
 export default defineComponent({
@@ -34,21 +35,18 @@ export default defineComponent({
     return {
       isVisible: false,
 
-      /** @type { { x: number; y: number }} */
-      position: { x: 0, y: 0 },
+      position: { x: 0, y: 0 } as { x: number; y: number },
 
-      /** @type {Pick<Runeword, "title" | "ttypes" | "level">} */
       runeword: {
         title: "",
         ttypes: [],
         level: 0,
-      },
+      } as Pick<TRuneword, "title" | "ttypes" | "level">,
     };
   },
 
   computed: {
-    /** @returns {string} */
-    formatBody() {
+    formatBody(): string {
       const runewordId = this.runeword.title;
       let text =
         (runewordId && runewordsMetaData[runewordId]) ||
@@ -72,8 +70,7 @@ export default defineComponent({
   },
 
   methods: {
-    /** @param {number} n */
-    unitPx(n) {
+    unitPx(n: number) {
       return `${n}px`;
     },
 
@@ -81,7 +78,7 @@ export default defineComponent({
      *
      * @param {HTMLElement} target   element to position popup relative to
      */
-    moveTo(target) {
+    moveTo(target: HTMLElement) {
       // minimal gap between popup and viewport edge (px)
       const GAP = 10;
 
@@ -91,7 +88,7 @@ export default defineComponent({
       popX = popX + 50;
       popY = popY + window.pageYOffset + target.offsetHeight + 4;
 
-      const elRoot = /**@type HTMLElement*/ (this.$refs.root);
+      const elRoot = this.$refs.root as HTMLElement;
 
       const popHeight = elRoot.offsetHeight;
       const popY2 = popY + popHeight;
@@ -111,11 +108,7 @@ export default defineComponent({
       this.position = { x: popX, y: popY };
     },
 
-    /**
-     * @param {Runeword} runeword
-     * @param {HTMLElement} target
-     */
-    showRuneword(runeword, target) {
+    showRuneword(runeword: TRuneword, target: HTMLElement) {
       this.runeword = runeword;
       this.$nextTick(() => {
         this.moveTo(target);
@@ -123,8 +116,7 @@ export default defineComponent({
       });
     },
 
-    /** @param {boolean} value */
-    setVisible(value) {
+    setVisible(value: boolean) {
       this.isVisible = value;
     },
   },

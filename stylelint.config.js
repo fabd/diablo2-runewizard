@@ -1,8 +1,6 @@
 module.exports = {
   extends: [
-    "stylelint-config-standard",
-
-    // note this already extends `stylelint-config-recommended`
+    // @plugins stylelint-scss, @extends stylelint-config-recommended
     "stylelint-config-recommended-scss",
 
     // add this last! turns off all the rules that conflict with Prettier

@@ -2,19 +2,16 @@
 // MASTER STYLESHEET
 //
 //   Conventions
-//
 //     - using SuitCSS naming
 //       https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 //     - use a namespace prefix : `rw-`
 //     - custom utilities use `ux-` prefix
 //
 //   Notes
-//
 //     - keeping component's styles in a single file for now (KISS)
-//     - keeping scss styles out of SFCs, there are issues with `@apply`
+//     - keeping scss out of Vue SFCs, easier to edit
 //
 //   Todo
-//
 //     - lint via `postcss-bem-linter`
 //
 // ====================================================================

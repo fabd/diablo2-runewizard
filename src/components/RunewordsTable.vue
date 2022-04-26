@@ -112,21 +112,20 @@
   </table>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script lang="ts">
+import { defineComponent, PropType } from "vue";
+
+import itemTypesData from "@/data/item-types";
+import store from "@/store";
 
 import IconArrowUp from "@/icons/IconArrowUp.vue";
 import IconArrowDown from "@/icons/IconArrowDown.vue";
 import IconCancel from "@/icons/IconCancel.vue";
 import IconCheckOn from "@/icons/IconCheckOn.vue";
 import IconCheckOff from "@/icons/IconCheckOff.vue";
-
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
-import itemTypesData from "@/data/item-types";
-import store from "@/store";
-
-/** @typedef {TVueInstanceOf<RunewordPopup>} TRunewordPopup */
+type TRunewordPopup = TVueInstanceOf<typeof RunewordPopup>;
 
 export default defineComponent({
   name: "RunewordsTable",
@@ -141,11 +140,7 @@ export default defineComponent({
   },
 
   props: {
-    items: {
-      /** @type {import("vue").PropType<RunewordItem[]>} */
-      type: Array,
-      required: true,
-    },
+    items: { type: Array as PropType<TRunewordItem[]>, required: true, },
   },
 
   data() {
@@ -179,8 +174,7 @@ export default defineComponent({
     //   return count;
     //},
 
-    /** @return {Map<string, boolean>} */
-    runewordIsComplete() {
+    runewordIsComplete(): Map<string, boolean> {
       // console.log("*** runewordIsComplete()");
 
       /** @type {Map<string, boolean>} */
@@ -196,12 +190,11 @@ export default defineComponent({
       return map;
     },
 
-    /** @return {RunewordItem[]} */
-    itemsBySort() {
+    itemsBySort(): TRunewordItem[] {
       const list = this.items.slice();
 
-      /** @type {{(a: Runeword, b: Runeword): number} | undefined} */
-      let compareFn;
+      // let compareFn: ((a: TRuneword, b: TRuneword) => number) | undefined;
+      let compareFn: ((a: TRuneword, b: TRuneword) => number) | undefined;
 
       if (this.sortKey === "title") {
         compareFn = ({ title: a }, { title: b }) =>
@@ -241,25 +234,21 @@ export default defineComponent({
       return list3;
     },
 
-    /** @return {TRunewordPopup} */
-    refPopup() {
-      return /** @type {TRunewordPopup} */ (this.$refs.popup);
+    refPopup(): TRunewordPopup {
+      return this.$refs.popup as TRunewordPopup;
     },
   },
 
   methods: {
-    /** @param {RuneId} runeId */
-    cssActiveRune(runeId) {
+    cssActiveRune(runeId: TRuneId) {
       return this.haveRunes[runeId] ? "is-active" : "";
     },
 
-    /** @param {Runeword} word */
-    cssCompleteRuneword(word) {
+    cssCompleteRuneword(word: TRuneword) {
       return this.runewordIsComplete.get(word.title) ? "is-complete" : "";
     },
 
-    /** @param {Runeword} word */
-    getTypeCellHtml(word) {
+    getTypeCellHtml(word: TRuneword) {
       // could do additional formatting here
       let cellHtml = word.ttypes
         .map((type) => {
@@ -273,34 +262,27 @@ export default defineComponent({
       return cellHtml;
     },
 
-    /** @param {string} key */
-    isSortKey(key) {
+    isSortKey(key: string) {
       return key === this.sortKey;
     },
 
-    /**
-     * @param {Event} ev
-     * @param {Runeword} runeword
-     */
-    onEnterRuneword(ev, runeword) {
+    onEnterRuneword(ev: Event, runeword: TRuneword) {
       // paranoia
       if (!ev.target) return;
 
-      this.refPopup.showRuneword(runeword, /**@type HTMLElement*/(ev.target));
+      this.refPopup.showRuneword(runeword, ev.target as HTMLElement);
     },
 
     onLeaveRuneword() {
       this.refPopup.setVisible(false);
     },
 
-    /** @param {string} key */
-    onSortBy(key) {
+    onSortBy(key: string) {
       this.sortAsc = this.sortKey === key ? !this.sortAsc : true;
       this.sortKey = key;
     },
 
-    /** @param {RunewordId} id */
-    onTogglePin(id) {
+    onTogglePin(id: TRunewordId) {
       const state = store.isPinned(id);
       store.setPinned([id], !state);
       store.saveState();

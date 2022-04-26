@@ -1,10 +1,9 @@
 module.exports = {
-  mode: "jit",
-  purge: [
+  content: [
     //
     "./index.html",
     //
-    "./src/**/*.{js,jsx,ts,tsx,vue}",
+    "./src/**/*.{js,md,ts,vue}",
   ],
 
   theme: {
@@ -17,6 +16,7 @@ module.exports = {
 
     extend: {
       fontSize: {
+        // alias for `text-base`
         md: "1rem",
       },
     },
