@@ -61,7 +61,8 @@
               @mouseleave="onLeaveRuneword()"
               @click="onEnterRuneword($event, item)"
             >{{ item.title }}</span>
-            <span v-if="item.ladder" class="rw-Md-ladder">L</span>
+            <span v-if="item.ladder" class="rw-Md-ladder" title="Ladder Only">L</span>
+            <span v-if="item.version" class="rw-Table-tdTitlePatch" title="Patch version">{{ item.version }}</span>
 
             <div
               v-if="pinnedRunewords.has(item.title)"

@@ -273,16 +273,25 @@ object {
   // runeword title
   &-tdTitle {
     @apply p-0;
-  }
-  &-tdTitleSpan {
-    @apply inline-block px-[5px] py-[7px]; // increase the mouseover area
 
-    color: #74726c;
+    &Span {
+      @apply inline-block px-[5px] py-[7px]; // increase the mouseover area
 
-    font-size: 1rem;
+      color: #74726c;
 
-    &:hover {
-      color: #b9b6ac;
+      font-size: 1rem;
+
+      &:hover {
+        color: #b9b6ac;
+      }
+    }
+
+    // optional DII patch number to distinguish recent changes
+    &Patch {
+      @apply rounded-sm text-xs leading-1 ml-1;
+      padding: 2px 4px 2px;
+      background-color: #71B643;
+      color: #000;
     }
   }
 
@@ -379,13 +388,11 @@ object {
 .rw-Md {
   // the `ladder` tag shown next to Runeword names
   &-ladder {
-    background: #444444;
+    background-color: #444;
     color: #9f9f9f;
-    border-radius: 1rem;
-    font-variant: small-caps;
-    font-size: 0.8em;
-    padding: 0.2em 0.4em;
-    @apply ml-1;
+    border-radius: 100%;
+    padding: 1px 5px;
+    @apply ml-1 leading-1 text-xs;
   }
 
   // required class under item type (Character Class)
