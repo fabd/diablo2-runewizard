@@ -61,7 +61,8 @@
               @mouseleave="onLeaveRuneword()"
               @click="onEnterRuneword($event, item)"
             >{{ item.title }}</span>
-            <span v-if="item.ladder" class="rw-Md-ladder">L</span>
+            <span v-if="item.ladder" class="rw-Md-ladder" title="Ladder Only">L</span>
+            <span v-if="item.version" class="rw-Table-tdTitlePatch" title="Patch version">{{ item.version }}</span>
 
             <div
               v-if="pinnedRunewords.has(item.title)"
@@ -258,7 +259,11 @@ export default defineComponent({
           return typeHtml;
         })
         .join("&nbsp;/&nbsp;");
-      if (word.tinfos) cellHtml += `<br><em>${word.tinfos}</em>`;
+
+      if (word.tinfos) {
+        cellHtml += `<br><span class="rw-Table-tdTypeClass">${word.tinfos}</span>`;
+      }
+
       return cellHtml;
     },
 
