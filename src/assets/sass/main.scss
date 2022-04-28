@@ -321,7 +321,7 @@ object {
   }
 
   // additional info in the item type, shown below item types in smaller text
-  &-tdType em {
+  &-tdTypeClass {
     @apply block mt-1 text-[0.9em];
     color: #bd8547;
   }
@@ -386,13 +386,6 @@ object {
     font-size: 0.8em;
     padding: 0.2em 0.4em;
     @apply ml-1;
-  }
-
-  // annotation under item type, eg. "(small shields)"
-  &-small {
-    @apply block;
-    font-size: 0.9em;
-    color: #666;
   }
 
   // required class under item type (Character Class)

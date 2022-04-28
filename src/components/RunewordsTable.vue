@@ -258,7 +258,11 @@ export default defineComponent({
           return typeHtml;
         })
         .join("&nbsp;/&nbsp;");
-      if (word.tinfos) cellHtml += `<br><em>${word.tinfos}</em>`;
+
+      if (word.tinfos) {
+        cellHtml += `<br><span class="rw-Table-tdTypeClass">${word.tinfos}</span>`;
+      }
+
       return cellHtml;
     },
 
