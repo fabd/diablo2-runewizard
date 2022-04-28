@@ -48,22 +48,19 @@ export default defineComponent({
   computed: {
     formatBody(): string {
       const runewordId = this.runeword.title;
-      let text =
-        (runewordId && runewordsMetaData[runewordId]) ||
-        "--( invalid runeword id )--";
+      let text = (runewordId && runewordsMetaData[runewordId]) || '---';
 
       // remove newlines at beginning and end
       text = text.trim();
 
-      // fix extra spacing caused by newlines after <h4>sections</h4>
-      text = text.replace(/<\/h4>\n*/g, "</h4>");
+      // format the mods (numbers) in the item stats ( regexr.com/6ki7f )
+      text = text.replace(/\+?[0-9]+(-[0-9]+)?%?/g, '<span class="is-mod">$&</span>');
 
-      // replace newlines by html equivalents
+      // replace headings (might not need anything more complex)
+      text = text.replace(/####\s(.*)\n+/g, '<h4 class="is-title">$1</h4>');
+
+      // LAST! replace newlines by html equivalents
       text = text.replace(/\n/g, "<br/>");
-
-      // format the mods (numbers) in the item stats
-      //   https://regexr.com/66idv
-      text = text.replace(/\+?[0-9-]+%?/g, '<span class="is-mod">$&</span>');
 
       return text;
     },

@@ -693,7 +693,7 @@ const runewordsDesc: TRunewordMeta = {
   `,
 
   Fortitude: `
-<h4>Weapons</h4>
+  #### Weapons
   20% Chance To Cast Level 15 Chilling Armor when Struck
   +25% Faster Cast Rate
   +300% Enhanced Damage
@@ -707,7 +707,7 @@ const runewordsDesc: TRunewordMeta = {
   12% Damage Taken Goes To Mana
   +1 To Light Radius
 
-<h4>Body Armor</h4>
+  #### Body Armor
   20% Chance To Cast Level 15 Chilling Armor when Struck
   +25% Faster Cast Rate
   +300% Enhanced Damage
@@ -850,7 +850,7 @@ const runewordsDesc: TRunewordMeta = {
   `,
 
   Phoenix: `
-<h4>Weapons</h4>
+  #### Weapons
   100% Chance To Cast level 40 Blaze When You Level-up
   40% Chance To Cast Level 22 Firestorm On Striking
   Level 10-15 Redemption Aura When Equipped (varies)
@@ -862,7 +862,7 @@ const runewordsDesc: TRunewordMeta = {
   +350-400 Defense Vs. Missile (varies)
   +15-21 Fire Absorb (varies)
 
-<h4>Shields</h4>
+  #### Shields
   100% Chance To Cast level 40 Blaze When You Level-up
   40% Chance To Cast Level 22 Firestorm On Striking
   Level 10-15 Redemption Aura When Equipped (varies)
@@ -904,7 +904,7 @@ const runewordsDesc: TRunewordMeta = {
   `,
 
   Spirit: `
-<h4>Weapons</h4>
+  #### Swords
   +2 To All Skills
   +25-35% Faster Cast Rate (varies)
   +55% Faster Hit Recovery
@@ -917,7 +917,7 @@ const runewordsDesc: TRunewordMeta = {
   +89-112 To Mana (varies)
   +3-8 Magic Absorb (varies)
 
-<h4>Shields</h4>
+  #### Shields
   +2 To All Skills
   +25-35% Faster Cast Rate (varies)
   +55% Faster Hit Recovery

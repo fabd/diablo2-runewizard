@@ -279,7 +279,6 @@ object {
 
     color: #74726c;
 
-    font-family: Georgia, serif;
     font-size: 1rem;
 
     &:hover {
@@ -444,13 +443,14 @@ object {
   }
 
   // subtitle within stats when split stats by Weapon / Body Armor types
-  &-body h4 {
+  &-body .is-title {
     @apply text-[#979797] mb-2;
   }
 
   // format modifiers (numbers) in the item description
   &-body .is-mod {
     @apply font-bold;
+    color: #5cbd4b;
   }
 }
 
