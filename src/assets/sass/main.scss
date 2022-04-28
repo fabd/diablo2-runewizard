@@ -451,6 +451,7 @@ object {
   // format modifiers (numbers) in the item description
   &-body .is-mod {
     @apply font-bold;
+    color: #5cbd4b;
   }
 }
 
