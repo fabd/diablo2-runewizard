@@ -444,7 +444,7 @@ object {
   }
 
   // subtitle within stats when split stats by Weapon / Body Armor types
-  &-body h4 {
+  &-body .is-title {
     @apply text-[#979797] mb-2;
   }
 
