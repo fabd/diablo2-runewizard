@@ -1125,6 +1125,101 @@ const runewordsDesc: TRunewordMeta = {
   +24 Vitality
   All Resistances +40
   `,
+
+  /* Patch 2.6 */
+  Bulwark: `
+  +20% Faster Hit Recovery
+  +4-6% Life stolen per hit
+  +75-100% Enhanced Defense
+  +10 to Vitality
+  Increase Maximum Life 5%
+  Replenish Life +30
+  Damage Reduced by 7
+  Physical Damage Received Reduced by 10-15%
+  `,
+
+  Cure: `
+  Level 1 Cleansing Aura when Equipped
+  +20% Faster Hit Recovery
+  +75-100% Enhanced Defense
+  +10 to Vitality
+  Increase Maximum Life 5%
+  Poison Resist +40-60%
+  Poison Length Reduced by 50%
+  `,
+
+  Ground: `
+  +20% Faster Hit Recovery
+  +75-100% Enhanced Defense
+  +10 to Vitality
+  Increase Maximum Life 5%
+  Lightning Resist +40-60%
+  Lightning Absorb +10-15%
+  `,
+
+  Hearth: `
+  +20% Faster Hit Recovery
+  +75-100% Enhanced Defense
+  +10 to Vitality
+  Increase Maximum Life 5%
+  Cold Resist +40-60%
+  Cold Absorb +10-15%
+  Cannot be Frozen
+  `,
+
+  Temper: `
+  +20% Faster Hit Recovery
+  +75-100% Enhanced Defense
+  +10 to Vitality
+  Increase Maximum Life 5%
+  Fire Resist +40-60%
+  Fire Absorb +10-15%
+  `,
+
+  Hustle: `
+  #### Weapons
+  5% Chance to cast level 1 Burst of Speed on striking
+  Level 1 Fanaticism Aura
+  +30% Increased Attack Speed
+  +180-200% Enhanced Damage
+  +75% Damage to Undead
+  +50 to Attack Rating against Undead
+  +10 to Dexterity
+
+  #### Body Armors
+  +65% Faster Run/Walk
+  +40% Increased Attack Speed
+  +20% Faster Hit Recovery
+  +6 to Evade
+  +10 to Dexterity
+  50% Slower Stamina Drain
+  +All Resistances +10
+  `,
+
+  Mosaic: `
+  +50% chance for finishing moves to not consume charges
+  +2 to Martial Arts (Assassin only)
+  +20% Increased Attack Speed
+  +200-250% Enhanced Damage
+  +20% Bonus to Attack Rating
+  7% Life Steal
+  +8-15% to Cold Skill Damage
+  +8-15% to Lightning Skill Damage
+  +8-15% to Fire Skill Damage
+  Prevent Monster Heal
+  `,
+
+  Metamorphosis: `
+  100% Chance to cast level 1 Mark of the Wolf on striking
+  100% Chance to cast level 1 Mark of the Bear on striking
+  +5 to Shape Shifting Skills (Druid only)
+  +25% Chance of Crushing Blow
+  +50-80% Enhanced Defense
+  +10 to Strength
+  +10 to Vitality
+  All Resistances +10
+  Cannot be Frozen
+  `,
 };
 
 export default runewordsDesc;
