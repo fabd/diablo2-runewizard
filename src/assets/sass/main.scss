@@ -290,8 +290,11 @@ object {
     &Patch {
       @apply rounded-sm text-xs leading-1 ml-1;
       padding: 2px 4px 2px;
-      background-color: #71B643;
+      background-color: #444;
       color: #000;
+    }
+    &Patch.is-new {
+      background-color: #71b643;
     }
   }
 

@@ -20,7 +20,16 @@
         <div class="flex justify-between items-center">
           <div class="text-lg text-[#b5b2b0]">
             for <span class="text-[#b5b2b0] font-bold">{{ envGameName }}</span>
-            <span class="ml-2 text-[#71B643]">{{ envGameVersion }}</span>
+            <span class="ml-2 text-[#71B643]">Patch {{ envGameVersion }}</span>
+
+            <span class="text-xs">
+              <a
+                class="ml-2 underline hover:underline text-[#39a9f7]"
+                target="blank"
+                :href="envPatchNotesUrl"
+                >Update Notes</a
+              >
+            </span>
           </div>
 
           <div class="flex items-center text-[#514f4a]">
@@ -77,10 +86,10 @@ export default defineComponent({
     return {
       isHelpVisible: false,
 
-      envGameName: /**@type {string}*/ (import.meta.env.VITE_GAME_NAME),
-      envGameVersion: /**@type {string}*/ (import.meta.env.VITE_GAME_VERSION),
-      envGithubRepoUrl: /**@type {string}*/ (import.meta.env
-        .VITE_URL_GITHUB_REPO),
+      envGameName: import.meta.env.VITE_GAME_NAME as string,
+      envGameVersion: import.meta.env.VITE_GAME_VERSION as string,
+      envGithubRepoUrl: import.meta.env.VITE_URL_GITHUB_REPO as string,
+      envPatchNotesUrl: import.meta.env.VITE_URL_PATCH_NOTES as string,
     };
   },
 });
