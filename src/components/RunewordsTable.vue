@@ -62,7 +62,11 @@
               @click="onEnterRuneword($event, item)"
             >{{ item.title }}</span>
             <span v-if="item.ladder" class="rw-Md-ladder" title="Ladder Only">L</span>
-            <span v-if="item.version" class="rw-Table-tdTitlePatch" title="Patch version">{{ item.version }}</span>
+            <span v-if="item.version" class="rw-Table-tdTitlePatch"
+              :class="{
+                'is-new': item.version === envGameVersion
+              }"
+              title="Patch version">{{ item.version }}</span>
 
             <div
               v-if="pinnedRunewords.has(item.title)"
@@ -164,6 +168,8 @@ export default defineComponent({
         { key: "ttypes", label: "Item Types" },
         { key: "level", label: "Level" },
       ],
+
+      envGameVersion: import.meta.env.VITE_GAME_VERSION as string,
     };
   },
 
