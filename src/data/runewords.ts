@@ -461,7 +461,7 @@ const runewords: TRuneword[] = [
   {
     title: "Spirit",
     runes: ["Tal", "Thul", "Ort", "Amn"],
-    level: 30,
+    level: 25,
     ttypes: ["Swords", "Shields"],
     version: '1.10',
   },
