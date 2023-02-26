@@ -172,7 +172,7 @@ const runewords: TRuneword[] = [
   {
     title: "Call to Arms",
     runes: ["Amn", "Ral", "Mal", "Ist", "Ohm"],
-    level: 51,
+    level: 57,
     ttypes: ["Weapons"],
     version: '1.10',
   },
