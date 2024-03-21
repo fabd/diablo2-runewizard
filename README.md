@@ -1,4 +1,4 @@
-<h1 align="center">Runewizard for Diablo II LoD</h2>
+<h1 align="center">Runewizard for Diablo II: Resurrected</h2>
 <p align="center" class="bg-red">
   <img width="600" src="https://user-images.githubusercontent.com/169391/112649013-59306500-8e4a-11eb-8761-5e2df91856fb.png" />
 </p>
