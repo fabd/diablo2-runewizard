@@ -2,8 +2,8 @@ import path from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import eslint from "@rollup/plugin-eslint";
-import markdown from "vite-plugin-md";
 import strip from "@rollup/plugin-strip";
+import Markdown from 'unplugin-vue-markdown/vite'
 
 export default defineConfig({
   // ---------------------------------------------------------------------------
@@ -73,10 +73,9 @@ export default defineConfig({
     }),
 
     // ---------------------------------------------------------------------------
-    // vite-plugin-md
-    //   https://github.com/antfu/vite-plugin-md
+    // https://github.com/unplugin/unplugin-vue-markdown?tab=readme-ov-file#options
     // ---------------------------------------------------------------------------
-    markdown(),
+    Markdown({ /* options */ }),
 
     // ---------------------------------------------------------------------------
     // @rollup/plugin-eslint
