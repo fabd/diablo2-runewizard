@@ -18,9 +18,9 @@
           />
         </h1>
         <div class="flex justify-between items-center">
-          <div class="text-lg text-[#b5b2b0]">
-            for <span class="text-[#b5b2b0] font-bold">{{ envGameName }}</span>
-            <span class="ml-2 ux-green">Patch {{ envGameVersion }}</span>
+          <div class="text-lg ux-color-gray">
+            for <span class="ux-color-gold">{{ envGameName }}</span>
+            <span class="ml-2 ux-color-green">Patch {{ envGameVersion }}</span>
 
             <span class="text-xs">
               <a

@@ -70,6 +70,8 @@ object {
   display: inline-block;
 }
 
+a { color:var(--color-gold); }
+
 // --------------------------------------------------------------------
 // a minimal layout for the standalone version of Runewizard
 // --------------------------------------------------------------------
@@ -117,7 +119,7 @@ object {
 .rw-Title {
   &-h2 {
     @apply text-base font-bold;
-    color: #d5d2d0;
+    color: var(--color-title);
   }
 }
 
@@ -126,11 +128,11 @@ object {
 // --------------------------------------------------------------------
 .rw-Search {
   label {
-    color: #a29f9d;
+    color: var(--color-gold);
   }
 
   &-input {
-    @apply w-full rounded text-[#444];
+    @apply w-full rounded;
     padding: 0.5rem;
     background: #000;
     border: 1px solid var(--color-gold);
@@ -143,7 +145,7 @@ object {
   }
 
   &-input::placeholder {
-    @apply text-[#686047];
+    color: var(--color-gray-dark);
   }
 }
 
@@ -167,9 +169,10 @@ object {
 // --------------------------------------------------------------------
 .rw-Help {
   @apply px-4 pt-6 pb-6;
-  @apply border-b border-[#444] mb-6;
+  @apply  mb-6;
+  border-bottom:1px solid var(--color-gray-dark);
 
-  color: #aca798;
+  color: var(--color-body-fg);
   line-height: 1.4em;
 
   h2 {
@@ -183,7 +186,6 @@ object {
 
   a {
     @apply underline;
-    color: #daaf77;
   }
 
   p {
@@ -195,7 +197,6 @@ object {
 // The Runewords table
 // --------------------------------------------------------------------
 .rw-Table {
-  color: #afafaf;
   font-size: 13px;
 
   &-th {
@@ -246,7 +247,7 @@ object {
       font-size: 1rem;
 
       &:hover {
-        color: #928a70;
+        color: var(--color-gold);
       }
     }
 
@@ -254,11 +255,11 @@ object {
     &Patch {
       @apply rounded-sm text-xs leading-1 ml-1;
       padding: 2px 4px 2px;
-      background-color: #444;
+      background-color: var(--color-tag);
       color: #000;
     }
     &Patch.is-new {
-      background-color: var(--color-green);
+      background-color: var(--color-tag-latest);
     }
   }
 
@@ -268,10 +269,10 @@ object {
     @apply cursor-pointer;
 
     &:hover {
-      @apply text-[#f4f2f0];
+      color: var(--color-gold-light);
     }
     &.is-pinned {
-      @apply text-[#545250];
+      color: var(--color-gray);
     }
 
     // background: red;
@@ -303,7 +304,7 @@ object {
   }
 
   &-tr.is-complete &-tdTitleSpan {
-    color: #c6a33b;
+    color: var(--color-gold);
   }
 }
 
@@ -357,8 +358,8 @@ object {
 .rw-Md {
   // the `ladder` tag shown next to Runeword names
   &-ladder {
-    background-color: #630c05;
-    color: #a19999;
+    background-color: var(--color-ladder-bg);
+    color: var(--color-ladder-fg);
     border-radius: 100%;
     padding: 1px 5px;
     @apply ml-1 leading-1 text-xs;

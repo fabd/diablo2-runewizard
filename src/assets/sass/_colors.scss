@@ -5,12 +5,17 @@
 :root {
   // page
   --color-body-bg: #000;
+  --color-body-fg: #aca798;
 
   // main table
   --color-blood-dark: #400000;
   --color-blood-darker: #200000;
   --color-rune-off: #844;
   --color-rune-act: var(--color-green); 
+  --color-tag: #513b2c;
+  --color-tag-latest: var(--color-green);
+  --color-ladder-bg: #501008;
+  --color-ladder-fg: #a19999;
 
   // text & decorations
   --color-accent: #bd8547;
@@ -20,11 +25,21 @@
   --color-gold-light: #bab197;
   --color-gray: #74706c;
   --color-gray-dark: #24221c;
-  --color-green: #71b643;
+  --color-green: #588425;
+  // --color-green-light: #71b643;
   --color-link-blue: #39a9f7;
+  --color-title: #d5d2d0;
 }
 
-.ux-green {
+.ux-color-gold {
+  color: var(--color-gold);
+}
+
+.ux-color-gray {
+  color: var(--color-gray);
+}
+
+.ux-color-green {
   color: var(--color-green);
 }
 
