@@ -1,18 +1,17 @@
 {
   "name": "diablo2-runewizard",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "test": "vite build && vite preview --port 8080",
-    "lint": "eslint './src/**/*.{js,ts,tsx,vue}'",
-    "disable-warnings": "sed -i 's/\\s\\swarnExperimental/\\/\\/warnExperimental/g' node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js ; sed -i 's/\\s\\s_log\\.default\\.warn/\\/\\/DISABLED/g' node_modules/tailwindcss/lib/index.js"
+    "lint": "eslint './src/**/*.{js,ts,tsx,vue}'"
   },
   "dependencies": {
     "esbuild": "^0.20.1",
     "unplugin-vue-markdown": "^0.26.2",
-    "vue": "^3.2.31",
+    "vue": "^3.4.21",
     "vue-tsc": "^2.0.4"
   },
   "devDependencies": {

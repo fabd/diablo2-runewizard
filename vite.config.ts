@@ -78,18 +78,6 @@ export default defineConfig({
     Markdown({ /* options */ }),
 
     // ---------------------------------------------------------------------------
-    // @rollup/plugin-eslint
-    //   Run eslint, but only on build (also configure ESLint extension in VSCode)
-    // ---------------------------------------------------------------------------
-    {
-      ...eslint({
-        include: "./src/**/*.(vue|js|ts)",
-      }),
-      enforce: "pre",
-      apply: "build",
-    },
-
-    // ---------------------------------------------------------------------------
     // @rollup/plugin-strip
     //   Removes all the console.assert/error/warn() from build
     //   https://github.com/rollup/plugins/tree/master/packages/strip
