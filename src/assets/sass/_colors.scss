@@ -6,11 +6,20 @@
   // page
   --color-body-bg: #000;
 
+  // main table
+  --color-blood-dark: #400000;
+  --color-blood-darker: #200000;
+  --color-rune-off: #844;
+  --color-rune-act: var(--color-green); 
+
   // text & decorations
+  --color-accent: #bd8547;
+  --color-danger: #ae2a1a;
   --color-gold: #8a8062;
   --color-gold-mid: #b4ac92;
   --color-gold-light: #bab197;
-  --color-gray: #74726c;
+  --color-gray: #74706c;
+  --color-gray-dark: #24221c;
   --color-green: #71b643;
   --color-link-blue: #39a9f7;
 }

@@ -133,7 +133,7 @@ object {
     @apply w-full rounded text-[#444];
     padding: 0.5rem;
     background: #000;
-    border:1px solid var(--color-gold);
+    border: 1px solid var(--color-gold);
     color: var(--color-gold-light);
   }
 
@@ -175,7 +175,7 @@ object {
   h2 {
     @apply font-bold mb-2;
     font-variant: small-caps;
-    color: #c96e0b;
+    color: var(--color-accent);
   }
   h2:not(:first-child) {
     @apply mt-6;
@@ -199,8 +199,8 @@ object {
   font-size: 13px;
 
   &-th {
-    background: #400000;
-    color: #c0c080;
+    background: var(--color-blood-dark);
+    color: var(--color-gold);
     font-weight: normal;
     padding: 0.25rem 0.5rem;
     border-right: 1px solid #000;
@@ -212,26 +212,26 @@ object {
   }
 
   &-thIcon {
-    color: #c0c08080;
+    color: var(--color-accent);
   }
 
   &-tr.is-complete td {
-    background: #200000;
+    background: var(--color-blood-darker);
   }
 
   &-td {
     line-height: 1;
     padding: 5px 5px 6px;
     text-align: center;
-    border-bottom: 1px solid #29291d;
-    color: #858280;
+    border-bottom: 1px solid var(--color-gray-dark);
+    color: var(--color-gray);
   }
 
   &-td.is-rune {
-    color: #844;
+    color: var(--color-rune-off);
   }
   &-td.is-active {
-    color: #44aa44;
+    color: var(--color-rune-act);
   }
 
   // runeword title
@@ -299,7 +299,7 @@ object {
   // additional info in the item type, shown below item types in smaller text
   &-tdTypeClass {
     @apply block mt-1 text-[0.9em];
-    color: #bd8547;
+    color: var(--color-accent);
   }
 
   &-tr.is-complete &-tdTitleSpan {
@@ -314,10 +314,12 @@ object {
   &-clear {
     @apply inline-block leading-4;
     @apply select-none;
-    @apply text-[#884444] hover:text-[#b14b4b];
+    color: var(--color-danger);
+    &:hover {
+      color: color-mix(in srgb, var(--color-danger), #fff 20%);
+    }
 
     padding: 0.3em 0; // slightly increase mouseover area
-    color: #884444;
     text-decoration: none;
   }
 }
