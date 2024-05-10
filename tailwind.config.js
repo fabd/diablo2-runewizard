@@ -7,13 +7,6 @@ module.exports = {
   ],
 
   theme: {
-    colors: {
-      gold: {
-        light: "#BAB197",
-        DEFAULT: "#8A8062",
-      },
-    },
-
     // redeclare to remove the baked-in line-height, and add `md` alias
     fontSize: {
       xs: "0.75rem", // 12px

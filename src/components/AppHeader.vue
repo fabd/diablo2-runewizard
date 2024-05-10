@@ -20,11 +20,11 @@
         <div class="flex justify-between items-center">
           <div class="text-lg text-[#b5b2b0]">
             for <span class="text-[#b5b2b0] font-bold">{{ envGameName }}</span>
-            <span class="ml-2 text-[#71B643]">Patch {{ envGameVersion }}</span>
+            <span class="ml-2 ux-green">Patch {{ envGameVersion }}</span>
 
             <span class="text-xs">
               <a
-                class="ml-2 underline hover:underline text-[#39a9f7]"
+                class="ml-2 underline hover:underline ux-color-link-blue"
                 target="blank"
                 :href="envPatchNotesUrl"
                 >Update Notes</a

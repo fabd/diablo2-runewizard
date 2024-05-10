@@ -1,0 +1,24 @@
+// ====================================================================
+// VARIABLES
+// ====================================================================
+
+:root {
+  // page
+  --color-body-bg: #000;
+
+  // text & decorations
+  --color-gold: #8a8062;
+  --color-gold-mid: #b4ac92;
+  --color-gold-light: #bab197;
+  --color-gray: #74726c;
+  --color-green: #71b643;
+  --color-link-blue: #39a9f7;
+}
+
+.ux-green {
+  color: var(--color-green);
+}
+
+.ux-color-link-blue {
+  color: var(--color-link-blue);
+}

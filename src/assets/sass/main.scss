@@ -22,13 +22,19 @@
 @import "tailwindcss/base";
 
 // --------------------------------------------------------------------
+//
+// --------------------------------------------------------------------
+@import "anim";
+@import "colors";
+
+// --------------------------------------------------------------------
 // 2. our reset & base styles (*after* tailwind's defaults)
 // --------------------------------------------------------------------
 body {
-  background: #000;
+  background: var(--color-body-bg);
   font-size: 1rem;
   line-height: 1.2em;
-  color: #afafaf;
+  color: var(--color-gray);
   @apply font-sans;
 }
 
@@ -41,7 +47,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--colorText);
+  color: var(--color-gold);
   line-height: 1.1em;
   font-weight: 500;
   margin-bottom: 1em;
@@ -65,49 +71,6 @@ object {
 }
 
 // --------------------------------------------------------------------
-// icons (use similar classes/styles as FontAwesome)
-// --------------------------------------------------------------------
-// base class
-.ux-icon {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-variant: normal;
-  font-style: normal;
-  text-rendering: auto;
-  line-height: 1;
-  font-weight: 400;
-  vertical-align: middle;
-}
-
-// sizing
-.ux-icon--lg {
-  font-size: 1.25em;
-}
-
-// fixed width
-.ux-icon--fw {
-  text-align: center;
-  width: 1em;
-}
-
-// --------------------------------------------------------------------
-// Vue transitions
-// --------------------------------------------------------------------
-
-// a quick fade in transition, but NO fade out
-.fadein-enter-active {
-  transition: opacity 0.1s linear;
-}
-.fadein-leave,
-.fadein-leave-active {
-  display: none;
-}
-.fadein-enter-from {
-  opacity: 0;
-}
-
-// --------------------------------------------------------------------
 // a minimal layout for the standalone version of Runewizard
 // --------------------------------------------------------------------
 
@@ -125,16 +88,19 @@ object {
 
 .rw-Header {
   &-link {
-    @apply text-gold-light;
-    @apply hover:underline;
+    color: var(--color-gold);
+  }
+  &-link:hover {
+    color: color-mix(in srgb, var(--color-gold), #ffeedd);
+    @apply underline;
   }
 }
 
 .rw-Footer {
-  @apply text-gold;
+  color: var(--color-gold);
 
   &-link {
-    @apply text-gold-light;
+    color: var(--color-gold-light);
     @apply hover:underline;
   }
 }
@@ -167,13 +133,13 @@ object {
     @apply w-full rounded text-[#444];
     padding: 0.5rem;
     background: #000;
-    @apply border border-gold;
-    @apply text-gold-light;
+    border:1px solid var(--color-gold);
+    color: var(--color-gold-light);
   }
 
   &-input:focus {
-    @apply outline-none;
-    @apply border-gold-light;
+    outline: none;
+    border-color: var(--color-gold-light);
   }
 
   &-input::placeholder {
@@ -185,15 +151,13 @@ object {
 // the "Help" toggle
 // --------------------------------------------------------------------
 .rw-HelpLink {
-  $linkColor: #b4ac92;
-
   // slighty better valign of the SVG icon
   @apply inline-flex items-center;
-  color: $linkColor;
+  color: var(--color-gold);
   padding: 0.3em 0; // slightly increase mouseover area
 
   &:hover {
-    color: mix($linkColor, #fed, 50%);
+    color: color-mix(in srgb, var(--color-gold), #ffeedd);
     @apply underline;
   }
 }
@@ -277,7 +241,7 @@ object {
     &Span {
       @apply inline-block px-[5px] py-[7px]; // increase the mouseover area
 
-      color: #74726c;
+      color: var(--color-gray);
 
       font-size: 1rem;
 
@@ -294,7 +258,7 @@ object {
       color: #000;
     }
     &Patch.is-new {
-      background-color: #71b643;
+      background-color: var(--color-green);
     }
   }
 
