@@ -387,17 +387,17 @@ a { color:var(--color-gold); }
   z-index: 100;
 
   background: #000c;
-  border: 1px solid #937c6e;
+  border: 1px solid var(--color-gold);
   @apply py-4 px-8 text-center;
   text-align: center;
-  color: #48ac3f;
+  color: var(--color-runeword-text);
 
   &-title {
-    color: #928a70;
+    color: var(--color-gold);
     @apply text-[1.4em] leading-[1em] mb-2;
   }
   &-type {
-    color: #fff;
+    color: var(--color-accent);
     font-size: calc(14 / 16) * 1em;
     @apply mb-2;
 
@@ -414,13 +414,14 @@ a { color:var(--color-gold); }
 
   // subtitle within stats when split stats by Weapon / Body Armor types
   &-body .is-title {
-    @apply text-[#979797] mb-2;
+    @apply mb-2;
+    color: var(--color-gray);
   }
 
   // format modifiers (numbers) in the item description
   &-body .is-mod {
     @apply font-bold;
-    color: #5cbd4b;
+    color: var(--color-runeword-mods);
   }
 }
 
