@@ -2,9 +2,6 @@ module.exports = {
   extends: [
     // @plugins stylelint-scss, @extends stylelint-config-recommended
     "stylelint-config-recommended-scss",
-
-    // add this last! turns off all the rules that conflict with Prettier
-    "stylelint-config-prettier",
   ],
 
   rules: {
