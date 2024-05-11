@@ -1,0 +1,30 @@
+// ====================================================================
+// UTILITIES
+// ====================================================================
+
+// --------------------------------------------------------------------
+// icons (use similar classes/styles as FontAwesome)
+// --------------------------------------------------------------------
+// base class
+.ux-icon {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-variant: normal;
+  font-style: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+// sizing
+.ux-icon--lg {
+  font-size: 1.25em;
+}
+
+// fixed width
+.ux-icon--fw {
+  text-align: center;
+  width: 1em;
+}

@@ -1,0 +1,50 @@
+// ====================================================================
+// VARIABLES
+// ====================================================================
+
+:root {
+  // page
+  --color-body-bg: #000;
+  --color-body-fg: #aca798;
+
+  // main table
+  --color-blood-dark: #400000;
+  --color-blood-darker: #200000;
+  --color-rune-off: #844;
+  --color-rune-act: #44aa44; 
+  --color-tag: #513b2c;
+  --color-tag-latest: var(--color-green);
+  --color-ladder-bg: #501008;
+  --color-ladder-fg: #a19999;
+
+  // text & decorations
+  --color-accent: #bd8547;
+  --color-danger: #ae2a1a;
+  --color-gold: #8a8062;
+  --color-gold-mid: #b4ac92;
+  --color-gold-light: #bab197;
+  --color-gray: #74706c;
+  --color-gray-dark: #24221c;
+  --color-green: #588425;
+  // --color-green-light: #71b643;
+  --color-link-blue: #39a9f7;
+  --color-runeword-text: #48ac3f;
+  --color-runeword-mods: #5cbd4b;
+  --color-title: #d5d2d0;
+}
+
+.ux-color-gold {
+  color: var(--color-gold);
+}
+
+.ux-color-gray {
+  color: var(--color-gray);
+}
+
+.ux-color-green {
+  color: var(--color-green);
+}
+
+.ux-color-link-blue {
+  color: var(--color-link-blue);
+}

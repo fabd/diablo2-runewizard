@@ -2,9 +2,6 @@ module.exports = {
   extends: [
     // @plugins stylelint-scss, @extends stylelint-config-recommended
     "stylelint-config-recommended-scss",
-
-    // add this last! turns off all the rules that conflict with Prettier
-    "stylelint-config-prettier",
   ],
 
   rules: {
@@ -17,6 +14,8 @@ module.exports = {
     "color-hex-length": null,
 
     // not helpful
+    "comment-no-empty": null,
+    "scss/comment-no-empty": null,
     "comment-empty-line-before": null,
     "declaration-empty-line-before": null,
 
@@ -78,6 +77,7 @@ module.exports = {
         ignoreAtRules: ["apply"],
       },
     ],
+    
 
     // sass compiler ignores `&` in `.foo & .bar`, but useful to know
     "scss/selector-no-redundant-nesting-selector": true,

@@ -1,0 +1,42 @@
+// --------------------------------------------------------------------
+// layout / breakpoints 
+// --------------------------------------------------------------------
+$--bp-tablet: 768 / 16 * 1rem; // 768px = 48rem
+$--bp-laptop: 1024 / 16 * 1rem; // 1024px = 64rem
+
+// --------------------------------------------------------------------
+// BREAKPOINTS
+//
+//    sm
+//    md, tablet    ... matches tailwind 'md' ( >= 768px )
+//    lg, laptop    ... matches tailwind 'lg' ( >= 992px )
+//
+//    Example:
+//
+//      @include breakpoint(md) {
+//        ...styles...
+//      }
+//
+// --------------------------------------------------------------------
+@mixin breakpoint($point) {
+  // Small devices (landscape phones, 576px and up)
+  @if $point == "sm" {
+    @media only screen and (min-width: 576px) {
+      @content;
+    }
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @if $point == "md" or $point == "tablet" {
+    @media only screen and (min-width: $--bp-tablet) {
+      @content;
+    }
+  }
+
+  // Large devices (desktops, 992px and up)
+  @if $point == "lg" or $point == "laptop" {
+    @media only screen and (min-width: $--bp-laptop) {
+      @content;
+    }
+  }
+}
