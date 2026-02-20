@@ -628,20 +628,14 @@ const runewords: TRuneword[] = [
     version: '2.6',
   },
   {
-    title: "Hustle",
-    runes: ["Shael", "Ko", "Eld"],
-    level: 39,
-    ttypes: ["Weapons", "Body Armors"],
-    ladder: true,
-    version: '2.6',
-  },
-  {
     title: "Mosaic",
     runes: ["Mal", "Gul", "Amn"],
     level: 53,
     ttypes: ["Claws"],
     tinfos: "(Assassin)",
     ladder: true,
+    // Disabled for Ladder Season 13 (RotW / Patch 3.0)
+    disabledSeasons: [13],
     version: '2.6',
   },
   {
@@ -652,6 +646,62 @@ const runewords: TRuneword[] = [
     ladder: true,
     tinfos: "(Druid)",
     version: '2.6',
+  },
+
+  /* Patch 3.0 (Reign of the Warlock) */
+  {
+    title: "Authority",
+    runes: ["Hel", "Shael", "Ral"],
+    level: 29,
+    ttypes: ["Body Armors"],
+    version: '3.0',
+  },
+  {
+    title: "Coven",
+    runes: ["Ist", "Ral", "Io"],
+    level: 51,
+    ttypes: ["Helms"],
+    version: '3.0',
+  },
+  {
+    title: "Void",
+    runes: ["Thul", "Zod", "Ist"],
+    level: 69,
+    ttypes: ["Daggers"],
+    version: '3.0',
+  },
+  {
+    title: "Vigilance",
+    runes: ["Dol", "Gul"],
+    level: 53,
+    ttypes: ["Shields", "Paladin Shields"],
+    version: '3.0',
+  },
+  {
+    title: "Ritual",
+    runes: ["Amn", "Shael", "Ohm"],
+    level: 57,
+    ttypes: ["Daggers"],
+    version: '3.0',
+  },
+  // Hustle was renamed/split in Patch 3.0:
+  // - Mania (Weapons)
+  // - Hysteria (Body Armor)
+  {
+    title: "Mania",
+    runes: ["Shael", "Ko", "Eld"],
+    level: 39,
+    ttypes: ["Weapons"],
+    ladder: true,
+    version: '3.0',
+  },
+  {
+    title: "Hysteria",
+    runes: ["Shael", "Ko", "Eld"],
+    level: 39,
+    ttypes: ["Body Armors"],
+    ladder: true,
+    version: '3.0',
   },
 ];
 

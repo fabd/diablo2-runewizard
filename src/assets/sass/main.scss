@@ -367,6 +367,15 @@ a { color:var(--color-gold); }
     @apply ml-1 leading-1 text-xs;
   }
 
+  // season-disabled tag shown next to Runeword names
+  &-disabled {
+    background-color: #7a1f1f;
+    color: #fff;
+    border-radius: 999px;
+    padding: 1px 6px;
+    @apply ml-1 leading-1 text-xs;
+  }
+
   // required class under item type (Character Class)
   &-class {
     @apply block;

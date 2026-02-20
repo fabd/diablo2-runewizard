@@ -14,6 +14,8 @@ The runes are listed in order of rarity, from top to bottom, and left to right. 
 
 **Ladder-only runewords** have a small <span class="rw-Md-ladder">L</span> icon next to the name.
 
+Some ladder-only runewords may be **temporarily disabled in a specific ladder season**. These are marked with <span class="rw-Md-disabled">S13</span> (season number may vary).
+
 ## Note about storage
 
 Your selection of runes is saved in the browser's _local storage_. Keep in mind that manually clearing your browser cache may reset the selected runes.
