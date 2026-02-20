@@ -4,7 +4,7 @@ const runewords: TRuneword[] = [
     title: "Ancient's Pledge",
     runes: ["Ral", "Ort", "Tal"],
     level: 21,
-    ttypes: ["Shields"],
+    ttypes: ["Shields", "Grimoire"],
   },
   {
     title: "Black",
@@ -90,7 +90,7 @@ const runewords: TRuneword[] = [
     title: "Rhyme",
     runes: ["Shael", "Eth"],
     level: 29,
-    ttypes: ["Shields"],
+    ttypes: ["Shields", "Grimoire"],
   },
   {
     title: "Silence",
@@ -294,14 +294,14 @@ const runewords: TRuneword[] = [
     title: "Sanctuary",
     runes: ["Ko", "Ko", "Mal"],
     level: 49,
-    ttypes: ["Shields"],
+    ttypes: ["Shields", "Grimoire"],
     version: '1.10',
   },
   {
     title: "Splendor",
     runes: ["Eth", "Lum"],
     level: 37,
-    ttypes: ["Shields"],
+    ttypes: ["Shields", "Grimoire"],
     version: '1.10',
   },
   {
@@ -344,14 +344,14 @@ const runewords: TRuneword[] = [
     title: "Dragon",
     runes: ["Sur", "Lo", "Sol"],
     level: 61,
-    ttypes: ["Body Armors", "Shields"],
+    ttypes: ["Body Armors", "Shields", "Grimoire"],
     version: '1.10',
   },
   {
     title: "Dream",
     runes: ["Io", "Jah", "Pul"],
     level: 65,
-    ttypes: ["Helms", "Shields"],
+    ttypes: ["Helms", "Shields", "Grimoire"],
   },
   {
     title: "Edge",
@@ -674,7 +674,7 @@ const runewords: TRuneword[] = [
     title: "Vigilance",
     runes: ["Dol", "Gul"],
     level: 53,
-    ttypes: ["Shields", "Paladin Shields"],
+    ttypes: ["Shields", "Paladin Shields", "Grimoire"],
     version: '3.0',
   },
   {
