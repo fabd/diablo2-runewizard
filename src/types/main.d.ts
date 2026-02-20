@@ -6,6 +6,7 @@ type TItemTypeId =
   | "Claws"
   | "Clubs"
   | "Daggers"
+  | "Grimoire"
   | "Hammers"
   | "Helms"
   | "Maces"
