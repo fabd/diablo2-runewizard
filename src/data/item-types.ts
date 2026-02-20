@@ -4,6 +4,7 @@ const itemTypes: { [key in TItemTypeId]: { url?: string } } = {
   Claws: { url: "https://diablo2.diablowiki.net/Assassin_Items" },
   Clubs: { url: "https://diablo2.diablowiki.net/Clubs" },
   Daggers: { url: "https://diablo2.diablowiki.net/Daggers" },
+  "Grimoire": {},
   Hammers: { url: "https://diablo2.diablowiki.net/Hammers" },
   Helms: { url: "https://diablo2.diablowiki.net/Helms" },
   Maces: { url: "https://diablo2.diablowiki.net/Maces" },
