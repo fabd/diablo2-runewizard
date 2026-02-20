@@ -69,11 +69,17 @@
               :title="getDisabledTitle()"
             >S{{ envLadderSeason }}</span>
 
-            <span v-if="item.version" class="rw-Table-tdTitlePatch"
-              :class="{
-                'is-new': item.version === envGameVersion
-              }"
-              title="Patch version">{{ item.version }}</span>
+            <span
+              v-if="item.version"
+              class="rw-Table-tdTitlePatch"
+              :class="[
+                { 'is-new': item.version === envGameVersion },
+                `patch-${String(item.version).replace('.', '-')}`
+              ]"
+              title="Patch version"
+            >
+              {{ item.version }}
+            </span>
 
             <div
               v-if="pinnedRunewords.has(item.title)"
