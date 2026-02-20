@@ -263,6 +263,26 @@ a { color:var(--color-gold); }
     &Patch.is-new {
       background-color: var(--color-tag-latest);
     }
+    /* patch-specific colors */
+    &Patch.patch-3-0 {
+      background-color: #7b3fe4; // purple (Reign of the Warlock)
+      color: #fff;
+    }
+
+    &Patch.patch-2-7 {
+      background-color: #1f8b4c; // green
+      color: #fff;
+    }
+
+    &Patch.patch-2-6 {
+      background-color: #2a6fd6; // blue
+      color: #fff;
+    }
+
+    &Patch.patch-2-4 {
+      background-color: #b87333; // bronze
+      color: #fff;
+    }
   }
 
   // pin icon next to runeword title
