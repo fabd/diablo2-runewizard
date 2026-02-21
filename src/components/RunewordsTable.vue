@@ -210,8 +210,7 @@ export default defineComponent({
       this.items.forEach((runeword) => {
         map.set(
           runeword.title,
-          !this.isRunewordDisabled(runeword) &&
-            runeword.runes.every((runeId) => this.haveRunes[runeId])
+          runeword.runes.every((runeId) => this.haveRunes[runeId])
         );
       });
 
