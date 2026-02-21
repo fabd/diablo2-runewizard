@@ -1,8 +1,8 @@
 import path from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import eslint from "@rollup/plugin-eslint";
 import strip from "@rollup/plugin-strip";
+import tailwindcss from "@tailwindcss/vite";
 import Markdown from 'unplugin-vue-markdown/vite'
 
 export default defineConfig({
@@ -65,6 +65,8 @@ export default defineConfig({
   },
 
   plugins: [
+    tailwindcss(),
+
     // ---------------------------------------------------------------------------
     // @vitejs/plugin-vue
     // ---------------------------------------------------------------------------

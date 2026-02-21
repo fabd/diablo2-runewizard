@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import vueApp from "./App.vue";
 
-import "@/assets/sass/main.scss";
+import "@/assets/sass/main.css";
 
 import store from "@/store";
 

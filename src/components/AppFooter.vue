@@ -2,7 +2,7 @@
   <footer class="rw-Footer min-h-[200px]">
     <div class="rw-Layout-goldBarSeparator opacity-50 mb-6"></div>
 
-    <div class="text-center text-lg text-gold leading-1">
+    <div class="text-center text-lg text-gold leading-none">
       <div v-if="envMainSiteUrl" class="mb-2">
         Also check out
         <a :href="envMainSiteUrl" class="rw-Footer-link ml-2">

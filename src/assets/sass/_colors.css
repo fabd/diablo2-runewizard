@@ -1,13 +1,13 @@
-// ====================================================================
+/* ====================================================================
 // VARIABLES
-// ====================================================================
+// ==================================================================== */
 
 :root {
-  // page
+  /* page */
   --color-body-bg: #000;
   --color-body-fg: #aca798;
 
-  // main table
+  /* main table */
   --color-blood-dark: #400000;
   --color-blood-darker: #200000;
   --color-rune-off: #844;
@@ -17,7 +17,7 @@
   --color-ladder-bg: #501008;
   --color-ladder-fg: #a19999;
 
-  // text & decorations
+  /* text & decorations */
   --color-accent: #bd8547;
   --color-danger: #ae2a1a;
   --color-gold: #8a8062;
@@ -26,7 +26,7 @@
   --color-gray: #74706c;
   --color-gray-dark: #24221c;
   --color-green: #588425;
-  // --color-green-light: #71b643;
+  /* --color-green-light: #71b643; */
   --color-link-blue: #39a9f7;
   --color-runeword-text: #48ac3f;
   --color-runeword-mods: #5cbd4b;

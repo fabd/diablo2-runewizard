@@ -1,7 +1,12 @@
+/* globals module */
 module.exports = {
   extends: [
-    // @plugins stylelint-scss, @extends stylelint-config-recommended
-    "stylelint-config-recommended-scss",
+    "stylelint-config-recommended-vue"
+  ],
+
+  ignoreFiles: [
+    // ignore legacy stylesheets (see README in that folder)
+    "src/assets/css/legacy/**/*.css",
   ],
 
   rules: {
@@ -10,42 +15,51 @@ module.exports = {
     /////////////////////////////////////////////////////////////
     "block-no-empty": null,
 
-    // unnecessary warning that `#ffffff` should be `#fff` (css minification does this)
-    "color-hex-length": null,
-
-    // not helpful
-    "comment-no-empty": null,
-    "scss/comment-no-empty": null,
-    "comment-empty-line-before": null,
-    "declaration-empty-line-before": null,
-
-    // complains about `<style></style>` in Vue SFCs which doesn't get compiled anyway
-    "no-empty-source": null,
-
     // allow duplicate properties *only* on consecutive lines (ie. fallbacks for old browsers)
     "declaration-block-no-duplicate-properties": [
       true,
       {
+        // ignore fallbacks for older browsers
         ignore: ["consecutive-duplicates"],
       },
     ],
 
-    // if really needed, use `/* stylelint-disable-next-line declaration-no-important */`
+    // if necessary, use `/* stylelint-disable-next-line declaration-no-important */`
     "declaration-no-important": true,
+
+    // prevents from applying "separation of concern" to css rules
+    //  (eg. organize button css by: sizes, colors, shapes, ...)
+    "no-duplicate-selectors": null,
+    "no-descending-specificity": null,
+
+    // complains about `<style></style>` and things that produce no output
+    "no-empty-source": null,
 
     /////////////////////////////////////////////////////////////
     // Control specificity
     /////////////////////////////////////////////////////////////
+
+    // control CSS complexity
     "max-nesting-depth": [
       3,
       {
-        // @media rules (and related mixins) that enclose a selector does not increase
+        // @media rules that enclose a selector does not increaase
         // nesting of that selector
         ignore: ["blockless-at-rules"],
       },
     ],
 
-    // limit the number of type selectors (eg. html element) to... ONE
+    // limit the number of ID selectors in a selector to ZERO
+    //  (use `/* stylelint-disable-next-line */` if necessary)
+    "selector-max-id": 0,
+
+    // limit the number of type selectors (eg. html element) to ONE
+    //  - the intent is to encourage using BEM-style classes to simplify selectors
+    //  - however in some situations allowing a single type selector saves
+    //    from adding a lot of unnecessary classes, for example, styling content
+    //    inside a card (.Card h1, .Card h2, .Card p, etc)
+    //  - we want to avoid overspecifying: `.Card ul li a strong ...`
+    //    which will break easily when the template is modified
     "selector-max-type": [
       1,
       {
@@ -55,31 +69,5 @@ module.exports = {
       },
     ],
 
-    // compounds are selectors separated by combinators (eg. `.Foo > child + sibling`)
-    "selector-max-compound-selectors": 3,
-
-    /////////////////////////////////////////////////////////////
-    // selection from config standard / suggested additions
-    //   https://github.com/stylelint/stylelint-config-standard#suggested-additions
-    /////////////////////////////////////////////////////////////
-    "function-url-quotes": "always",
-    "selector-attribute-quotes": "always",
-
-    /////////////////////////////////////////////////////////////
-    // stylelint-scss
-    /////////////////////////////////////////////////////////////
-
-    // fix for tailwind/windicss
-    "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": [
-      true,
-      {
-        ignoreAtRules: ["apply"],
-      },
-    ],
-    
-
-    // sass compiler ignores `&` in `.foo & .bar`, but useful to know
-    "scss/selector-no-redundant-nesting-selector": true,
   },
 };
