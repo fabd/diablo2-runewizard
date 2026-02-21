@@ -19,7 +19,7 @@ The runes are listed in order of rarity, from top to bottom, and left to right. 
 <span class="rw-Table-tdTitlePatch patch-2-6">2.6</span>
 <span class="rw-Table-tdTitlePatch patch-3-0">3.0</span>
 
-Some ladder-only runewords may be **temporarily disabled in a specific ladder season**. These are marked with <span class="rw-Md-disabled">S13</span> (season number may vary).
+Pay special attention to <span class="rw-Md-note">Note!</span> for important information.
 
 ## Note about storage
 

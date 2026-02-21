@@ -635,7 +635,8 @@ const runewords: TRuneword[] = [
     tinfos: "(Assassin)",
     ladder: true,
     // Disabled for Ladder Season 13 (RotW / Patch 3.0)
-    disabledSeasons: [13],
+    // https://us.forums.blizzard.com/en/d2r/t/season-13-ladder-mosaic-runeword-disabled/172344
+    note: "Disabled in Season 13! Can be crafted offline non-ladder.",
     version: '2.6',
   },
   {

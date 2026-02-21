@@ -64,12 +64,6 @@
             <span v-if="item.ladder" class="rw-Md-ladder" title="Ladder Only">L</span>
 
             <span
-              v-if="isRunewordDisabled(item)"
-              class="rw-Md-disabled"
-              :title="getDisabledTitle()"
-            >S{{ envLadderSeason }}</span>
-
-            <span
               v-if="item.version"
               class="rw-Table-tdTitlePatch"
               :class="[
@@ -80,6 +74,12 @@
             >
               {{ item.version }}
             </span>
+
+            <span
+              v-if="item.note"
+              class="rw-Md-note"
+              :title="item.note"
+            >Note!</span>
 
             <div
               v-if="pinnedRunewords.has(item.title)"
@@ -183,13 +183,6 @@ export default defineComponent({
       ],
 
       envGameVersion: import.meta.env.VITE_GAME_VERSION as string,
-
-      // Optional ladder season; used to mark season-disabled runewords
-      envLadderSeason: ((): number | null => {
-        const raw = (import.meta.env.VITE_LADDER_SEASON as string | undefined) ?? "";
-        const n = parseInt(raw, 10);
-        return Number.isFinite(n) ? n : null;
-      })(),
     };
   },
 
@@ -267,17 +260,6 @@ export default defineComponent({
   },
 
   methods: {
-    isRunewordDisabled(runeword: TRunewordItem): boolean {
-      if (!this.envLadderSeason) return false;
-      const list = runeword.disabledSeasons || [];
-      return list.includes(this.envLadderSeason);
-    },
-
-    getDisabledTitle(): string {
-      if (!this.envLadderSeason) return "Disabled for this ladder season";
-      return `Disabled in Ladder Season ${this.envLadderSeason}`;
-    },
-
     cssActiveRune(runeId: TRuneId) {
       return this.haveRunes[runeId] ? "is-active" : "";
     },
