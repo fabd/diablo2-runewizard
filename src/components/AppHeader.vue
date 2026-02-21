@@ -19,7 +19,7 @@
         </h1>
         <div class="flex justify-between items-center">
           <div class="text-lg ux-color-gray">
-            for <span class="ux-color-gold">{{ envGameName }}</span>
+            for <span class="ux-color-gold font-semibold">{{ envGameName }}</span>
             <span class="ml-2 ux-color-green">Patch {{ envGameVersion }}</span>
 
             <span class="text-xs">

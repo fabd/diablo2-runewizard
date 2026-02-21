@@ -4,7 +4,7 @@ const runewords: TRuneword[] = [
     title: "Ancient's Pledge",
     runes: ["Ral", "Ort", "Tal"],
     level: 21,
-    ttypes: ["Shields"],
+    ttypes: ["Shields", "Grimoire"],
   },
   {
     title: "Black",
@@ -90,7 +90,7 @@ const runewords: TRuneword[] = [
     title: "Rhyme",
     runes: ["Shael", "Eth"],
     level: 29,
-    ttypes: ["Shields"],
+    ttypes: ["Shields", "Grimoire"],
   },
   {
     title: "Silence",
@@ -294,14 +294,14 @@ const runewords: TRuneword[] = [
     title: "Sanctuary",
     runes: ["Ko", "Ko", "Mal"],
     level: 49,
-    ttypes: ["Shields"],
+    ttypes: ["Shields", "Grimoire"],
     version: '1.10',
   },
   {
     title: "Splendor",
     runes: ["Eth", "Lum"],
     level: 37,
-    ttypes: ["Shields"],
+    ttypes: ["Shields", "Grimoire"],
     version: '1.10',
   },
   {
@@ -344,14 +344,14 @@ const runewords: TRuneword[] = [
     title: "Dragon",
     runes: ["Sur", "Lo", "Sol"],
     level: 61,
-    ttypes: ["Body Armors", "Shields"],
+    ttypes: ["Body Armors", "Shields", "Grimoire"],
     version: '1.10',
   },
   {
     title: "Dream",
     runes: ["Io", "Jah", "Pul"],
     level: 65,
-    ttypes: ["Helms", "Shields"],
+    ttypes: ["Helms", "Shields", "Grimoire"],
   },
   {
     title: "Edge",
@@ -628,20 +628,14 @@ const runewords: TRuneword[] = [
     version: '2.6',
   },
   {
-    title: "Hustle",
-    runes: ["Shael", "Ko", "Eld"],
-    level: 39,
-    ttypes: ["Weapons", "Body Armors"],
-    ladder: true,
-    version: '2.6',
-  },
-  {
     title: "Mosaic",
     runes: ["Mal", "Gul", "Amn"],
     level: 53,
     ttypes: ["Claws"],
     tinfos: "(Assassin)",
     ladder: true,
+    // Disabled for Ladder Season 13 (RotW / Patch 3.0)
+    disabledSeasons: [13],
     version: '2.6',
   },
   {
@@ -652,6 +646,62 @@ const runewords: TRuneword[] = [
     ladder: true,
     tinfos: "(Druid)",
     version: '2.6',
+  },
+
+  /* Patch 3.0 (Reign of the Warlock) */
+  {
+    title: "Authority",
+    runes: ["Hel", "Shael", "Ral"],
+    level: 29,
+    ttypes: ["Body Armors"],
+    version: '3.0',
+  },
+  {
+    title: "Coven",
+    runes: ["Ist", "Ral", "Io"],
+    level: 51,
+    ttypes: ["Helms"],
+    version: '3.0',
+  },
+  {
+    title: "Void",
+    runes: ["Thul", "Zod", "Ist"],
+    level: 69,
+    ttypes: ["Daggers"],
+    version: '3.0',
+  },
+  {
+    title: "Vigilance",
+    runes: ["Dol", "Gul"],
+    level: 53,
+    ttypes: ["Shields", "Paladin Shields", "Grimoire"],
+    version: '3.0',
+  },
+  {
+    title: "Ritual",
+    runes: ["Amn", "Shael", "Ohm"],
+    level: 57,
+    ttypes: ["Daggers"],
+    version: '3.0',
+  },
+  // Hustle was renamed/split in Patch 3.0:
+  // - Mania (Weapons)
+  // - Hysteria (Body Armor)
+  {
+    title: "Mania",
+    runes: ["Shael", "Ko", "Eld"],
+    level: 39,
+    ttypes: ["Weapons"],
+    ladder: true,
+    version: '3.0',
+  },
+  {
+    title: "Hysteria",
+    runes: ["Shael", "Ko", "Eld"],
+    level: 39,
+    ttypes: ["Body Armors"],
+    ladder: true,
+    version: '3.0',
   },
 ];
 

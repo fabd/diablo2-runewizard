@@ -1176,17 +1176,74 @@ const runewordsDesc: TRunewordMeta = {
   Fire Absorb +10-15%
   `,
 
-  Hustle: `
-  #### Weapons
+  /* Patch 3.0 (Reign of the Warlock) */
+  Authority: `
+  2% Chance to cast level 10 Psychic Ward when struck
+  10% Chance to cast level 15 Miasma Chain on striking
+  +2 to Warlock Skill Levels
+  +40-60% Enhanced Damage
+  Requirements -15%
+  +20% Faster Hit Recovery
+  Fire Resist +30%
+  `,
+
+  Coven: `
+  5% Chance to cast level 10 Sigil Lethargy when struck
+  +1 to All Skills
+  +20% Faster Cast Rate
+  +30-50% Enhanced Defense
+  +1-5 Life after each Kill
+  26-40% Better Chance of Getting Magic Items
+  Fire Resist +30%
+  +10 to Vitality
+  `,
+
+  Void: `
+  +2 to All Skills
+  +40% Faster Cast Rate
+  +10-15% to Magic Skill Damage
+  +1 to Abyss (Level 3)
+  +8-12 to all Attributes
+  Level 4 Decrepify (35/35 Charges)
+  Adds 3-14 Cold Damage
+  Indestructible
+  30% Better Chance of Getting Magic Items
+  `,
+
+  Vigilance: `
+  5% Chance to cast level 10 Ring of Fire when struck
+  +10% Faster Run/Walk
+  +30% Faster Block Rate
+  +20-40 to Life
+  +20-40 to Mana
+  All Resistances +25-35
+  +75-100% Enhanced Defense
+  Replenish Life +7
+  +5% to Maximum Poison Resist
+  `,
+
+  Ritual: `
+  13% Chance to cast level 1 Sigil Death when struck
+  +40% Increased Attack Speed
+  +250-320% Enhanced Damage
+  +150-250% Damage to Demons
+  +200-260% Bonus to Attack Rating
+  +3-5 Life after each Kill
+  Slain Monsters Rest in Peace
+  7% Life stolen per hit
+  `,
+
+  Mania: `
   5% Chance to cast level 1 Burst of Speed on striking
-  Level 1 Fanaticism Aura
+  Level 1 Fanaticism Aura When Equipped
   +30% Increased Attack Speed
   +180-200% Enhanced Damage
   +75% Damage to Undead
   +50 to Attack Rating against Undead
   +10 to Dexterity
+  `,
 
-  #### Body Armors
+  Hysteria: `
   +65% Faster Run/Walk
   +40% Increased Attack Speed
   +20% Faster Hit Recovery

@@ -263,6 +263,18 @@ a { color:var(--color-gold); }
     &Patch.is-new {
       background-color: var(--color-tag-latest);
     }
+    /* patch-specific colors */
+    &Patch.patch-3-0 {
+      background-color: #7b3fe4; // purple (Reign of the Warlock)
+    }
+
+    &Patch.patch-2-6 {
+      background-color: var(--color-green);
+    }
+
+    &Patch.patch-2-4 {
+      background-color: #b87333; // bronze
+    }
   }
 
   // pin icon next to runeword title
@@ -364,6 +376,15 @@ a { color:var(--color-gold); }
     color: var(--color-ladder-fg);
     border-radius: 100%;
     padding: 1px 5px;
+    @apply ml-1 leading-1 text-xs;
+  }
+
+  // season-disabled tag shown next to Runeword names
+  &-disabled {
+    background-color: #7a1f1f;
+    color: #fff;
+    border-radius: 999px;
+    padding: 1px 6px;
     @apply ml-1 leading-1 text-xs;
   }
 
