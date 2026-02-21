@@ -266,17 +266,14 @@ a { color:var(--color-gold); }
     /* patch-specific colors */
     &Patch.patch-3-0 {
       background-color: #7b3fe4; // purple (Reign of the Warlock)
-      color: #fff;
     }
 
     &Patch.patch-2-6 {
-      background-color: #2a6fd6; // blue
-      color: #fff;
+      background-color: var(--color-green);
     }
 
     &Patch.patch-2-4 {
       background-color: #b87333; // bronze
-      color: #fff;
     }
   }
 
