@@ -91,6 +91,7 @@ a {
 }
 
 .rw-Header-link {
+  white-space: nowrap;
   color: var(--color-gold);
 
   &:hover {

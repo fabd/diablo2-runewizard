@@ -1,11 +1,11 @@
 <template>
   <app-header v-if="useLayoutHeader" />
 
-  <main class="rw-Layout-row rw-Main mx-auto md:px-4 py-4 md:flex mb-24">
-    <div class="px-4 md:px-0">
+  <main class="rw-Layout-row rw-Main mx-auto lg:px-4 py-4 lg:flex mb-24">
+    <div class="px-4 lg:px-0">
       <runes />
     </div>
-    <div class="overflow-auto flex-1 md:ml-16">
+    <div class="overflow-auto flex-1 lg:ml-16">
       <runewords />
     </div>
   </main>

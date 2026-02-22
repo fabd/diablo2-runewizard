@@ -10,9 +10,9 @@
       </div>
     </div>
 
-    <div class="rw-Runes md:flex md:justify-between md:w-[130px] select-none mb-4">
+    <div class="rw-Runes lg:flex lg:justify-between lg:w-[130px] select-none mb-4">
       <div v-for="(runesTier, i) in runesByTier" :key="i" 
-        class="flex md:block md:w-1/3 justify-between">
+        class="flex lg:block lg:w-1/3 justify-between">
         <!-- a single rune -->
         <div
           v-for="rune in runesTier"
