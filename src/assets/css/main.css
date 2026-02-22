@@ -142,7 +142,7 @@ a {
   }
 
   &::placeholder {
-    color: var(--color-gray-dark);
+    color: #444;
   }
 }
 
