@@ -1,7 +1,7 @@
 <template>
   <app-header v-if="useLayoutHeader" />
 
-  <main class="rw-Layout-rowContainer rw-Main py-4 flex mb-24">
+  <main class="rw-Layout-row rw-Main mx-auto py-4 flex mb-24">
     <div class="mr-16">
       <runes />
     </div>

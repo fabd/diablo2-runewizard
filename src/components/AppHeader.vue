@@ -1,30 +1,31 @@
 <template>
   <!-- optional header to decorate the stand alone version -->
   <header>
-    <div class="rw-Layout-rowContainer h-[106px] flex">
-      <div class="pr-[20px] pt-[17px]">
+    <div class="rw-Layout-row mx-auto flex pt-4">
+      <div class="pr-[20px] shrink">
         <img
           src="@assets/images/logo-rune.png"
           alt="Rune icon original art (c) BLIZZARD ENTERTAINMENT"
-          class="w-[69px] h-[67px]"
+          class="w-[49px] md:w-[69px] h-[47px] md:h-[67px]"
         />
       </div>
       <div class="flex-1">
-        <h1 class="text-black text-[0px] mt-[19px] mb-[5px] w-[301px] h-[32px]">
+        <h1 class="text-black text-[0px] mt-1 mb-[5px] w-[225px] h-[24px] md:w-[301px] md:h-[32px]">
           <img
             src="@assets/images/logo-text-runewizard.png"
             alt="Runewizard"
             class="block w-full h-full"
           />
         </h1>
-        <div class="flex justify-between items-center">
-          <div class="text-lg ux-color-gray">
-            for <span class="ux-color-gold">{{ envGameName }}</span>
-            <span class="ml-2 ux-color-green">Patch {{ envGameVersion }}</span>
-
+        <div class="flex justify-between items-center pb-4">
+          <div class="text-sm md:text-lg ux-color-gray">
+            <div class="inline">
+              for <span class="ux-color-gold">{{ envGameName }}</span>
+            </div>
+            <span class="ml-2 ux-color-green whitespace-nowrap">Patch {{ envGameVersion }}</span>
             <span class="text-xs">
               <a
-                class="ml-2 underline hover:underline ux-color-link-blue"
+                class="ml-2 underline hover:underline ux-color-link-blue whitespace-nowrap"
                 target="blank"
                 :href="envPatchNotesUrl"
                 >Update Notes</a
@@ -32,10 +33,10 @@
             </span>
           </div>
 
-          <div class="flex items-center text-[#514f4a]">
+          <div class="flex items-center">
             <a
               href="#"
-              class="rw-HelpLink mr-6"
+              class="rw-HelpLink ml-auto"
               @click.prevent="isHelpVisible = !isHelpVisible"
             >
               <icon-chevron-down
@@ -46,7 +47,7 @@
               /><span class="ml-1">{{ "Help" }}</span>
             </a>
 
-            <a :href="`${envGithubRepoUrl}/discussions`" class="rw-Header-link">
+            <a :href="`${envGithubRepoUrl}/discussions`" class="rw-Header-link hidden ml-6 md:block">
               <icon-chat class="ux-icon ux-icon--fw ux-icon--lg mr-1" />
               <span>{{ "Feedback" }}</span>
             </a>
@@ -59,7 +60,7 @@
     <div class="rw-Layout-goldBarSeparator mb-2"></div>
 
     <transition name="fadein">
-      <div v-if="isHelpVisible" class="rw-Layout-rowContainer mb-4">
+      <div v-if="isHelpVisible" class="rw-Layout-row mb-4">
         <help-box />
       </div>
     </transition>

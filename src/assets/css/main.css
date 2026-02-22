@@ -81,10 +81,8 @@ a {
 // a minimal layout for the standalone version of Runewizard
 // -------------------------------------------------------------------- */
 
-/* pretend component to group layout utils */
-
-.rw-Layout-rowContainer {
-  @apply max-w-[1100px] pl-8 pr-4;
+.rw-Layout-row {
+  @apply max-w-[1100px] px-4;
 }
 
 .rw-Layout-goldBarSeparator {
@@ -167,7 +165,7 @@ a {
 // Help : base class top format markdown output inside it
 // -------------------------------------------------------------------- */
 .rw-Help {
-  @apply px-4 pt-6 pb-6;
+  @apply md:px-4 pt-6 pb-6;
   @apply mb-6;
   border-bottom: 1px solid var(--color-gray-dark);
 
