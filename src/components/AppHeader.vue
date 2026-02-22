@@ -1,7 +1,7 @@
 <template>
   <!-- optional header to decorate the stand alone version -->
   <header>
-    <div class="rw-Layout-row mx-auto flex pt-4">
+    <div class="rw-Layout-row mx-auto flex px-4 pt-4">
       <div class="pr-[20px] shrink">
         <img
           src="@assets/images/logo-rune.png"

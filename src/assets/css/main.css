@@ -82,7 +82,7 @@ a {
 // -------------------------------------------------------------------- */
 
 .rw-Layout-row {
-  @apply max-w-[1100px] px-4;
+  @apply max-w-[1100px];
 }
 
 .rw-Layout-goldBarSeparator {
@@ -199,10 +199,8 @@ a {
 .rw-Table-th {
   background: var(--color-blood-dark);
   color: var(--color-gold);
-  font-weight: normal;
-  padding: 0.25rem 0.5rem;
   border-right: 1px solid #000;
-  @apply select-none;
+  @apply font-normal whitespace-nowrap select-none px-2 py-1;
 
   .is-sortCol {
     font-weight: bold;
@@ -223,20 +221,13 @@ a {
   text-align: center;
   border-bottom: 1px solid var(--color-gray-dark);
   color: var(--color-gray);
-
-  &.is-rune {
-    color: var(--color-rune-off);
-  }
-  &.is-active {
-    color: var(--color-rune-act);
-  }
 }
 /* runeword title */
 .rw-Table-tdTitle {
   @apply p-0;
 }
 .rw-Table-tdTitleSpan {
-  @apply inline-block px-[5px] py-[7px]; /* increase the mouseover area */
+  @apply inline-block px-1.25 py-1.75; /* increase the mouseover area */
 
   color: var(--color-gray);
 
@@ -279,9 +270,6 @@ a {
   &:hover {
     color: var(--color-gold-light);
   }
-  &.is-pinned {
-    color: var(--color-gray);
-  }
 
   /* background: red; */
   width: 1.5em;
@@ -313,6 +301,18 @@ a {
 
 .rw-Table-tr.is-complete .rw-Table-tdTitleSpan {
   color: var(--color-gold);
+}
+
+.rw-RunesTxt {
+  .is-rune {
+    padding: 0 2px;
+  }
+  .off {
+    color: var(--color-rune-off);
+  }
+  .on {
+    color: var(--color-rune-act);
+  }
 }
 
 /* --------------------------------------------------------------------
