@@ -331,14 +331,12 @@ a {
 }
 
 .rw-Rune {
-  @apply flex;
-
   /* size is bound to the old ,gif sprite for now, TODO : use a SVG rune icon */
   width: 34px;
   height: 34px;
   background: url("@assets/images/rune-bg2.gif") no-repeat 50% -34px;
 
-  color: #666;
+  color: #999;
   cursor: pointer;
 
   font-size: 13px;
@@ -350,7 +348,7 @@ a {
   }
 
   &.is-selected {
-    color: #fff;
+    color: #00ff2e;
     background-position: 50% 0;
   }
 }
