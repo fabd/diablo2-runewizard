@@ -116,11 +116,13 @@ Runewizard uses **localStorage** (instead of a cookie in the old version) to mai
 
 Either way it is a known limitation that if the user clears "Cookie & other site related data" manually in their browser, the user state will be reset. For such a small app I felt it's an acceptable tradeoff, as creating a server for that seems overkill.
 
-## Stylesheets (css, scss)
+## Stylesheets
 
-Stylesheets are kept in one folder under `src/assets/`. This is convenient for me and avoids issues with .scss linting of .vue files in VSCode not working properly (could be a bug with Vetur/Vite or maybe I misconfigured something).
+CSS is kept under `src/assets/css`.
 
-In order to be able to use Sass and Tailwind together, the ordering of CSS declarations matters (cf. Tailwind imports in the main stylesheet). Ideally custom CSS should follow a strict [BEM-like syntax](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md), to avoid specificity issues.
+Note the specific import order of tailwindcss in main.css. This allows default styles in CSS stylesheets to be overridden by tailwind classes in the templates.
+
+Ideally custom CSS should follow a strict [BEM-like syntax](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md), to keep specificity as low as possible.
 
 ## SVG icons
 
