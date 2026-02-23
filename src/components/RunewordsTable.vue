@@ -270,7 +270,7 @@ export default defineComponent({
             return `<a href="${itemTypesData[type].url}" target="_blank">${typeHtml}</a>`;
           return typeHtml;
         })
-        .join("&nbsp;/&nbsp;");
+        .join(" /&nbsp;");
 
       if (word.tinfos) {
         cellHtml += `<br><span class="rw-Table-tdTypeClass">${word.tinfos}</span>`;
