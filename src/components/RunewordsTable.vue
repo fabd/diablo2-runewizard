@@ -96,6 +96,8 @@
               >Note!</span
             >
 
+            <span class="rw-RunesTxt rw-RunesTxtMbl md:hidden" v-html="getRunesHtml(item)"></span>
+
             <div
               class="rw-Table-pin hidden md:block"
               @click="onTogglePin(item.title)"

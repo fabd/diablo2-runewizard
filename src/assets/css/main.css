@@ -306,14 +306,28 @@ a {
 }
 
 .rw-RunesTxt {
+  @apply block pl-4;
+
   .is-rune {
+    display: inline-block;
     padding: 0 2px;
+    width: 3rem;
   }
   .off {
     color: var(--color-rune-off);
   }
   .on {
     color: var(--color-rune-act);
+  }
+}
+
+/* runes displayed under the Runeword name in mobile view */
+.rw-RunesTxtMbl {
+  @apply block;
+  padding: 0 0 4px 8px;
+
+  .is-rune {
+    width: auto; /* more compact */
   }
 }
 
@@ -354,6 +368,7 @@ a {
     background-position: 50% 0;
   }
 }
+
 
 /* --------------------------------------------------------------------
 //
