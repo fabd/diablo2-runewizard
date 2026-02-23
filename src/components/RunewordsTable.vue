@@ -70,7 +70,7 @@
             class="rw-Table-td rw-Table-tdTitle p-0 text-left relative min-w-[10em]"
           >
             <span
-              class="rw-Table-tdTitleSpan cursor-pointer"
+              class="rw-Table-tdTitleSpan ux-serif cursor-pointer"
               @mouseenter="onEnterRuneword($event, item)"
               @mouseleave="onLeaveRuneword()"
               @click="onEnterRuneword($event, item)"

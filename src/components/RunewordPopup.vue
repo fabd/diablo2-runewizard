@@ -9,7 +9,7 @@
     }"
     @click="setVisible(false)"
   >
-    <h3 class="rw-RunewordPopup-title">{{ runeword.title }}</h3>
+    <h3 class="rw-RunewordPopup-title ux-serif">{{ runeword.title }}</h3>
     <div class="rw-RunewordPopup-type" v-html="runeword.ttypes"></div>
     <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
   </div>
