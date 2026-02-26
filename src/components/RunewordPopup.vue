@@ -5,13 +5,17 @@
     class="rw-RunewordPopup absolute"
     :style="{
       visibility: isVisible ? 'visible' : 'hidden',
-      left: `${position.x}px`,
+      left: isMobile() ? '5%' : `${position.x}px`,
       top: `${position.y}px`,
+      width: isMobile() ? '90%' : 'auto',
     }"
     @click="setVisible(false)"
   >
     <h3 class="rw-RunewordPopup-title ux-serif">{{ runeword.title }}</h3>
-    <div class="rw-RunesTxt rw-RunesTxt--popup" v-html="getRunesHtml(runeword)"></div>
+    <div
+      class="rw-RunesTxt rw-RunesTxt--popup"
+      v-html="getRunesHtml(runeword)"
+    ></div>
     <div class="text-sm mb-2" v-html="getItemTypesHtml(runeword)"></div>
     <div class="rw-RunewordPopup-hr mb-3"></div>
     <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
@@ -31,7 +35,7 @@ import { defineComponent } from "vue";
 
 import runewordsMetaData from "@/data/runewords-descriptions";
 
-import { runesHtml, itemTypesHtml} from "./RunewordsTable.vue";
+import { runesHtml, itemTypesHtml } from "./RunewordsTable.vue";
 
 export default defineComponent({
   name: "RunewordPopup",
@@ -84,6 +88,10 @@ export default defineComponent({
 
     getItemTypesHtml(word: TRuneword) {
       return itemTypesHtml(word);
+    },
+
+    isMobile() {
+      return document.documentElement.clientWidth <= 768; /* iPad and smaller */
     },
 
     /**
