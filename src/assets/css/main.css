@@ -238,7 +238,19 @@ a {
   &:hover {
     color: var(--color-gold);
   }
+
+  &:active {
+    color: #fff;
+  }
 }
+
+.rw-Table-tr.is-complete .rw-Table-tdTitleSpan {
+  color: var(--color-gold);
+  &:active {
+    color: #fff;
+  }
+}
+
 
 /* optional DII patch number to distinguish recent changes */
 .rw-Table-tdTitlePatch {
