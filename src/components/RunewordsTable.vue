@@ -150,6 +150,27 @@ export function runesHtml(word: TRuneword, haveRunes: TRuneDict) {
   return html;
 }
 
+export function itemTypesHtml(word: TRuneword) {
+  let cellHtml = "<span class=\"rw-ItemTypes\"><em>" + word.ttypes
+    .map((type) => {
+      const typeHtml = type.replace(" ", "&nbsp;");
+      /*
+        if (itemTypesData[type].url)
+        return `<a href="${itemTypesData[type].url}" target="_blank">${typeHtml}</a>`;
+      */
+      return typeHtml;
+    })
+    .join("</em> /&nbsp;<em>");
+
+  if (word.tinfos) {
+    cellHtml += `<div class="rw-ItemTypes-class">${word.tinfos}</div>`;
+  }
+
+  cellHtml += "</span>";
+
+  return cellHtml;
+}
+
 export default defineComponent({
   name: "RunewordsTable",
 
@@ -268,21 +289,7 @@ export default defineComponent({
     },
 
     getTypeCellHtml(word: TRuneword) {
-      // could do additional formatting here
-      let cellHtml = word.ttypes
-        .map((type) => {
-          const typeHtml = type.replace(" ", "&nbsp;");
-          if (itemTypesData[type].url)
-            return `<a href="${itemTypesData[type].url}" target="_blank">${typeHtml}</a>`;
-          return typeHtml;
-        })
-        .join(" /&nbsp;");
-
-      if (word.tinfos) {
-        cellHtml += `<br><span class="rw-Table-tdTypeClass">${word.tinfos}</span>`;
-      }
-
-      return cellHtml;
+      return itemTypesHtml(word);
     },
 
     isSortKey(key: string) {

@@ -12,7 +12,8 @@
   >
     <h3 class="rw-RunewordPopup-title ux-serif">{{ runeword.title }}</h3>
     <div class="rw-RunesTxt rw-RunesTxt--popup" v-html="getRunesHtml(runeword)"></div>
-    <div class="rw-RunewordPopup-type" v-html="runeword.ttypes"></div>
+    <div class="text-sm mb-2" v-html="getItemTypesHtml(runeword)"></div>
+    <div class="rw-RunewordPopup-hr mb-3"></div>
     <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
   </div>
 </template>
@@ -30,7 +31,7 @@ import { defineComponent } from "vue";
 
 import runewordsMetaData from "@/data/runewords-descriptions";
 
-import { runesHtml } from "./RunewordsTable.vue";
+import { runesHtml, itemTypesHtml} from "./RunewordsTable.vue";
 
 export default defineComponent({
   name: "RunewordPopup",
@@ -79,6 +80,10 @@ export default defineComponent({
   methods: {
     getRunesHtml(word: TRuneword) {
       return runesHtml(word, this.haveRunes);
+    },
+
+    getItemTypesHtml(word: TRuneword) {
+      return itemTypesHtml(word);
     },
 
     /**

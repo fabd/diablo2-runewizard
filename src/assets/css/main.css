@@ -299,17 +299,18 @@ a {
   @apply m-auto;
 }
 
-.rw-Table-tdType a {
-  text-decoration: underline dotted;
-  &:hover {
-    text-decoration: underline;
-    color: #d5d2d0;
+/* eg. "Scepters / Hammers" */
+.rw-ItemTypes {
+  line-height: 1;
+  em {
+    font-style: normal;
+    color: var(--color-gold);
   }
 }
 
-/* additional info in the item type, shown below item types in smaller text */
-.rw-Table-tdTypeClass {
-  @apply block mt-1 text-[0.9em];
+/* eg. "(Sorceress)" under item types */
+.rw-ItemTypes-class {
+  @apply block text-[0.9em];
   color: var(--color-accent);
 }
 
@@ -433,27 +434,22 @@ a {
 
   background: #000c;
   border: 1px solid var(--color-gold);
-  @apply py-4 px-8 text-center;
+  @apply py-3 px-4 text-center;
   text-align: center;
-  color: var(--color-runeword-text);
 }
 .rw-RunewordPopup-title {
-  color: var(--color-gold);
+  color: var(--color-gold-mid);
   @apply text-2xl leading-[1em] mb-1;
 }
-.rw-RunewordPopup-type {
-  color: var(--color-accent);
-  
-  @apply mb-2;
-
-  /* optional subtext in runeword.ttype, eg. `(Amazon)` */
-  em {
-    @apply ml-1 opacity-80;
-  }
+.rw-RunewordPopup-hr {
+  background-color: #776;
+  height: 1px;
+  opacity: 0.5;
 }
 
 /* the runeword's stats */
 .rw-RunewordPopup-body {
+  color: var(--color-runeword-text);
   line-height: 1.4em;
   @apply text-sm md:text-base;
 
