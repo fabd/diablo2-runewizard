@@ -62,6 +62,9 @@ type TRuneDef = {
   tier: ERuneTier;
 };
 
+// a dictionary of 
+type TRuneDict = Dictionary<TRuneId, boolean>;
+
 type TRunewordId = string;
 
 type TRuneword = {

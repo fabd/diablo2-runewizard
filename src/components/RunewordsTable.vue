@@ -96,7 +96,10 @@
               >Note!</span
             >
 
-            <span class="rw-RunesTxt rw-RunesTxtMbl md:hidden" v-html="getRunesHtml(item)"></span>
+            <span
+              class="rw-RunesTxt rw-RunesTxtMbl md:hidden pl-4"
+              v-html="getRunesHtml(item)"
+            ></span>
 
             <div
               class="rw-Table-pin hidden md:block"
@@ -137,6 +140,15 @@ import IconCheckOff from "@/icons/IconCheckOff.vue";
 import RunewordPopup from "@/components/RunewordPopup.vue";
 
 type TRunewordPopup = TVueInstanceOf<typeof RunewordPopup>;
+
+export function runesHtml(word: TRuneword, haveRunes: TRuneDict) {
+  let html = word.runes
+    .map((runeId: TRuneId) => {
+      return `<span class="is-rune ${haveRunes[runeId] ? "on" : "off"}">${runeId}</span>`;
+    })
+    .join("");
+  return html;
+}
 
 export default defineComponent({
   name: "RunewordsTable",
@@ -182,11 +194,10 @@ export default defineComponent({
     //   return count;
     //},
 
-    runewordIsComplete(): Map<string, boolean> {
+    runewordIsComplete() {
       // console.log("*** runewordIsComplete()");
 
-      /** @type {Map<string, boolean>} */
-      const map = new Map();
+      const map = new Map<string, boolean>();
 
       this.items.forEach((runeword) => {
         map.set(
@@ -253,12 +264,7 @@ export default defineComponent({
     },
 
     getRunesHtml(word: TRuneword) {
-      let html = word.runes
-        .map((runeId: TRuneId) => {
-          return `<span class="is-rune ${this.haveRunes[runeId] ? "on" : "off"}">${runeId}</span>`;
-        })
-        .join("");
-      return html;
+      return runesHtml(word, this.haveRunes);
     },
 
     getTypeCellHtml(word: TRuneword) {
@@ -284,10 +290,11 @@ export default defineComponent({
     },
 
     onEnterRuneword(ev: Event, runeword: TRuneword) {
-      // paranoia
-      if (!ev.target) return;
-
-      this.refPopup.showRuneword(runeword, ev.target as HTMLElement);
+      this.refPopup.showRuneword(
+        runeword,
+        this.haveRunes,
+        ev.target as HTMLElement
+      );
     },
 
     onLeaveRuneword() {

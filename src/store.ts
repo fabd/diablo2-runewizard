@@ -9,7 +9,7 @@ import { reactive } from "vue";
 import { runesIds } from "@/data/runes";
 
 type TStoreState = {
-  haveRunes: { [key in TRuneId]?: boolean };
+  haveRunes: TRuneDict;
   pinned: Set<TRunewordId>;
 };
 

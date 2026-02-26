@@ -1,32 +1,36 @@
 <template>
   <div
+    v-if="isVisible"
     ref="root"
     class="rw-RunewordPopup absolute"
     :style="{
       visibility: isVisible ? 'visible' : 'hidden',
-      left: unitPx(position.x),
-      top: unitPx(position.y),
+      left: `${position.x}px`,
+      top: `${position.y}px`,
     }"
     @click="setVisible(false)"
   >
     <h3 class="rw-RunewordPopup-title ux-serif">{{ runeword.title }}</h3>
+    <div class="rw-RunesTxt rw-RunesTxt--popup" v-html="getRunesHtml(runeword)"></div>
     <div class="rw-RunewordPopup-type" v-html="runeword.ttypes"></div>
     <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
   </div>
 </template>
 
 <script lang="ts">
-/** 
+/**
  * NOTES
- * 
+ *
  *   - we use css `visibility` instead of v-show/v-if so that the popup's
  *     offsetHeight can be obtained as soon as it is rendered by Vue
  *     and we can adjust its position before it is visible.
- * 
+ *
  */
 import { defineComponent } from "vue";
 
 import runewordsMetaData from "@/data/runewords-descriptions";
+
+import { runesHtml } from "./RunewordsTable.vue";
 
 export default defineComponent({
   name: "RunewordPopup",
@@ -39,22 +43,28 @@ export default defineComponent({
 
       runeword: {
         title: "",
+        runes: [],
         ttypes: [],
         level: 0,
-      } as Pick<TRuneword, "title" | "ttypes" | "level">,
+      } as TRuneword,
+
+      haveRunes: [] as TRuneDict,
     };
   },
 
   computed: {
     formatBody(): string {
       const runewordId = this.runeword.title;
-      let text = (runewordId && runewordsMetaData[runewordId]) || '---';
+      let text = (runewordId && runewordsMetaData[runewordId]) || "---";
 
       // remove newlines at beginning and end
       text = text.trim();
 
       // format the mods (numbers) in the item stats ( regexr.com/6ki7f )
-      text = text.replace(/\+?[0-9]+(-[0-9]+)?%?/g, '<span class="is-mod">$&</span>');
+      text = text.replace(
+        /\+?[0-9]+(-[0-9]+)?%?/g,
+        '<span class="is-mod">$&</span>'
+      );
 
       // replace headings (might not need anything more complex)
       text = text.replace(/####\s(.*)\n+/g, '<h4 class="is-title">$1</h4>');
@@ -67,8 +77,8 @@ export default defineComponent({
   },
 
   methods: {
-    unitPx(n: number) {
-      return `${n}px`;
+    getRunesHtml(word: TRuneword) {
+      return runesHtml(word, this.haveRunes);
     },
 
     /**
@@ -105,11 +115,18 @@ export default defineComponent({
       this.position = { x: popX, y: popY };
     },
 
-    showRuneword(runeword: TRuneword, target: HTMLElement) {
+    showRuneword(
+      runeword: TRuneword,
+      haveRunes: TRuneDict,
+      target: HTMLElement
+    ) {
       this.runeword = runeword;
+      this.haveRunes = haveRunes;
+
+      this.setVisible(true);
+
       this.$nextTick(() => {
         this.moveTo(target);
-        this.isVisible = true;
       });
     },
 

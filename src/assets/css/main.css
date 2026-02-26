@@ -301,12 +301,8 @@ a {
   color: var(--color-accent);
 }
 
-.rw-Table-tr.is-complete .rw-Table-tdTitleSpan {
-  color: var(--color-gold);
-}
-
 .rw-RunesTxt {
-  @apply block pl-4;
+  @apply block;
 
   .is-rune {
     display: inline-block;
@@ -328,6 +324,18 @@ a {
 
   .is-rune {
     width: auto; /* more compact */
+  }
+}
+
+/* the runes shown in the popup */
+.rw-RunesTxt--popup {
+  margin-bottom: 8px;
+  .is-rune {
+    width: auto;
+    border-bottom: 2px solid currentcolor;
+    font-size: 17px;
+    line-height: 1;
+    margin:0 2px;
   }
 }
 
@@ -368,7 +376,6 @@ a {
     background-position: 50% 0;
   }
 }
-
 
 /* --------------------------------------------------------------------
 //
@@ -420,11 +427,11 @@ a {
 }
 .rw-RunewordPopup-title {
   color: var(--color-gold);
-  @apply text-2xl leading-[1em] mb-2;
+  @apply text-2xl leading-[1em] mb-1;
 }
 .rw-RunewordPopup-type {
   color: var(--color-accent);
-  font-size: calc(14 / 16) * 1em;
+  
   @apply mb-2;
 
   /* optional subtext in runeword.ttype, eg. `(Amazon)` */
@@ -436,6 +443,7 @@ a {
 /* the runeword's stats */
 .rw-RunewordPopup-body {
   line-height: 1.4em;
+  @apply text-sm md:text-base;
 
   /* subtitle within stats when split stats by Weapon / Body Armor types */
   .is-title {
