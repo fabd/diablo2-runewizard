@@ -599,7 +599,6 @@ const runewordsDesc: TRunewordMeta = {
   Ignore Target's Defense
   20% Bonus to Attack Rating
   +280-330% Damage To Demons (varies)
-
   20% Deadly Strike
   Prevent Monster Heal
   Knockback
