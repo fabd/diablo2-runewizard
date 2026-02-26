@@ -10,19 +10,20 @@
       </div>
     </div>
 
-    <div class="rw-Runes flex justify-between w-[130px] select-none">
-      <div v-for="(runesTier, i) in runesByTier" :key="i" class="w-1/3">
+    <div class="rw-Runes lg:flex lg:justify-between lg:w-[130px] select-none mb-4">
+      <div v-for="(runesTier, i) in runesByTier" :key="i" 
+        class="flex lg:block lg:w-1/3 justify-between">
         <!-- a single rune -->
         <div
           v-for="rune in runesTier"
           :key="rune.name"
-          class="rw-Rune mx-auto"
+          class="rw-Rune flex-1"
           :class="{
             'is-selected': haveRunes[rune.name],
           }"
           @click="onToggleRune(rune.name)"
         >
-          <span class="mx-auto my-auto">{{ rune.name }}</span>
+          <div class="text-center my-auto">{{ rune.name }}</div>
         </div>
       </div>
     </div>

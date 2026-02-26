@@ -1,8 +1,14 @@
 <template>
   <div>
-    <div class="rw-Search flex items-center mb-8">
+    <div class="rw-Search flex items-center mb-8 px-4 lg:px-0">
       <label class="text-gold whitespace-nowrap mr-4">{{ "Search" }}</label>
-      <input v-model="searchText" type="text" class="rw-Search-input" @input="onSearchInput" />
+      <input
+        v-model="searchText"
+        type="text"
+        class="rw-Search-input"
+        @input="onSearchInput"
+        placeholder="Runeword name or item type"
+      />
     </div>
 
     <div>
@@ -44,7 +50,6 @@ export default defineComponent({
     onSearchInput() {
       this.updateFilter(this.searchText);
     },
-
 
     updateFilter(text: string) {
       const searchTerm = text.toLowerCase();

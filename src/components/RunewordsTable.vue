@@ -11,6 +11,7 @@
           :class="{
             'is-sortCol': isSortKey(col.key),
             'text-left': col.textLeft,
+            'hidden md:table-cell': col.key === 'runes',
           }"
           @click="onSortBy(col.key)"
         >
@@ -30,9 +31,17 @@
           <tr class="rw-Table-tr">
             <td class="rw-Table-td" colspan="9">
               <div class="text-center mt-6 py-2 relative">
-                <span class="text-md text-gold tracking-[.2em]">PINNED RUNEWORDS</span>
-                <a class="rw-Runes-clear absolute right-0 top-1" href="#" @click.prevent="unpinAll">
-                  <icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1" />unpin all
+                <span class="text-md text-gold tracking-[.2em]"
+                  >PINNED RUNEWORDS</span
+                >
+                <a
+                  class="rw-Runes-clear absolute right-0 top-1"
+                  href="#"
+                  @click.prevent="unpinAll"
+                >
+                  <icon-cancel
+                    class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1"
+                  />unpin all
                 </a>
               </div>
             </td>
@@ -42,7 +51,10 @@
         <template v-if="pinnedRunewords.size && i === pinnedRunewords.size">
           <tr class="rw-Table-tr">
             <td class="rw-Table-td" colspan="9">
-              <div class="text-center text-md text-gold tracking-[.2em] mt-6 py-2">ALL RUNEWORDS</div>
+              <div
+                class="text-center text-md text-gold tracking-[.2em] mt-6 py-2"
+                >ALL RUNEWORDS</div
+              >
             </td>
           </tr>
         </template>
@@ -54,75 +66,56 @@
             display: item.filterMatch ? '' : 'none',
           }"
         >
-          <td class="rw-Table-td rw-Table-tdTitle p-0 text-left relative min-w-[10em]">
+          <td
+            class="rw-Table-td rw-Table-tdTitle p-0 text-left relative min-w-[10em]"
+          >
             <span
-              class="rw-Table-tdTitleSpan cursor-pointer"
+              class="rw-Table-tdTitleSpan ux-serif cursor-pointer"
               @mouseenter="onEnterRuneword($event, item)"
               @mouseleave="onLeaveRuneword()"
               @click="onEnterRuneword($event, item)"
-            >{{ item.title }}</span>
-            <span v-if="item.ladder" class="rw-Md-ladder" title="Ladder Only">L</span>
+              >{{ item.title }}</span
+            >
+            <span v-if="item.ladder" class="rw-Md-ladder" title="Ladder Only"
+              >L</span
+            >
 
             <span
               v-if="item.version"
               class="rw-Table-tdTitlePatch"
               :class="[
                 { 'is-new': item.version === envGameVersion },
-                `patch-${String(item.version).replace('.', '-')}`
+                `patch-${String(item.version).replace('.', '-')}`,
               ]"
               title="Patch version"
             >
               {{ item.version }}
             </span>
 
-            <span
-              v-if="item.note"
-              class="rw-Md-note"
-              :title="item.note"
-            >Note!</span>
+            <span v-if="item.note" class="rw-Md-note" :title="item.note"
+              >Note!</span
+            >
+
+            <span class="rw-RunesTxt rw-RunesTxtMbl md:hidden" v-html="getRunesHtml(item)"></span>
 
             <div
-              v-if="pinnedRunewords.has(item.title)"
-              class="rw-Table-pin is-pinned"
+              class="rw-Table-pin hidden md:block"
               @click="onTogglePin(item.title)"
             >
-              <icon-check-on class="rw-Table-pinIcon" />
+              <icon-check-on
+                v-if="pinnedRunewords.has(item.title)"
+                class="rw-Table-pinIcon"
+              />
+              <icon-check-off v-else class="rw-Table-pinIcon" />
             </div>
-            <div v-else class="rw-Table-pin" @click="onTogglePin(item.title)">
-              <icon-check-off class="rw-Table-pinIcon" />
-            </div>
           </td>
-          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[0])">
-            {{
-              item.runes[0]
-            }}
+          <td class="rw-Table-td hidden md:table-cell text-left">
+            <span class="rw-RunesTxt" v-html="getRunesHtml(item)"></span>
           </td>
-          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[1])">
-            {{
-              item.runes[1]
-            }}
-          </td>
-          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[2])">
-            {{
-              item.runes[2]
-            }}
-          </td>
-          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[3])">
-            {{
-              item.runes[3]
-            }}
-          </td>
-          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[4])">
-            {{
-              item.runes[4]
-            }}
-          </td>
-          <td class="rw-Table-td is-rune" :class="cssActiveRune(item.runes[5])">
-            {{
-              item.runes[5]
-            }}
-          </td>
-          <td class="rw-Table-td rw-Table-tdType min-w-[10em]" v-html="getTypeCellHtml(item)"></td>
+          <td
+            class="rw-Table-td rw-Table-tdType min-w-[10em]"
+            v-html="getTypeCellHtml(item)"
+          ></td>
           <td class="rw-Table-td">{{ item.level }}</td>
         </tr>
       </template>
@@ -158,7 +151,7 @@ export default defineComponent({
   },
 
   props: {
-    items: { type: Array as PropType<TRunewordItem[]>, required: true, },
+    items: { type: Array as PropType<TRunewordItem[]>, required: true },
   },
 
   data() {
@@ -172,12 +165,7 @@ export default defineComponent({
 
       tableHeads: [
         { key: "title", label: "Runeword", textLeft: true },
-        { key: "rune0", label: "Rune" },
-        { key: "rune1", label: "Rune" },
-        { key: "rune2", label: "Rune" },
-        { key: "rune3", label: "Rune" },
-        { key: "rune4", label: "Rune" },
-        { key: "rune5", label: "Rune" },
+        { key: "runes", label: "Runes" },
         { key: "ttypes", label: "Item Types" },
         { key: "level", label: "Level" },
       ],
@@ -242,13 +230,13 @@ export default defineComponent({
       // move completed items to the top
       const list2 = [
         ...list.filter((word) => this.runewordIsComplete.get(word.title)),
-        ...list.filter((word) => !this.runewordIsComplete.get(word.title))
+        ...list.filter((word) => !this.runewordIsComplete.get(word.title)),
       ];
 
       //
       const list3 = [
         ...list2.filter((word) => this.pinnedRunewords.has(word.title)),
-        ...list2.filter((word) => !this.pinnedRunewords.has(word.title))
+        ...list2.filter((word) => !this.pinnedRunewords.has(word.title)),
       ];
 
       return list3;
@@ -260,12 +248,17 @@ export default defineComponent({
   },
 
   methods: {
-    cssActiveRune(runeId: TRuneId) {
-      return this.haveRunes[runeId] ? "is-active" : "";
-    },
-
     cssCompleteRuneword(word: TRuneword) {
       return this.runewordIsComplete.get(word.title) ? "is-complete" : "";
+    },
+
+    getRunesHtml(word: TRuneword) {
+      let html = word.runes
+        .map((runeId: TRuneId) => {
+          return `<span class="is-rune ${this.haveRunes[runeId] ? "on" : "off"}">${runeId}</span>`;
+        })
+        .join("");
+      return html;
     },
 
     getTypeCellHtml(word: TRuneword) {
@@ -277,7 +270,7 @@ export default defineComponent({
             return `<a href="${itemTypesData[type].url}" target="_blank">${typeHtml}</a>`;
           return typeHtml;
         })
-        .join("&nbsp;/&nbsp;");
+        .join(" /&nbsp;");
 
       if (word.tinfos) {
         cellHtml += `<br><span class="rw-Table-tdTypeClass">${word.tinfos}</span>`;

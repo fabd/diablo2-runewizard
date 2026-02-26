@@ -81,10 +81,8 @@ a {
 // a minimal layout for the standalone version of Runewizard
 // -------------------------------------------------------------------- */
 
-/* pretend component to group layout utils */
-
-.rw-Layout-rowContainer {
-  @apply max-w-[1100px] pl-8 pr-4;
+.rw-Layout-row {
+  @apply max-w-[1100px];
 }
 
 .rw-Layout-goldBarSeparator {
@@ -93,6 +91,7 @@ a {
 }
 
 .rw-Header-link {
+  white-space: nowrap;
   color: var(--color-gold);
 
   &:hover {
@@ -144,7 +143,7 @@ a {
   }
 
   &::placeholder {
-    color: var(--color-gray-dark);
+    color: #444;
   }
 }
 
@@ -167,7 +166,7 @@ a {
 // Help : base class top format markdown output inside it
 // -------------------------------------------------------------------- */
 .rw-Help {
-  @apply px-4 pt-6 pb-6;
+  @apply md:px-4 pt-6 pb-6;
   @apply mb-6;
   border-bottom: 1px solid var(--color-gray-dark);
 
@@ -201,10 +200,8 @@ a {
 .rw-Table-th {
   background: var(--color-blood-dark);
   color: var(--color-gold);
-  font-weight: normal;
-  padding: 0.25rem 0.5rem;
   border-right: 1px solid #000;
-  @apply select-none;
+  @apply font-normal whitespace-nowrap select-none px-2 py-1;
 
   .is-sortCol {
     font-weight: bold;
@@ -225,24 +222,18 @@ a {
   text-align: center;
   border-bottom: 1px solid var(--color-gray-dark);
   color: var(--color-gray);
-
-  &.is-rune {
-    color: var(--color-rune-off);
-  }
-  &.is-active {
-    color: var(--color-rune-act);
-  }
 }
 /* runeword title */
 .rw-Table-tdTitle {
   @apply p-0;
 }
 .rw-Table-tdTitleSpan {
-  @apply inline-block px-[5px] py-[7px]; /* increase the mouseover area */
+  @apply inline-block px-1.25 py-1.75; /* increase the mouseover area */
 
   color: var(--color-gray);
 
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 
   &:hover {
     color: var(--color-gold);
@@ -281,9 +272,6 @@ a {
   &:hover {
     color: var(--color-gold-light);
   }
-  &.is-pinned {
-    color: var(--color-gray);
-  }
 
   /* background: red; */
   width: 1.5em;
@@ -317,6 +305,32 @@ a {
   color: var(--color-gold);
 }
 
+.rw-RunesTxt {
+  @apply block pl-4;
+
+  .is-rune {
+    display: inline-block;
+    padding: 0 2px;
+    width: 3rem;
+  }
+  .off {
+    color: var(--color-rune-off);
+  }
+  .on {
+    color: var(--color-rune-act);
+  }
+}
+
+/* runes displayed under the Runeword name in mobile view */
+.rw-RunesTxtMbl {
+  @apply block;
+  padding: 0 0 4px 8px;
+
+  .is-rune {
+    width: auto; /* more compact */
+  }
+}
+
 /* --------------------------------------------------------------------
 //
 // -------------------------------------------------------------------- */
@@ -333,14 +347,12 @@ a {
 }
 
 .rw-Rune {
-  @apply flex;
-
   /* size is bound to the old ,gif sprite for now, TODO : use a SVG rune icon */
   width: 34px;
   height: 34px;
   background: url("@assets/images/rune-bg2.gif") no-repeat 50% -34px;
 
-  color: #666;
+  color: #999;
   cursor: pointer;
 
   font-size: 13px;
@@ -352,10 +364,11 @@ a {
   }
 
   &.is-selected {
-    color: #fff;
+    color: #00ff2e;
     background-position: 50% 0;
   }
 }
+
 
 /* --------------------------------------------------------------------
 //
@@ -407,7 +420,7 @@ a {
 }
 .rw-RunewordPopup-title {
   color: var(--color-gold);
-  @apply text-[1.4em] leading-[1em] mb-2;
+  @apply text-2xl leading-[1em] mb-2;
 }
 .rw-RunewordPopup-type {
   color: var(--color-accent);
