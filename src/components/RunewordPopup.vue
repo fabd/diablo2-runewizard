@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="isVisible"
     ref="root"
     class="rw-RunewordPopup absolute"
     :style="{
@@ -9,7 +8,8 @@
       top: `${position.y}px`,
       width: isMobile() ? '90%' : 'auto',
     }"
-    @click="setVisible(false)"
+    @pointerup="onPointerDown($event)"
+    @mouseleave="onLeave()"
   >
     <h3 class="rw-RunewordPopup-title ux-serif">{{ runeword.title }}</h3>
     <div
@@ -26,9 +26,16 @@
 /**
  * NOTES
  *
- *   - we use css `visibility` instead of v-show/v-if so that the popup's
- *     offsetHeight can be obtained as soon as it is rendered by Vue
- *     and we can adjust its position before it is visible.
+ *   Use CSS `visibility` instead of v-show/v-if so that the popup's
+ *   offsetHeight can be obtained as soon as it is rendered by Vue
+ *   and we can adjust its position before it is visible.
+ *
+ *   + using v-if for the popup removes it from the dom and makes
+ *   it buggy on touch device.
+ *
+ *   + use @pointerup instead of @pointerdown allows to scroll the
+ *   view when the popup is shown without immediately closing the
+ *   popup (pointerup isn't triggered when touch scrolling).
  *
  */
 import { defineComponent } from "vue";
@@ -90,6 +97,10 @@ export default defineComponent({
       return itemTypesHtml(word);
     },
 
+    getRoot() {
+      return this.$refs.root as HTMLElement;
+    },
+
     isMobile() {
       return document.documentElement.clientWidth <= 768; /* iPad and smaller */
     },
@@ -108,7 +119,7 @@ export default defineComponent({
       popX = popX + 50;
       popY = popY + window.pageYOffset + target.offsetHeight + 4;
 
-      const elRoot = this.$refs.root as HTMLElement;
+      const elRoot = this.getRoot();
 
       const popHeight = elRoot.offsetHeight;
       const popY2 = popY + popHeight;
@@ -145,6 +156,35 @@ export default defineComponent({
 
     setVisible(value: boolean) {
       this.isVisible = value;
+    },
+
+    onPointerDown(ev: PointerEvent) {
+      switch (ev.pointerType) {
+        case "mouse":
+          console.log("Mouse click");
+          this.setVisible(false);
+          break;
+        case "touch":
+          console.log("Touch input");
+          ev.preventDefault();
+          ev.stopPropagation();
+
+          // timeout fixes popup closing and reopening immediately when
+          //  tapping where there is a runeword label behind the overlay
+          window.setTimeout(() => {
+            this.setVisible(false);
+          }, 10);
+
+          break;
+      }
+
+      return false;
+    },
+
+    onLeave() {
+      console.log("leave POPUP");
+
+      this.setVisible(false);
     },
   },
 });

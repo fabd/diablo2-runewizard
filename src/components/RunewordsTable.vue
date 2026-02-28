@@ -72,8 +72,9 @@
             <span
               class="rw-Table-tdTitleSpan ux-serif cursor-pointer"
               @mouseenter="onEnterRuneword($event, item)"
-              @mouseleave="onLeaveRuneword()"
+              @mouseleave="onLeaveRuneword($event)"
               @click="onEnterRuneword($event, item)"
+              @touchstart="onEnterRuneword($event, item)"
               >{{ item.title }}</span
             >
             <span v-if="item.ladder" class="rw-Md-ladder" title="Ladder Only"
@@ -151,16 +152,14 @@ export function runesHtml(word: TRuneword, haveRunes: TRuneDict) {
 }
 
 export function itemTypesHtml(word: TRuneword) {
-  let cellHtml = "<span class=\"rw-ItemTypes\"><em>" + word.ttypes
-    .map((type) => {
-      const typeHtml = type.replace(" ", "&nbsp;");
-      /*
-        if (itemTypesData[type].url)
-        return `<a href="${itemTypesData[type].url}" target="_blank">${typeHtml}</a>`;
-      */
-      return typeHtml;
-    })
-    .join("</em> /&nbsp;<em>");
+  let cellHtml =
+    '<span class="rw-ItemTypes"><em>' +
+    word.ttypes
+      .map((type) => {
+        const typeHtml = type.replace(" ", "&nbsp;");
+        return typeHtml;
+      })
+      .join("</em> /&nbsp;<em>");
 
   if (word.tinfos) {
     cellHtml += `<div class="rw-ItemTypes-class">${word.tinfos}</div>`;
@@ -208,16 +207,7 @@ export default defineComponent({
   },
 
   computed: {
-    /** @return {number} */
-    // availableCount() {
-    //   let count = 0;
-    //   this.runewordIsComplete.forEach((isComplete) => isComplete && count++);
-    //   return count;
-    //},
-
     runewordIsComplete() {
-      // console.log("*** runewordIsComplete()");
-
       const map = new Map<string, boolean>();
 
       this.items.forEach((runeword) => {
@@ -297,6 +287,9 @@ export default defineComponent({
     },
 
     onEnterRuneword(ev: Event, runeword: TRuneword) {
+      // for touch event, prevents the subsequent click event
+      ev.preventDefault();
+
       this.refPopup.showRuneword(
         runeword,
         this.haveRunes,
@@ -304,7 +297,21 @@ export default defineComponent({
       );
     },
 
-    onLeaveRuneword() {
+    onLeaveRuneword(ev: MouseEvent) {
+      console.log("onleave");
+
+      let overlay = this.refPopup.getRoot();
+
+      // prevents triggering enter/leave when mouse is on top of runeword label
+      //  but inside the overlay
+      if (
+        overlay.contains(ev.relatedTarget as Node) ||
+        ev.relatedTarget === overlay
+      ) {
+        // Mouse went to the overlay, ignore it
+        return;
+      }
+
       this.refPopup.setVisible(false);
     },
 
