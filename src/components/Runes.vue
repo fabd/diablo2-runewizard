@@ -39,7 +39,7 @@ import store from "@/store";
 import IconCancel from "@/icons/IconCancel.vue";
 
 export default defineComponent({
-  name: "Runes",
+  name: "RunesGrid",
 
   components: {
     IconCancel,

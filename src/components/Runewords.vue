@@ -25,7 +25,7 @@ import runewordsData from "@/data/runewords";
 import RunewordsTable from "@/components/RunewordsTable.vue";
 
 export default defineComponent({
-  name: "Runewords",
+  name: "RuneWords",
 
   components: {
     RunewordsTable,

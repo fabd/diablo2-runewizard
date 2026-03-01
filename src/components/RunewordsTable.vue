@@ -130,7 +130,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 
-import itemTypesData from "@/data/item-types";
 import store from "@/store";
 
 import IconArrowUp from "@/icons/IconArrowUp.vue";
@@ -143,7 +142,7 @@ import RunewordPopup from "@/components/RunewordPopup.vue";
 type TRunewordPopup = TVueInstanceOf<typeof RunewordPopup>;
 
 export function runesHtml(word: TRuneword, haveRunes: TRuneDict) {
-  let html = word.runes
+  const html = word.runes
     .map((runeId: TRuneId) => {
       return `<span class="is-rune ${haveRunes[runeId] ? "on" : "off"}">${runeId}</span>`;
     })
@@ -245,9 +244,9 @@ export default defineComponent({
         };
       }
 
-      compareFn && list.sort(compareFn);
+      if (compareFn) list.sort(compareFn);
 
-      !this.sortAsc && list.reverse();
+      if (!this.sortAsc) list.reverse();
 
       // move completed items to the top
       const list2 = [
@@ -300,7 +299,7 @@ export default defineComponent({
     onLeaveRuneword(ev: MouseEvent) {
       console.log("onleave");
 
-      let overlay = this.refPopup.getRoot();
+      const overlay = this.refPopup.getRoot();
 
       // prevents triggering enter/leave when mouse is on top of runeword label
       //  but inside the overlay

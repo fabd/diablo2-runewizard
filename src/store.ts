@@ -1,6 +1,6 @@
 /**
  * Simple store pattern.
- * 
+ *
  *   - handle state across components
  *   - persist the state (eg. selected runes) in local storage
  */
@@ -106,10 +106,10 @@ const store = {
     if (!storedData) return;
 
     let userData: any;
-  
+
     try {
       userData = JSON.parse(storedData);
-    } catch (e) {
+    } catch {
       console.warn("loadState() JSON.parse error");
       return;
     }
@@ -127,7 +127,7 @@ const store = {
 
     if (!this.storage) return;
 
-    const userData = /** @type {TUserData} */ {
+    const userData: TUserData = {
       selectedRunes: this.getRunes(),
       pinnedRunewords: this.getPinned(),
       updateRead: this.state.updateRead,
@@ -137,7 +137,7 @@ const store = {
 
     try {
       storedData = JSON.stringify(userData);
-    } catch (e) {
+    } catch {
       console.warn("store.save() userData doesn't stringify()");
     }
 
