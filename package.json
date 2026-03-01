@@ -25,12 +25,14 @@
     "@vitejs/plugin-vue": "^6.0.4",
     "eslint-plugin-compat": "^6.2.0",
     "eslint-plugin-vue": "^9.33.0",
+    "globals": "^17.4.0",
     "npm-check-updates": "^19.4.1",
     "prettier": "3.8.1",
     "stylelint": "^17.3.0",
     "stylelint-config-recommended-vue": "^1.6.1",
     "tailwindcss": "^4.2.x",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1"
   },
   "browserslist": [
