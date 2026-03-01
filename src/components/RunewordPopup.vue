@@ -149,8 +149,13 @@ export default defineComponent({
 
       this.setVisible(true);
 
+      this.getRoot().classList.remove("fadein-enter-active");
+      this.getRoot().classList.add("fadein-enter-from");
+
       this.$nextTick(() => {
         this.moveTo(target);
+        this.getRoot().classList.remove("fadein-enter-from");
+        this.getRoot().classList.add("fadein-enter-active");
       });
     },
 
