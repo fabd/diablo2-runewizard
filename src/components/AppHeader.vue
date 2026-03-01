@@ -1,6 +1,18 @@
 <template>
   <!-- optional header to decorate the stand alone version -->
   <header>
+    <div
+      v-if="showBanner"
+      class="bg-blood-dark border-b border-blood-light px-4 py-2 flex justify-between items-center text-gold-light text-sm md:text-base mb-4"
+    >
+      <div class="flex-1 text-center">
+        <strong>Update</strong>: Runewizard is now optimized for smartphones and tablets!
+      </div>
+      <button @click="onCloseBanner" class="ml-4 hover:text-white transition-colors">
+        <icon-cancel class="ux-icon ux-icon--fw" />
+      </button>
+    </div>
+
     <div class="rw-Layout-row mx-auto flex px-4 pt-4">
       <div class="pr-[20px] shrink">
         <img
@@ -70,9 +82,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import store from "@/store";
+
 import HelpBox from "@/components/HelpBox.vue";
 import IconChat from "@/icons/IconChat.vue";
 import IconChevronDown from "@/icons/IconChevronDown.vue";
+import IconCancel from "@/icons/IconCancel.vue";
 
 export default defineComponent({
   name: "AppHeader",
@@ -81,17 +96,32 @@ export default defineComponent({
     HelpBox,
     IconChat,
     IconChevronDown,
+    IconCancel,
   },
 
   data() {
     return {
       isHelpVisible: false,
+      showBanner: false,
 
       envGameName: import.meta.env.VITE_GAME_NAME as string,
       envGameVersion: import.meta.env.VITE_GAME_VERSION as string,
       envGithubRepoUrl: import.meta.env.VITE_URL_GITHUB_REPO as string,
       envPatchNotesUrl: import.meta.env.VITE_URL_PATCH_NOTES as string,
     };
+  },
+
+  mounted() {
+    // only show banner if it hasn't been read/closed yet
+    this.showBanner = store.isUpdateNew();
+  },
+
+  methods: {
+    onCloseBanner() {
+      this.showBanner = false;
+      store.setUpdateRead();
+      store.saveState();
+    },
   },
 });
 </script>

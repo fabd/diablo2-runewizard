@@ -11,20 +11,24 @@ import { runesIds } from "@/data/runes";
 type TStoreState = {
   haveRunes: TRuneDict;
   pinned: Set<TRunewordId>;
+  updateRead: string;
 };
 
 // user data as stored in browser's localStorage
 type TUserData = {
   selectedRunes: TRuneId[];
   pinnedRunewords: TRunewordId[];
+  updateRead: string;
 };
 
 const USERDATA_STORAGE_KEY = "runewizard";
+const CURRENT_UPDATE_ID = "2026.03.01";
 
 const store = {
   state: reactive({
     haveRunes: [],
     pinned: new Set(),
+    updateRead: "",
   }) as TStoreState,
 
   storage: null as Storage | null,
@@ -85,6 +89,14 @@ const store = {
     });
   },
 
+  isUpdateNew(): boolean {
+    return this.state.updateRead !== CURRENT_UPDATE_ID;
+  },
+
+  setUpdateRead() {
+    this.state.updateRead = CURRENT_UPDATE_ID;
+  },
+
   loadState() {
     console.log("store.loadState()");
 
@@ -93,12 +105,21 @@ const store = {
     const storedData = this.storage.getItem(USERDATA_STORAGE_KEY);
     if (!storedData) return;
 
-    const userData: TUserData = JSON.parse(storedData);
+    let userData: any;
+  
+    try {
+      userData = JSON.parse(storedData);
+    } catch (e) {
+      console.warn("loadState() JSON.parse error");
+      return;
+    }
 
     this.setRunes(userData.selectedRunes);
 
     // note! watchout for existing users not having updated keys
     this.setPinned(userData.pinnedRunewords || []);
+
+    this.state.updateRead = userData.updateRead || "";
   },
 
   saveState() {
@@ -109,6 +130,7 @@ const store = {
     const userData = /** @type {TUserData} */ {
       selectedRunes: this.getRunes(),
       pinnedRunewords: this.getPinned(),
+      updateRead: this.state.updateRead,
     };
 
     // console.log("store.saveState()", userData);

@@ -2,6 +2,14 @@
 // VARIABLES
 // ==================================================================== */
 
+@theme {
+  --color-gold: #8a8162;
+  --color-blood-dark: #400000;
+  --color-blood-light: #802000;
+  --color-gold-mid: #a79663;
+  --color-gold-light: #bab197;
+}
+
 :root {
   /* page */
   --color-body-bg: #000;
