@@ -315,6 +315,7 @@ a {
 
 .rw-RunesTxt {
   @apply block;
+  font-variant: small-caps;
 
   .is-rune {
     display: inline-block;
