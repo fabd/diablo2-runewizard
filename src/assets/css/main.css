@@ -251,7 +251,6 @@ a {
   }
 }
 
-
 /* optional DII patch number to distinguish recent changes */
 .rw-Table-tdTitlePatch {
   @apply rounded-sm text-xs leading-none ml-1;
@@ -348,12 +347,12 @@ a {
     border-bottom: 2px solid currentcolor;
     font-size: 17px;
     line-height: 1;
-    margin:0 2px;
+    margin: 0 2px;
   }
 }
 
 /* --------------------------------------------------------------------
-//
+// RUNES GRID
 // -------------------------------------------------------------------- */
 .rw-Runes-clear {
   @apply inline-block leading-4;
@@ -368,27 +367,37 @@ a {
 }
 
 .rw-Rune {
-  /* size is bound to the old ,gif sprite for now, TODO : use a SVG rune icon */
-  width: 34px;
-  height: 34px;
-  background: url("@assets/images/rune-bg2.gif") no-repeat 50% -34px;
+  --rune-w: 40px;
+  --rune-h: 40px;
 
+  @media screen and (width < 768px) {
+    --rune-w: 35px;
+  }
+
+  width: var(--rune-w);
   color: #999;
-  cursor: pointer;
-
-  font-size: 13px;
   font-variant: small-caps;
-  line-height: 34px;
 
   &:hover {
-    color: #aaa;
+    color: #ccc;
   }
 
   &.is-selected {
     color: #00ff2e;
-    background-position: 50% 0;
+    .rw-RuneImg {
+      opacity: 1;
+    }
   }
 }
+
+.rw-RuneImg {
+  opacity: 0.5;
+  width: var(--rune-w);
+  height: var(--rune-h);
+  background: url("@assets/images/runes-sprite.png") no-repeat 0 0;
+}
+
+@import "./runes.css";
 
 /* --------------------------------------------------------------------
 //

@@ -2,9 +2,7 @@
   <app-header v-if="useLayoutHeader" />
 
   <main class="rw-Layout-row rw-Main mx-auto lg:px-4 py-4 lg:flex mb-24">
-    <div class="px-4 lg:px-0">
-      <runes />
-    </div>
+    <runes />
     <div class="flex-1 lg:ml-16">
       <runewords />
     </div>

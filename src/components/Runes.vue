@@ -1,29 +1,37 @@
 <template>
   <div class="relative">
-    <div class="flex justify-between items-center mb-2">
+    <div class="flex justify-between items-center px-4 lg:px-0 mb-2">
       <h2 class="rw-Title-h2 mb-0">Runes</h2>
 
       <div v-if="isAnyRuneSelected" class="-mt-2px">
         <a class="rw-Runes-clear" href="#" @click.prevent="onClearRunes">
-          <icon-cancel class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1" />clear
+          <icon-cancel
+            class="ux-icon ux-icon--fw rw-Runes-clearIcon text-[#da0000] mr-1"
+          />clear
         </a>
       </div>
     </div>
 
-    <div class="rw-Runes lg:flex lg:justify-between lg:w-[130px] select-none mb-4">
-      <div v-for="(runesTier, i) in runesByTier" :key="i" 
-        class="flex lg:block lg:w-1/3 justify-between">
+    <div
+      class="rw-Runes lg:flex lg:justify-between lg:w-[140px] lg:mx-0 mx-[2px] md:mx-4 select-none mb-4"
+    >
+      <div
+        v-for="(runesTier, i) in runesByTier"
+        :key="i"
+        class="flex lg:block lg:w-1/3 justify-between"
+      >
         <!-- a single rune -->
         <div
           v-for="rune in runesTier"
           :key="rune.name"
-          class="rw-Rune flex-1"
+          class="rw-Rune flex-[0 0 0] mb-1"
           :class="{
             'is-selected': haveRunes[rune.name],
           }"
           @click="onToggleRune(rune.name)"
         >
-          <div class="text-center my-auto">{{ rune.name }}</div>
+          <div class="rw-RuneImg" :class="`rune-` + rune.name"></div>
+          <div class="text-center leading-none text-smx">{{ rune.name }}</div>
         </div>
       </div>
     </div>
