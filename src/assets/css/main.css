@@ -446,6 +446,8 @@ a {
   border: 1px solid var(--color-gold);
   @apply py-3 px-4 text-center;
   text-align: center;
+
+  box-shadow: 0 0 10px #000f;
 }
 .rw-RunewordPopup-title {
   color: var(--color-gold-mid);
