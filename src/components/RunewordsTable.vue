@@ -297,8 +297,6 @@ export default defineComponent({
     },
 
     onLeaveRuneword(ev: MouseEvent) {
-      console.log("onleave");
-
       const overlay = this.refPopup.getRoot();
 
       // prevents triggering enter/leave when mouse is on top of runeword label

@@ -167,11 +167,9 @@ export default defineComponent({
     onPointerDown(ev: PointerEvent) {
       switch (ev.pointerType) {
         case "mouse":
-          console.log("Mouse click");
           this.setVisible(false);
           break;
         case "touch":
-          console.log("Touch input");
           ev.preventDefault();
           ev.stopPropagation();
 
@@ -188,8 +186,6 @@ export default defineComponent({
     },
 
     onLeave() {
-      console.log("leave POPUP");
-
       this.setVisible(false);
     },
   },
