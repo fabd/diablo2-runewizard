@@ -313,8 +313,8 @@ a {
   color: var(--color-accent);
 }
 
+/* runes shown in the main table, spaced equally so they align like columns */
 .rw-RunesTxt {
-  @apply block;
   font-variant: small-caps;
 
   .is-rune {
@@ -331,7 +331,7 @@ a {
 }
 
 /* runes displayed under the Runeword name in mobile view */
-.rw-RunesTxtMbl {
+.rw-RunesTxt--small {
   @apply block;
   padding: 0 0 4px 8px;
 
@@ -343,12 +343,17 @@ a {
 /* the runes shown in the popup */
 .rw-RunesTxt--popup {
   margin-bottom: 8px;
+
+  --rune-w: 36px;
+  --rune-h: 36px;
+
+  .rw-RuneImg {
+    opacity: .75;
+  }
+
   .is-rune {
     width: auto;
-    border-bottom: 2px solid currentcolor;
-    font-size: 17px;
-    line-height: 1;
-    margin: 0 2px;
+    @apply mr-1 ml-0.5 pt-0.5 text-sm leading-none;
   }
 }
 

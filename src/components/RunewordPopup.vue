@@ -13,11 +13,15 @@
   >
     <h3 class="rw-RunewordPopup-title ux-serif">{{ runeword.title }}</h3>
     <div
-      class="rw-RunesTxt rw-RunesTxt--popup"
+      class="rw-RunesTxt rw-RunesTxt--popup flex items-center justify-center"
       v-html="getRunesHtml(runeword)"
     ></div>
     <div class="text-sm mb-2" v-html="getItemTypesHtml(runeword)"></div>
-    <div v-if="runeword.note" class="border-t border-[#443] py-1 text-[#c99809]">{{ runeword.note }}</div>
+    <div
+      v-if="runeword.note"
+      class="border-t border-[#443] py-1 text-[#c99809]"
+      >{{ runeword.note }}</div
+    >
     <div class="h-px bg-[#443] mb-3"></div>
     <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
   </div>
@@ -43,7 +47,7 @@ import { defineComponent } from "vue";
 
 import runewordsMetaData from "@/data/runewords-descriptions";
 
-import { runesHtml, itemTypesHtml } from "./RunewordsTable.vue";
+import { itemTypesHtml } from "./RunewordsTable.vue";
 
 export default defineComponent({
   name: "RunewordPopup",
@@ -91,7 +95,13 @@ export default defineComponent({
 
   methods: {
     getRunesHtml(word: TRuneword) {
-      return runesHtml(word, this.haveRunes);
+      const haveRunes = this.haveRunes;
+      const html = word.runes
+        .map((runeId: TRuneId) => {
+          return `<div class="rw-RuneImg rune-${runeId}"></div><div class="is-rune ${haveRunes[runeId] ? "on" : "off"}">${runeId}</div>`;
+        })
+        .join("");
+      return html;
     },
 
     getItemTypesHtml(word: TRuneword) {

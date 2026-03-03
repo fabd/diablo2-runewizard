@@ -98,7 +98,7 @@
             >
 
             <span
-              class="rw-RunesTxt rw-RunesTxtMbl md:hidden pl-4"
+              class="rw-RunesTxt rw-RunesTxt--small md:hidden pl-4"
               v-html="getRunesHtml(item)"
             ></span>
 
