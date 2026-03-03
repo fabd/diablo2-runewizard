@@ -17,7 +17,8 @@
       v-html="getRunesHtml(runeword)"
     ></div>
     <div class="text-sm mb-2" v-html="getItemTypesHtml(runeword)"></div>
-    <div class="rw-RunewordPopup-hr mb-3"></div>
+    <div v-if="runeword.note" class="border-t border-[#443] py-1 text-[#c99809]">{{ runeword.note }}</div>
+    <div class="h-px bg-[#443] mb-3"></div>
     <div class="rw-RunewordPopup-body" v-html="formatBody"></div>
   </div>
 </template>

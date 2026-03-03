@@ -451,13 +451,6 @@ a {
   color: var(--color-gold-mid);
   @apply text-2xl leading-[1em] mb-1;
 }
-.rw-RunewordPopup-hr {
-  background-color: #776;
-  height: 1px;
-  opacity: 0.5;
-}
-
-/* the runeword's stats */
 .rw-RunewordPopup-body {
   color: var(--color-runeword-text);
   line-height: 1.4em;
