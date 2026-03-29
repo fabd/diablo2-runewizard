@@ -12,27 +12,25 @@
       </div>
     </div>
 
-    <div
-      class="rw-Runes lg:flex lg:justify-between lg:w-[140px] lg:mx-0 mx-[2px] md:mx-4 select-none mb-4"
-    >
-      <div
-        v-for="(runesTier, i) in runesByTier"
-        :key="i"
-        class="flex lg:block lg:w-1/3 justify-between"
-      >
-        <!-- a single rune -->
-        <div
-          v-for="rune in runesTier"
-          :key="rune.name"
-          class="rw-Rune flex-[0 0 0] mb-1"
-          :class="{
-            'is-selected': haveRunes[rune.name],
-          }"
-          @click="onToggleRune(rune.name)"
-        >
-          <div class="rw-RuneImg" :class="`rune-` + rune.name"></div>
-          <div class="text-center leading-none text-smx">{{ rune.name }}</div>
-        </div>
+    <div class="rw-Stash select-none mb-4">
+      <div class="rw-StashGrid">
+        <template v-for="(cell, i) in stashLayout" :key="i">
+          <!-- rune cell -->
+          <div
+            v-if="cell !== null"
+            class="rw-StashCell"
+            :class="{
+              'is-selected': haveRunes[cell],
+            }"
+            @click="onToggleRune(cell)"
+          >
+            <div class="rw-RuneImg" :class="`rune-` + cell"></div>
+            <div class="rw-StashCell-name">{{ cell }}</div>
+          </div>
+
+          <!-- empty cell -->
+          <div v-else class="rw-StashCell rw-StashCell--empty"></div>
+        </template>
       </div>
     </div>
   </div>
@@ -41,10 +39,24 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import runesData, { ERuneTier } from "@/data/runes";
 import store from "@/store";
 
 import IconCancel from "@/icons/IconCancel.vue";
+
+// D2R stash layout: 9 columns x 5 rows with Mendeleev-style gaps
+// null = empty cell
+const STASH_LAYOUT: (TRuneId | null)[] = [
+  // Row 1 (9)
+  "El",   "Eld",  "Tir",  "Nef",  "Eth",  "Ith",  "Tal",  "Ral",  "Ort",
+  // Row 2 (9)
+  "Thul", "Amn",  "Sol",  "Shael", "Dol", "Hel",  "Io",   "Lum",  "Ko",
+  // Row 3 (9)
+  "Fal",  "Lem",  "Pul",  "Um",   "Mal",  "Ist",  "Gul",  "Vex",  "Ohm",
+  // Row 4 (2 + 5 empty + 2)
+  "Lo",   "Sur",  null,   null,   null,   null,   null,   "Ber",  "Jah",
+  // Row 5 (1 + 7 empty + 1)
+  "Cham", null,   null,   null,   null,   null,   null,   null,   "Zod",
+];
 
 export default defineComponent({
   name: "RunesGrid",
@@ -56,25 +68,13 @@ export default defineComponent({
   data() {
     return {
       haveRunes: store.state.haveRunes,
-      runes: runesData,
+      stashLayout: STASH_LAYOUT,
     };
   },
 
   computed: {
     isAnyRuneSelected(): boolean {
       return store.getRunes().length > 0;
-    },
-
-    runesByTier(): TRuneDef[][] {
-      const tiers = [
-        this.runes.filter((rune) => rune.tier === ERuneTier.COMMON),
-        this.runes.filter((rune) => rune.tier === ERuneTier.SEMIRARE),
-        this.runes.filter((rune) => rune.tier === ERuneTier.RARE),
-      ];
-
-      // console.log(tiers);
-
-      return tiers;
     },
   },
 

@@ -1,37 +1,37 @@
 /* !!! do not format with prettier */
 
 .rune-El  { background-position:    0   0; }
-.rune-Eld { background-position:  -40px 0; }
-.rune-Tir { background-position:  -80px 0; }
-.rune-Nef { background-position: -120px 0; }
-.rune-Eth { background-position: -160px 0; }
-.rune-Ith { background-position: -200px 0; }
-.rune-Tal { background-position: -240px 0; }
-.rune-Ral { background-position: -280px 0; }
-.rune-Ort { background-position: -320px 0; }
-.rune-Thul{ background-position: -360px 0; }
-.rune-Amn { background-position: -400px 0; }
+.rune-Eld { background-position:  calc(var(--rune-w) * -1) 0; }
+.rune-Tir { background-position:  calc(var(--rune-w) * -2) 0; }
+.rune-Nef { background-position:  calc(var(--rune-w) * -3) 0; }
+.rune-Eth { background-position:  calc(var(--rune-w) * -4) 0; }
+.rune-Ith { background-position:  calc(var(--rune-w) * -5) 0; }
+.rune-Tal { background-position:  calc(var(--rune-w) * -6) 0; }
+.rune-Ral { background-position:  calc(var(--rune-w) * -7) 0; }
+.rune-Ort { background-position:  calc(var(--rune-w) * -8) 0; }
+.rune-Thul{ background-position:  calc(var(--rune-w) * -9) 0; }
+.rune-Amn { background-position:  calc(var(--rune-w) * -10) 0; }
 
-.rune-Sol { background-position:    0   -40px; }
-.rune-Shael{background-position:  -40px -40px; }
-.rune-Dol { background-position:  -80px -40px; }
-.rune-Hel { background-position: -120px -40px; }
-.rune-Io  { background-position: -160px -40px; }
-.rune-Lum { background-position: -200px -40px; }
-.rune-Ko  { background-position: -240px -40px; }
-.rune-Fal { background-position: -280px -40px; }
-.rune-Lem { background-position: -320px -40px; }
-.rune-Pul { background-position: -360px -40px; }
-.rune-Um  { background-position: -400px -40px; }
+.rune-Sol { background-position:    0   calc(var(--rune-h) * -1); }
+.rune-Shael{background-position:  calc(var(--rune-w) * -1) calc(var(--rune-h) * -1); }
+.rune-Dol { background-position:  calc(var(--rune-w) * -2) calc(var(--rune-h) * -1); }
+.rune-Hel { background-position:  calc(var(--rune-w) * -3) calc(var(--rune-h) * -1); }
+.rune-Io  { background-position:  calc(var(--rune-w) * -4) calc(var(--rune-h) * -1); }
+.rune-Lum { background-position:  calc(var(--rune-w) * -5) calc(var(--rune-h) * -1); }
+.rune-Ko  { background-position:  calc(var(--rune-w) * -6) calc(var(--rune-h) * -1); }
+.rune-Fal { background-position:  calc(var(--rune-w) * -7) calc(var(--rune-h) * -1); }
+.rune-Lem { background-position:  calc(var(--rune-w) * -8) calc(var(--rune-h) * -1); }
+.rune-Pul { background-position:  calc(var(--rune-w) * -9) calc(var(--rune-h) * -1); }
+.rune-Um  { background-position:  calc(var(--rune-w) * -10) calc(var(--rune-h) * -1); }
 
-.rune-Mal { background-position:    0   -80px; }
-.rune-Ist { background-position:  -40px -80px; }
-.rune-Gul { background-position:  -80px -80px; }
-.rune-Vex { background-position: -120px -80px; }
-.rune-Ohm { background-position: -160px -80px; }
-.rune-Lo  { background-position: -200px -80px; }
-.rune-Sur { background-position: -240px -80px; }
-.rune-Ber { background-position: -280px -80px; }
-.rune-Jah { background-position: -320px -80px; }
-.rune-Cham{ background-position: -360px -80px; }
-.rune-Zod { background-position: -400px -80px; }
+.rune-Mal { background-position:    0   calc(var(--rune-h) * -2); }
+.rune-Ist { background-position:  calc(var(--rune-w) * -1) calc(var(--rune-h) * -2); }
+.rune-Gul { background-position:  calc(var(--rune-w) * -2) calc(var(--rune-h) * -2); }
+.rune-Vex { background-position:  calc(var(--rune-w) * -3) calc(var(--rune-h) * -2); }
+.rune-Ohm { background-position:  calc(var(--rune-w) * -4) calc(var(--rune-h) * -2); }
+.rune-Lo  { background-position:  calc(var(--rune-w) * -5) calc(var(--rune-h) * -2); }
+.rune-Sur { background-position:  calc(var(--rune-w) * -6) calc(var(--rune-h) * -2); }
+.rune-Ber { background-position:  calc(var(--rune-w) * -7) calc(var(--rune-h) * -2); }
+.rune-Jah { background-position:  calc(var(--rune-w) * -8) calc(var(--rune-h) * -2); }
+.rune-Cham{ background-position:  calc(var(--rune-w) * -9) calc(var(--rune-h) * -2); }
+.rune-Zod { background-position:  calc(var(--rune-w) * -10) calc(var(--rune-h) * -2); }
