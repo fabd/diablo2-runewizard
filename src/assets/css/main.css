@@ -376,14 +376,13 @@ a {
 // STASH GRID (D2R-style rune inventory)
 // -------------------------------------------------------------------- */
 .rw-Stash {
-  @apply mx-auto;
   max-width: 540px;
+  @apply mx-auto max-sm:mx-2;
 }
 
 .rw-StashGrid {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  gap: 2px;
 }
 
 .rw-StashCell {
