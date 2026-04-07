@@ -30,19 +30,21 @@
           />
         </h1>
         <div class="flex justify-between items-center pb-4">
-          <div class="text-sm md:text-lg ux-color-gray">
-            <div class="inline">
+          <div class="text-sm leading-[1.25em] md:text-lg ux-color-gray lg:flex items-center">
+            <div class="">
               for <span class="ux-color-gold">{{ envGameName }}</span>
             </div>
-            <span class="ml-2 ux-color-green whitespace-nowrap">Patch {{ envGameVersion }}</span>
-            <span class="text-xs">
-              <a
-                class="ml-2 underline hover:underline ux-color-link-blue whitespace-nowrap"
-                target="blank"
-                :href="envPatchNotesUrl"
-                >Update Notes</a
-              >
-            </span>
+            <div class="lg:ml-4">
+              <span class="ux-color-green whitespace-nowrap">Patch {{ envGameVersion }}</span>
+              <span class="text-xs">
+                <a
+                  class="ml-2 underline hover:underline ux-color-link-blue whitespace-nowrap"
+                  target="blank"
+                  :href="envPatchNotesUrl"
+                  >Update Notes</a
+                >
+              </span>
+            </div>
           </div>
 
           <div class="flex items-center">

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative md:mt-2">
     <div class="flex justify-between items-center px-4 lg:px-0 mb-2">
       <h2 class="rw-Title-h2 mb-0">Runes</h2>
 
